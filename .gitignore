@@ -28,3 +28,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/Astro Conk'em/Temp/UnityLockfile
