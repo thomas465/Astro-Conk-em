@@ -11,14 +11,15 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	//############################## MAKE A PUBLIC REFERENCE TO THE PLAYER
+	//reference to the player
+	public PlayerScript player;
 
 	//the difficulty modifier for the speed
 	[SerializeField] private float diffMod;
 	[SerializeField] private float speed = 1.0f;
 
 	//distance from the player that detonation will happen
-	[SerializeField] private float explodeDist = 0.1f;
+	[SerializeField] private float explodeDist = 1.0f;
 
 	//the target location to move to (the player)
 	[SerializeField] private Vector3 target;
@@ -29,18 +30,14 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public void Init()
 	{
-		//if no target has been aquired, aquire a target
-		if (target.x == float.NaN)
-		{
-			//get pos of player
-			//########################################################### POS OF PLAYER
-		}
+		//aquire a target
+		//get pos of player
+		//target = player.transform.position;
 	}
 
 	//will call Init
     private void Start()
     {
-		target = new Vector3(float.NaN, float.NaN, float.NaN);
 		Init ();
     }
 		
@@ -62,7 +59,7 @@ public class Enemy : MonoBehaviour
 
 	private void Move(Vector3 _dir)
 	{
-		transform.position += _dir * speed;
+		transform.position += _dir * speed * Time.deltaTime;
 	}
 
 	/// <summary>
@@ -70,6 +67,6 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	private void Detonate()
 	{
-		
+		//place detonation logic here (Explode, inform the player, inform the EnemyManager
 	}
 }
