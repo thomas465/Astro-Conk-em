@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour {
         ScoreManager.score += score;
         code to use if so ^
         */
-	
+
+        //NOTE:    the collision will be between the ball and the enemy, so it might be easier for the enemies to 
+        //         update the scores instead of the enemy manager? kinda dirty but it will work and this is a jam
 	}
 }

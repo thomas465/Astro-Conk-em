@@ -5,7 +5,7 @@ public class Ball : MonoBehaviour
 {
     public  Rigidbody m_rigidBody;  //public to provide an easy-to-reach reference, please don't go reassigning this! This is a jam, jam is messy.
     [SerializeField]
-    private bool m_isActive = false;    
+    private bool m_isActive = false;  
     private MeshRenderer m_renderer;
     private SphereCollider m_collider;
     private float m_timer =0.0f;
@@ -54,4 +54,16 @@ public class Ball : MonoBehaviour
 
         m_isActive = _active;
     }
-}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == Tags.Enemy)
+        {
+            //kill enemy
+
+            //Explode or something / roll offscreen (if this is the case, delay setActive(false)
+            setActive(false);
+        }
+    }
+
+ }
