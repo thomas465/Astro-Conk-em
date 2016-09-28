@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Stadium.unity
+- path: Assets/Scenes/orlando.unity
   isLoaded: 1
   isActive: 1
