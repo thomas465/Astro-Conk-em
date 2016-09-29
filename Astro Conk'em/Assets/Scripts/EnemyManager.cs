@@ -21,18 +21,6 @@ public class EnemyManager : MonoBehaviour
 	//These are enemies that have been spawned and then killed
 	private List<Enemy> disabledEnemyList = new List<Enemy>();
 
-	//The initial difficulty level
-	public float initialDifficulty = 20f;
-
-	//The current difficulty 'level'
-	//Starts at initialDifficulty
-	//Every frame exponentially increases, with the expo as (difficultyExpOverTime * Time.deltaTime)
-	private float curDifficulty;
-
-	//The exponent to increase curDifficulty every frame, per delta time
-	//Essentially the 'ramp up' of difficulty
-	public float difficultyExpoOverTime = 0.01f;
-
 	//Spawns an enemy when curDifficulty ticks over this value
 	//Increases by 1 every time an enemy spawns
 	private float spawnThreshold;
@@ -44,23 +32,14 @@ public class EnemyManager : MonoBehaviour
 
 	void Awake()
 	{
-		//Set the current difficulty to the initial difficulty
-		curDifficulty = initialDifficulty;
-
 		//Set the spawn threshold to the initial difficulty
-		spawnThreshold = initialDifficulty;
+		spawnThreshold = GameManager.instance.initialDifficulty;
 	}
 
 	void Update()
 	{
-		//Difficulty before this frame
-		float preDifficulty = curDifficulty;
-
-		//Increase the difficulty exponentially
-		curDifficulty *= difficultyExpoOverTime * Time.deltaTime + 1;
-
 		//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
-		if (preDifficulty <= spawnThreshold && curDifficulty > spawnThreshold)
+		if(GameManager.instance.curDifficulty > spawnThreshold)
 		{
 			//Spawn an enemy
 			SpawnEnemy();
@@ -94,7 +73,7 @@ public class EnemyManager : MonoBehaviour
 		foreach (SpawnPoint sp in spawnPoints)
 		{
 			//Dont spawn at points that are too difficult yet
-			if (curDifficulty < sp.minDifficultyLevel)
+			if (GameManager.instance.curDifficulty < sp.minDifficultyLevel)
 			{
 				continue;
 			}

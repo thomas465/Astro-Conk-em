@@ -15,14 +15,21 @@ public class Enemy : MonoBehaviour
 	public PlayerScript player;
 
 	//the difficulty modifier for the speed
-	[SerializeField] private float diffMod;
-	[SerializeField] private float speed = 1.0f;
+	[SerializeField]
+	private float diffMod;
+	[SerializeField]
+	private float speed = 1.0f;
 
 	//distance from the player that detonation will happen
-	[SerializeField] private float explodeDist = 1.0f;
+	[SerializeField]
+	private float explodeDist = 1.0f;
 
-	//the target location to move to (the player)
-	[SerializeField] private Vector3 target;
+	[SerializeField]
+	private float randRotRange = 30f;
+
+
+	private Vector3 initialFacing;
+	private float initialDist;
 
 	/// <summary>
 	/// Called when an enemy is spawned or respawned
@@ -30,32 +37,59 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public void Init()
 	{
-		//aquire a target
-		//get pos of player
-		//target = player.transform.position;
+		//Face the player
+		initialFacing = player.transform.position - transform.position;
+
+		//Rotate by up to randRotRange
+		initialFacing = Quaternion.Euler(0f, Random.Range(-randRotRange, randRotRange), 0f) * initialFacing;
+
+		//Set the initial distance to our current distance to player
+		initialDist = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 	//will call Init
-    private void Start()
-    {
-		Init ();
-    }
-		
+	private void Start()
+	{
+		//aquire a target
+		player = GameManager.instance.player;
+
+		Init();
+	}
+
 	/// <summary>
 	/// The enemies will move towards the target and check their proximity
 	/// if within range of the player
 	/// </summary>
-    private void Update()
-    {
-		if (Vector3.Distance (transform.position, target) > explodeDist)
+	private void Update()
+	{
+		//If we are far away from the target position
+		if ((transform.position - player.transform.position).sqrMagnitude > explodeDist * explodeDist)
 		{
-			Move ((target - transform.position).normalized);
+			DoMovement();
 		}
 		else
 		{
-			Detonate ();
+			Detonate();
 		}
-    }
+	}
+
+	/// <summary>
+	/// Handles basic enemy AI, doesnt just move straight towards player
+	/// </summary>
+	private void DoMovement()
+	{
+		//Current distance to player
+		float dist = Vector3.Distance(transform.position, player.transform.position);
+
+		//Steer towards the player
+		Vector3 forward = Vector3.Slerp(initialFacing, player.transform.position - transform.position, Mathf.InverseLerp(initialDist, 0f, dist));
+
+		//Set the rotation
+		transform.rotation = Quaternion.LookRotation(forward);
+
+		//Move forward
+		Move(forward.normalized);
+	}
 
 	private void Move(Vector3 _dir)
 	{
