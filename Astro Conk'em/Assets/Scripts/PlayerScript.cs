@@ -127,12 +127,15 @@ public class PlayerScript : MonoBehaviour
 
         anim.SetTrigger("Swing");
         ballTest.GetComponent<TrailRenderer>().Clear();
-        //CameraScript.cameraSingleton.HitBall();
+
+        PowerbarScript.powerbarSingleton.LockInCurrentPower();
     }
 
     void HitBall()
     {
-        float ballSpeed = 39;
+        float ballSpeed = 40;
+        ballSpeed *= PowerbarScript.powerbarSingleton.GetCurrentPower() + 0.05f;
+
         swingDelay = 0.25f;
         ballTest.velocity = swingAngle * ballSpeed;
         CameraScript.cameraSingleton.HitBall();
