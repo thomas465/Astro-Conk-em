@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
     public enum STATE
     {
         start,
-        title,
         game,
         gameover
     };
 
+    [SerializeField]
+    private float m_score = 0;
 
     public static GameManager g_GameManager;
     public delegate void Fnct();
@@ -24,8 +25,7 @@ public class GameManager : MonoBehaviour
         }
         public Fnct init;
         public Fnct shutdown;
-    }
-    Dictionary<int, TransitionFuncts> m_states;
+    }Dictionary<int, TransitionFuncts> m_states;
     public int m_currentState;
 
     public void registerState(int _index, Fnct _init, Fnct _shutdown)
@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     void Start ()
     {
         g_GameManager = this;
-        //should have a default state (splash screen)
     }
 	
 	// Update is called once per frame
