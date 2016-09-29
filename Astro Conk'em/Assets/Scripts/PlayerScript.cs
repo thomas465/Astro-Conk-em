@@ -4,31 +4,54 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
+    public static PlayerScript playerSingleton;
 
     public Image reticle;
-    public Animator anim;
+    Animator anim;
+    public Rigidbody ballTest;
+    public Camera cam;
 
-    public Transform cam;
+    public ReticleScript reticleScript;
 
+    public bool aimAssist = false;
+
+    //This is used to check if the player has "flicked" the stick
     float prevStickMagnitude = 0;
+    Vector3 prevStickDir;
+
+    //This is to allow the reticule to stay still as the player is swinging
+    float swingDelay = 0;
 
     Vector3 swingAngle;
+    public Vector3 reticleRestPos;
 
     // Use this for initialization
     void Start()
     {
-
+        playerSingleton = this;
+        anim = GetComponent<Animator>();
+        reticleRestPos = new Vector3(0, -250, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Aiming();
+        if (swingDelay <= 0)
+        {
+            Aiming();
+        }
+        else
+        {
+            swingDelay -= Time.deltaTime;
+        }
     }
 
     void Aiming()
     {
         Vector3 curStickDir = new Vector3(-Input.GetAxisRaw("Horizontal"), -Input.GetAxisRaw("Vertical"), 0);
+
+        curStickDir.y = Mathf.Clamp(curStickDir.y, -0.1f, 1);
+
         float stickMagnitude = curStickDir.magnitude;
 
         if (stickMagnitude > 1)
@@ -37,22 +60,78 @@ public class PlayerScript : MonoBehaviour
             stickMagnitude = 1;
         }
 
-        Vector3 reticleTargetPos = Vector3.zero + curStickDir * 300;
-        reticle.transform.localPosition = Vector3.Lerp(reticle.transform.localPosition, reticleTargetPos, 15 * Time.deltaTime);
+        if (stickMagnitude < prevStickMagnitude - 0.2f && prevStickMagnitude > 0.1f)
+        {
+            Swing(prevStickDir, reticle.transform.position);
+        }
+        else
+        {
+            Vector3 reticleTargetPos = Vector3.zero + curStickDir * 400;
 
-        cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.LookRotation((cam.transform.position + transform.forward + curStickDir / 5) - cam.transform.position), 15 * Time.deltaTime);
+            reticle.transform.localPosition = Vector3.Lerp(reticle.transform.localPosition, reticleTargetPos + reticleRestPos, 15 * Time.deltaTime);
 
+            Vector3 playerRotation = Vector3.forward;
+            playerRotation.x += curStickDir.x;
+            playerRotation.Normalize();
 
-        if (stickMagnitude == 0 && prevStickMagnitude > 0.25f)
-            Swing(curStickDir);
-
-
-        prevStickMagnitude = stickMagnitude;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(playerRotation), 3 * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, Quaternion.LookRotation((cam.transform.position + Vector3.forward + curStickDir / 5) - cam.transform.position), 15 * Time.deltaTime);
+            prevStickMagnitude = stickMagnitude;
+            prevStickDir = curStickDir;
+        }
     }
 
-    void Swing(Vector3 newSwingAngle)
+    void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
     {
-        swingAngle = newSwingAngle;
-        Debug.Log("SWING");
+        ballTest.transform.position = transform.position;
+        ballTest.velocity = Vector3.zero;
+
+        RaycastHit swingCastHit;
+        Ray swingCastRay = cam.ScreenPointToRay(reticle.transform.position);
+
+        Debug.DrawLine(swingCastRay.origin, swingCastRay.origin + swingCastRay.direction * 250, Color.magenta, 10);
+
+        if (Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250))
+        {
+            Debug.Log("Aimed swing");
+
+            //Auto-aim
+            if (swingCastHit.collider.gameObject.layer == 8 && aimAssist)
+            {
+                swingCastHit.point = swingCastHit.collider.transform.position;
+            }
+
+            Debug.DrawLine(swingCastRay.origin, swingCastHit.point, Color.green, 10);
+            reticle.transform.position = cam.WorldToScreenPoint(swingCastHit.point);
+            swingAngle = (swingCastHit.point - ballTest.transform.position).normalized;
+        }
+        else
+        {
+            Debug.Log("Random swing");
+            swingAngle = newSwingAngle;
+        }
+
+
+        reticleScript.Fire();
+
+        prevStickMagnitude = 0;
+        swingDelay = 5;
+
+        anim.SetTrigger("Swing");
+        ballTest.GetComponent<TrailRenderer>().Clear();
+        //CameraScript.cameraSingleton.HitBall();
+    }
+
+    void HitBall()
+    {
+        float ballSpeed = 39;
+        swingDelay = 0.25f;
+        ballTest.velocity = swingAngle * ballSpeed;
+        CameraScript.cameraSingleton.HitBall();
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player is dead!");
     }
 }
