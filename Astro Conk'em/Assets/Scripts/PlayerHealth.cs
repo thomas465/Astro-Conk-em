@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour {
 		} 
 		else 
 		{
-			m_hurtFlash.color = Color.Lerp (m_hurtFlash.color, new Color (1f, 0f, 0f, 1f), 3 * Time.deltaTime);
+			m_hurtFlash.color = Color.Lerp (m_hurtFlash.color, Color.clear, 5 * Time.deltaTime);
 		}
 			
 	}
