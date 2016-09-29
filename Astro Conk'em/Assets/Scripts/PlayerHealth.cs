@@ -4,29 +4,49 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public Slider slider;
+    public Slider m_slider;
+	public Image m_hurtFlash;
     
-    public int startingPlayerHealth = 100;
-    public int currentPlayerHealth;
+	public int m_startingPlayerHealth = 100;
+	public int m_currentPlayerHealth;
+	private bool m_playerDamaged = false;
 
-	void Start () {
-        currentPlayerHealth = startingPlayerHealth;
+	void Start () 
+	{
+		m_currentPlayerHealth = m_startingPlayerHealth;
         //reference to a player movement script
 	}
 
-    public void TakeDamage(int amount){
-        //to be called in another script
-        startingPlayerHealth -= amount;
-        slider.value = currentPlayerHealth;
+	void update()
+	{
+		if (m_playerDamaged == true) 
+		{
+			m_hurtFlash.color = new Color (1f, 0f, 0f, 1f);
+		} 
+		else 
+		{
+			m_hurtFlash.color = Color.Lerp (m_hurtFlash.color, new Color (1f, 0f, 0f, 1f), 3 * Time.deltaTime);
+		}
+			
+	}
 
-        if (currentPlayerHealth <= 0){
+    public void TakeDamage(int amount)
+	{
+        //to be called in another script
+		m_startingPlayerHealth -= amount;
+		m_playerDamaged = true;
+		m_slider.value = m_currentPlayerHealth;
+
+		if (m_currentPlayerHealth <= 0)
+		{
             //Dead();
         }
 
     }
 
-    void Dead(){
-        //Player.enabled = false;
+    void Dead()
+	{
+        //PlayerControls.enabled = false;
         //this will link to the player movement script and deactivate controls
     }
 
