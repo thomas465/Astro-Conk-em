@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     float swingDelay = 0;
 
     Vector3 swingAngle;
-    public Vector3 reticleRestPos;
+    Vector3 reticleRestPos;
 
     // Use this for initialization
     void Start()
@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
     {
         Vector3 curStickDir = new Vector3(-Input.GetAxisRaw("Horizontal"), -Input.GetAxisRaw("Vertical"), 0);
 
-        curStickDir.y = Mathf.Clamp(curStickDir.y, -0.1f, 1);
+        curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
 
         float stickMagnitude = curStickDir.magnitude;
 

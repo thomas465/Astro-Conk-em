@@ -35,10 +35,13 @@ public class ReticleScript : MonoBehaviour
         {
             myImages[i].color = myImages[0].color;
         }
+
+        myImages[1].transform.Rotate(transform.forward * (10*Mathf.Sin(Time.timeSinceLevelLoad)));
+        myImages[2].transform.localScale = Vector3.one * (1.1f + (Mathf.Sin(Time.timeSinceLevelLoad * 12)) * 0.4f);
     }
 
     public void Fire()
     {
-        transform.localScale = Vector3.one * 2;
+        transform.localScale = Vector3.one * 2.5f;
     }
 }
