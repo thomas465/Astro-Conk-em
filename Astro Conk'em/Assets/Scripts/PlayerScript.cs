@@ -30,7 +30,10 @@ public class PlayerScript : MonoBehaviour
     {
         playerSingleton = this;
         anim = GetComponent<Animator>();
+
+
         reticleRestPos = new Vector3(0, -250, 0);
+        reticle.transform.localPosition = reticleRestPos;
     }
 
     // Update is called once per frame
@@ -44,6 +47,11 @@ public class PlayerScript : MonoBehaviour
         {
             swingDelay -= Time.deltaTime;
         }
+    }
+
+    public void GiveSwingDelay(float amount = 2)
+    {
+        swingDelay = amount;
     }
 
     void Aiming()

@@ -5,6 +5,9 @@ public class ReticleScript : MonoBehaviour
 {
     public UnityEngine.UI.Image[] myImages;
 
+    //Most of the reticle funcitonality is actually handed in the PLAYER script; sorry it's a bit confusing
+
+
     // Use this for initialization
     void Start()
     {

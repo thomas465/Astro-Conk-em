@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     void Start ()
     {
         g_GameManager = this;
+        
+        //fixed the problem it just needed to be initialised 
+        m_states = new Dictionary<int, TransitionFuncts>();
     }
 	
 	// Update is called once per frame
