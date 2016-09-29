@@ -5,6 +5,9 @@ public class ReticleScript : MonoBehaviour
 {
     public UnityEngine.UI.Image[] myImages;
 
+    //Most of the reticle funcitonality is actually handed in the PLAYER script; sorry it's a bit confusing
+
+
     // Use this for initialization
     void Start()
     {
@@ -21,12 +24,15 @@ public class ReticleScript : MonoBehaviour
 
         if(visible)
         {
-            targetColour = Color.white;     
+            targetColour = Color.white;
         }
         else
         {
             targetColour = Color.clear;
         }
+
+        //Control visibility of the power bar
+        PowerbarScript.powerbarSingleton.SetVisible(visible);
 
         myImages[0].color = Color.Lerp(myImages[0].color, targetColour, 10 * Time.deltaTime);
 
@@ -35,10 +41,13 @@ public class ReticleScript : MonoBehaviour
         {
             myImages[i].color = myImages[0].color;
         }
+
+        myImages[1].transform.Rotate(transform.forward * (10*Mathf.Sin(Time.timeSinceLevelLoad)));
+        myImages[2].transform.localScale = Vector3.one * (1.1f + (Mathf.Sin(Time.timeSinceLevelLoad * 12)) * 0.4f);
     }
 
     public void Fire()
     {
-        transform.localScale = Vector3.one * 2;
+        transform.localScale = Vector3.one * 2.5f;
     }
 }

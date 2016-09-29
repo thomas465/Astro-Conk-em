@@ -1,11 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
 
-	private static GameManager s_instance;
+	//Game states
+	public enum STATE
+	{
+		start,
+		game,
+		gameover
+	};
 
+	public struct TransitionFuncts
+	{
+		public TransitionFuncts(Fnct _init, Fnct _shutdown)
+		{
+			init = _init;
+			shutdown = _shutdown;
+		}
+		public Fnct init;
+		public Fnct shutdown;
+	}
+
+	public delegate void Fnct();
+
+
+	private static GameManager s_instance;
 	/// <summary>
 	/// Get the singleton-instance
 	/// </summary>
@@ -16,6 +38,15 @@ public class GameManager : MonoBehaviour
 			return s_instance;
 		}
 	}
+
+
+    [SerializeField]
+    private float m_score = 0;
+
+
+	private Dictionary<int, TransitionFuncts> m_states;
+
+    private int m_currentState;
 
 
 	//The initial difficulty level
@@ -81,7 +112,8 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-
+ 		//fixed the problem it just needed to be initialised 
+        m_states = new Dictionary<int, TransitionFuncts>();
 	}
 
 
@@ -89,6 +121,23 @@ public class GameManager : MonoBehaviour
 	{
 		//Increase the difficulty exponentially
 		curDifficulty *= difficultyExpoOverTime * Time.deltaTime + 1;
+	}
+
+
+
+
+	public void registerState(int _index, Fnct _init, Fnct _shutdown)
+	{
+		TransitionFuncts fncts = new TransitionFuncts(_init, _shutdown);
+		m_states.Add(_index, fncts);
+	}
+
+	public void changeState(int index)
+	{
+		//call init funct
+		m_states[m_currentState].shutdown();
+		m_currentState = index;
+		m_states[index].init();
 	}
 
 }
