@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public enum STATE
     {
         start,
+        title,
         game,
         gameover
     };
