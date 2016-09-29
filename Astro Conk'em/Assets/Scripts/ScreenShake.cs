@@ -5,18 +5,18 @@ public class ScreenShake : MonoBehaviour
 {
     public static ScreenShake screenShake;
 
-    [SerializeField]
+    public float m_maxMagnitude = 4.5f;
     public float m_lerpValue = 0.4f;
     public float m_duration;
-    private float m_currentTime =0;
-    public float m_initialMag = 1.0f;
+
     [SerializeField]
     private float m_currentMag;
-
+    private float m_currentTime =0;
     private float m_currentLerpValue = 0;
     private Vector3 m_startPos;
     private Vector3 m_target;
     private bool m_shaking = false;
+
     // Use this for initialization
     void Start ()
     {
@@ -85,7 +85,8 @@ public class ScreenShake : MonoBehaviour
     {
         if (m_shaking)
         {
-            m_currentMag *= _magnitude;
+            m_currentMag += _magnitude;
+            m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
         }
         else
         {
@@ -94,7 +95,7 @@ public class ScreenShake : MonoBehaviour
             m_currentMag = 1;
             m_target = m_startPos; //initate shake by setting these equal
             m_currentLerpValue = 0;
-            m_currentMag = m_initialMag;
+            m_currentMag = _magnitude;
         }
         m_currentTime = 0;
     }
