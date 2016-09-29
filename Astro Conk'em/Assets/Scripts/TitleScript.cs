@@ -37,11 +37,12 @@ public class TitleScript : MonoBehaviour {
     {
         active = true;
         myCam.GetComponent<Animator>().Play("TitleAnimation");
+        titlePanFinished = false;
     }
 
     void EndTitle()
     {
-        float maxPanTime = 2.2f;
+        float maxPanTime = 1.5f;
 
         active = false;
         PlayerScript.playerSingleton.GiveSwingDelay(maxPanTime);
@@ -58,7 +59,7 @@ public class TitleScript : MonoBehaviour {
             conkem.transform.localScale = Vector3.one * (1 + (Mathf.Sin(Time.timeSinceLevelLoad * 3)) * 0.04f);
             prompt.transform.localPosition = promptPos + Vector3.up * (Mathf.Sin(Time.timeSinceLevelLoad*4)) * 10;
 
-            if(Input.GetButtonDown("Jump"))
+            if(Input.GetButtonDown("Fire1"))
             {
                 //GameManager.g_GameManager.changeState((int)GameManager.STATE.game);
                 EndTitle();
@@ -69,13 +70,18 @@ public class TitleScript : MonoBehaviour {
             conkem.transform.localPosition = Vector3.Lerp(conkem.transform.localPosition, conkemOffscreenPos, 4 * Time.deltaTime);
             astro.transform.localPosition = Vector3.Lerp(astro.transform.localPosition, astroOffscreenPos, 4 * Time.deltaTime);
 
-            prompt.transform.localScale = Vector3.Lerp(prompt.transform.localScale, Vector3.zero, 5 * Time.deltaTime);
+            prompt.transform.localScale = Vector3.Lerp(prompt.transform.localScale, Vector3.zero, 15 * Time.deltaTime);
 
             if (panTime > 0)
             {
                 myCam.transform.position = Vector3.Lerp(myCam.transform.position, gameCamPos.transform.position, 4 * Time.deltaTime);
                 myCam.transform.rotation = Quaternion.Lerp(myCam.transform.rotation, gameCamPos.transform.rotation, 6f * Time.deltaTime);
                 panTime -= Time.deltaTime;
+            }
+            else
+            {
+                //Debug.Break();
+                titlePanFinished = true;
             }
         }
     }

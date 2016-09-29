@@ -17,12 +17,14 @@ public class ScreenShake : MonoBehaviour
     private Vector3 m_target;
     private bool m_shaking = false;
 
+    //reference to where the camera should rest - TMS
+    public Transform restPos;
+
     // Use this for initialization
     void Start ()
     {
         screenShake = this;
-        m_startPos = gameObject.transform.position;
-
+        m_startPos = restPos.position;
     }
 	
 	// Update is called once per frame
@@ -31,7 +33,7 @@ public class ScreenShake : MonoBehaviour
         //For testing...
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            shake(1.5f);
+            shake(0.35f);
         }
 
         //If we are shaking...
@@ -81,7 +83,7 @@ public class ScreenShake : MonoBehaviour
         }
 	}
 
-    void shake(float _magnitude = 1.0f)
+    public void shake(float _magnitude = 1.0f)
     {
         if (m_shaking)
         {

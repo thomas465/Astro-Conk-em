@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
 
     public bool aimAssist = false;
 
+    public Transform ballSpawnPos;
+
     //This is used to check if the player has "flicked" the stick
     float prevStickMagnitude = 0;
     Vector3 prevStickDir;
@@ -41,7 +43,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (swingDelay <= 0)
         {
-            Aiming();
+            if (TitleScript.titlePanFinished)
+            {
+                Aiming();
+            }
         }
         else
         {
@@ -91,7 +96,7 @@ public class PlayerScript : MonoBehaviour
 
     void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
     {
-        ballTest.transform.position = transform.position;
+        ballTest.transform.position = ballSpawnPos.position;
         ballTest.velocity = Vector3.zero;
 
         RaycastHit swingCastHit;
@@ -126,18 +131,18 @@ public class PlayerScript : MonoBehaviour
         swingDelay = 5;
 
         anim.SetTrigger("Swing");
-        ballTest.GetComponent<TrailRenderer>().Clear();
+        BallSpawner.currentBall.ResetParticles();
 
         PowerbarScript.powerbarSingleton.LockInCurrentPower();
+        //Debug.Break();
     }
 
     void HitBall()
     {
-        float ballSpeed = 40;
-        ballSpeed *= PowerbarScript.powerbarSingleton.GetCurrentPower() + 0.05f;
-
         swingDelay = 0.25f;
-        ballTest.velocity = swingAngle * ballSpeed;
+        //ballTest.velocity = swingAngle * ballSpeed;
+
+        BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
         CameraScript.cameraSingleton.HitBall();
     }
 

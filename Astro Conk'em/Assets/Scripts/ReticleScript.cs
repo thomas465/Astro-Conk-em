@@ -24,12 +24,15 @@ public class ReticleScript : MonoBehaviour
 
         if(visible)
         {
-            targetColour = Color.white;     
+            targetColour = Color.white;
         }
         else
         {
             targetColour = Color.clear;
         }
+
+        //Control visibility of the power bar
+        PowerbarScript.powerbarSingleton.SetVisible(visible);
 
         myImages[0].color = Color.Lerp(myImages[0].color, targetColour, 10 * Time.deltaTime);
 
