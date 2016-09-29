@@ -1,30 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private float m_difficulty = 0; //start this as whatever is appropriate
+    public enum STATE
+    {
+        start,
+        game,
+        gameover
+    };
 
-    private EnemyManager m_enemyManager;
-    private ScoreManager m_scoreManager;
-    private PlayerScript m_player;
 
+    public static GameManager g_GameManager;
+    public delegate void Fnct();
+    public struct TransitionFuncts
+    {
+        public TransitionFuncts(Fnct _init, Fnct _shutdown)
+        {
+            init = _init;
+            shutdown = _shutdown;
+        }
+        public Fnct init;
+        public Fnct shutdown;
+    }
+    Dictionary<int, TransitionFuncts> m_states;
+    public int m_currentState;
+
+    public void registerState(int _index, Fnct _init, Fnct _shutdown)
+    {
+        TransitionFuncts fncts = new TransitionFuncts(_init, _shutdown);
+        m_states.Add(_index, fncts);
+    }
+
+    public void changeState(int index)
+    {
+        //call init funct
+        m_states[m_currentState].shutdown();
+        m_currentState = index;
+        m_states[index].init();
+    }
     // Use this for initialization
     void Start ()
     {
-        m_enemyManager = new EnemyManager();
-        m_scoreManager = new ScoreManager();
+        g_GameManager = this;
+        //should have a default state (splash screen)
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-       //honestly not convinced that we need a game manager!
-       //maybe a persitant score object so that the game over level can display the score is probably about as far as we need
-       //because when the player dies we can just Application.loadLevel(Levels.GameOver), on the splash screen and game over we just have a simple
-       //scrip that loads Levels.Game after space is pressed...
-       //On top of that, all these managers can just be put on empty gameobjects and reference eachother directly.
+    
     }
 
 }
