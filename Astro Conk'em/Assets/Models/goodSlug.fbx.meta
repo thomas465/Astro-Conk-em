@@ -1,0 +1,434 @@
+fileFormatVersion: 2
+guid: 1c8fcdf99c983bc46aae7fb37c64c539
+timeCreated: 1475262179
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: Bone_002
+    100006: Bone_003
+    100008: Bone_004
+    100010: Bone_005
+    100012: Eye_l
+    100014: Eye_r
+    100016: Eyebrow_l
+    100018: Eyebrow_r
+    100020: EyeStalk_l
+    100022: EyeStalk_r
+    100024: //RootNode
+    100026: Head
+    100028: LeftEYeBall
+    100030: LeftEyebrow
+    100032: LeftEyeStalk
+    100034: Mouth
+    100036: Mouth_0
+    100038: RightEyeball
+    100040: RightEyebrow
+    100042: RightEyeStalk
+    100044: SlugBody
+    400000: Armature
+    400002: Bone
+    400004: Bone_002
+    400006: Bone_003
+    400008: Bone_004
+    400010: Bone_005
+    400012: Eye_l
+    400014: Eye_r
+    400016: Eyebrow_l
+    400018: Eyebrow_r
+    400020: EyeStalk_l
+    400022: EyeStalk_r
+    400024: //RootNode
+    400026: Head
+    400028: LeftEYeBall
+    400030: LeftEyebrow
+    400032: LeftEyeStalk
+    400034: Mouth
+    400036: Mouth_0
+    400038: RightEyeball
+    400040: RightEyebrow
+    400042: RightEyeStalk
+    400044: SlugBody
+    4300000: SlugBody
+    4300002: Mouth
+    4300004: RightEyeStalk
+    4300006: LeftEyeStalk
+    4300008: LeftEyebrow
+    4300010: RightEyebrow
+    4300012: RightEyeball
+    4300014: LeftEYeBall
+    7400000: Default Take
+    7400002: Die1
+    7400004: Hit_1
+    7400006: Moving_Standard
+    9500000: //RootNode
+    13700000: LeftEYeBall
+    13700002: LeftEyebrow
+    13700004: LeftEyeStalk
+    13700006: Mouth
+    13700008: RightEyeball
+    13700010: RightEyebrow
+    13700012: RightEyeStalk
+    13700014: SlugBody
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Head
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
+        weight: 1
+      - path: Armature/Bone/Mouth_0
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: LeftEYeBall
+        weight: 1
+      - path: LeftEyebrow
+        weight: 1
+      - path: LeftEyeStalk
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: RightEyeball
+        weight: 1
+      - path: RightEyebrow
+        weight: 1
+      - path: RightEyeStalk
+        weight: 1
+      - path: SlugBody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die1
+      takeName: Die1
+      firstFrame: 0
+      lastFrame: 74
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Head
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
+        weight: 1
+      - path: Armature/Bone/Mouth_0
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: LeftEYeBall
+        weight: 1
+      - path: LeftEyebrow
+        weight: 1
+      - path: LeftEyeStalk
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: RightEyeball
+        weight: 1
+      - path: RightEyebrow
+        weight: 1
+      - path: RightEyeStalk
+        weight: 1
+      - path: SlugBody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Hit_1
+      takeName: Hit_1
+      firstFrame: -1
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Head
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
+        weight: 1
+      - path: Armature/Bone/Mouth_0
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: LeftEYeBall
+        weight: 1
+      - path: LeftEyebrow
+        weight: 1
+      - path: LeftEyeStalk
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: RightEyeball
+        weight: 1
+      - path: RightEyebrow
+        weight: 1
+      - path: RightEyeStalk
+        weight: 1
+      - path: SlugBody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Moving_Standard
+      takeName: Moving_Standard
+      firstFrame: 0
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Head
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
+        weight: 1
+      - path: Armature/Bone/Mouth_0
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: LeftEYeBall
+        weight: 1
+      - path: LeftEyebrow
+        weight: 1
+      - path: LeftEyeStalk
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: RightEyeball
+        weight: 1
+      - path: RightEyebrow
+        weight: 1
+      - path: RightEyeStalk
+        weight: 1
+      - path: SlugBody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 80
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
