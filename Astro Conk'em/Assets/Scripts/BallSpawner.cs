@@ -5,7 +5,7 @@ public class BallSpawner : MonoBehaviour
 {
    
     public GameObject m_ballPrefab;
-
+    private AudioSource m_source;
 
     [SerializeField]
     private const int m_maxBalls = 20;
@@ -28,6 +28,9 @@ public class BallSpawner : MonoBehaviour
 
 	void Start ()
     {
+        //init audio
+        m_source = GetComponent<AudioSource>();
+
         //Init ball array
         m_balls = new BallScript[m_maxBalls];
 
@@ -42,13 +45,17 @@ public class BallSpawner : MonoBehaviour
         currentBall = m_balls[0];
         m_spawnStart = transform.position;
         m_spawnTarget = GameObject.Find("BallSpawnPos").transform;
+        nextBall = 0;
+        spawnBall();
     }
 
 	void Update ()
     {
-  
-        //Just for testing; activate the spawner with spacebar
-        if (Input.GetButtonDown("Fire1") && currentBall.getState() != BallScript.BALL_STATE.SPAWNING)
+
+       
+
+        BallScript.BALL_STATE ballState = currentBall.getState();
+        if (ballState == BallScript.BALL_STATE.HAS_BEEN_HIT)
         {
             spawnBall();
         }
@@ -92,6 +99,7 @@ public class BallSpawner : MonoBehaviour
                 nextBall = nextBall >= m_maxBalls - 1 ? 0 : nextBall + 1;
                 //have balls that are in HAS_BEEN_HIT state play an explosion on the frame they're reused!
                 spawning = true;
+                m_source.Play();
             }
 
         }

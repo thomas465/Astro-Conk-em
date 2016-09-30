@@ -36,7 +36,7 @@ public class BallScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         m_spwnPosTransform = GameObject.Find("BallSpawnPos").transform;
         m_target = m_spwnPosTransform.position;
@@ -63,6 +63,7 @@ public class BallScript : MonoBehaviour {
     {
         ResetParticles();
         disableTrails();
+        //rb.useGravity = false;
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
         state = BALL_STATE.SPAWNING;
