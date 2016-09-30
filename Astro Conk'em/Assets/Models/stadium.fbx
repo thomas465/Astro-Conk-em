@@ -11,9 +11,9 @@ FBXHeaderExtension:  {
 		Year: 2016
 		Month: 09
 		Day: 30
-		Hour: 17
-		Minute: 15
-		Second: 10
+		Hour: 18
+		Minute: 36
+		Second: 00
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2016-09-30 17:15:10:000"
+CreationTime: "2016-09-30 18:36:00:000"
 Creator: "Blender version 2.73 (sub 0)"
 
 ; Object definitions
@@ -29,21 +29,21 @@ Creator: "Blender version 2.73 (sub 0)"
 
 Definitions:  {
 	Version: 100
-	Count: 44
+	Count: 43
 	ObjectType: "Model" {
-		Count: 39
+		Count: 35
 	}
 	ObjectType: "Geometry" {
-		Count: 31
+		Count: 27
 	}
 	ObjectType: "Material" {
-		Count: 2
+		Count: 3
 	}
 	ObjectType: "Texture" {
-		Count: 1
+		Count: 2
 	}
 	ObjectType: "Video" {
-		Count: 1
+		Count: 2
 	}
 	ObjectType: "Pose" {
 		Count: 1
@@ -147,9 +147,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",6.880644798278809,3.474583148956299,-0.194224357604980
+			Property: "Lcl Translation", "Lcl Translation", "A+",11.484812736511230,5.468657970428467,-0.246906280517578
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,-0.000000000000000,-89.999995674159678
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.000000000000000,1.000000000000000,1.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.619575738906860,1.619575738906860,1.619575738906860
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -311,9 +311,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",6.359782218933105,3.029319524765015,-0.177957534790039
+			Property: "Lcl Translation", "Lcl Translation", "A+",10.641236305236816,4.747519493103027,-0.220560938119888
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,0.000000000000000,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.057967547327280,1.511770486831665,0.753491282463074
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.093882836401463,2.448426723480225,1.220336198806763
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -441,334 +441,14 @@ Objects:  {
 			}
 		}
 	}
-	Model: "Model::Cube_013", "Mesh" {
-		Version: 232
-		Properties60:  {
-			Property: "QuaternionInterpolate", "bool", "",0
-			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-5.333693504333496,0.130953595042229,-2.039988279342651
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000016164727199,39.138175812126995,-0.000002085626596
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173987984657,0.332608103752136,0.322812557220459
-			Property: "RotationOffset", "Vector3D", "",0,0,0
-			Property: "RotationPivot", "Vector3D", "",0,0,0
-			Property: "ScalingOffset", "Vector3D", "",0,0,0
-			Property: "ScalingPivot", "Vector3D", "",0,0,0
-			Property: "TranslationActive", "bool", "",0
-			Property: "TranslationMin", "Vector3D", "",0,0,0
-			Property: "TranslationMax", "Vector3D", "",0,0,0
-			Property: "TranslationMinX", "bool", "",0
-			Property: "TranslationMinY", "bool", "",0
-			Property: "TranslationMinZ", "bool", "",0
-			Property: "TranslationMaxX", "bool", "",0
-			Property: "TranslationMaxY", "bool", "",0
-			Property: "TranslationMaxZ", "bool", "",0
-			Property: "RotationOrder", "enum", "",0
-			Property: "RotationSpaceForLimitOnly", "bool", "",0
-			Property: "AxisLen", "double", "",10
-			Property: "PreRotation", "Vector3D", "",0,0,0
-			Property: "PostRotation", "Vector3D", "",0,0,0
-			Property: "RotationActive", "bool", "",0
-			Property: "RotationMin", "Vector3D", "",0,0,0
-			Property: "RotationMax", "Vector3D", "",0,0,0
-			Property: "RotationMinX", "bool", "",0
-			Property: "RotationMinY", "bool", "",0
-			Property: "RotationMinZ", "bool", "",0
-			Property: "RotationMaxX", "bool", "",0
-			Property: "RotationMaxY", "bool", "",0
-			Property: "RotationMaxZ", "bool", "",0
-			Property: "RotationStiffnessX", "double", "",0
-			Property: "RotationStiffnessY", "double", "",0
-			Property: "RotationStiffnessZ", "double", "",0
-			Property: "MinDampRangeX", "double", "",0
-			Property: "MinDampRangeY", "double", "",0
-			Property: "MinDampRangeZ", "double", "",0
-			Property: "MaxDampRangeX", "double", "",0
-			Property: "MaxDampRangeY", "double", "",0
-			Property: "MaxDampRangeZ", "double", "",0
-			Property: "MinDampStrengthX", "double", "",0
-			Property: "MinDampStrengthY", "double", "",0
-			Property: "MinDampStrengthZ", "double", "",0
-			Property: "MaxDampStrengthX", "double", "",0
-			Property: "MaxDampStrengthY", "double", "",0
-			Property: "MaxDampStrengthZ", "double", "",0
-			Property: "PreferedAngleX", "double", "",0
-			Property: "PreferedAngleY", "double", "",0
-			Property: "PreferedAngleZ", "double", "",0
-			Property: "InheritType", "enum", "",0
-			Property: "ScalingActive", "bool", "",0
-			Property: "ScalingMin", "Vector3D", "",1,1,1
-			Property: "ScalingMax", "Vector3D", "",1,1,1
-			Property: "ScalingMinX", "bool", "",0
-			Property: "ScalingMinY", "bool", "",0
-			Property: "ScalingMinZ", "bool", "",0
-			Property: "ScalingMaxX", "bool", "",0
-			Property: "ScalingMaxY", "bool", "",0
-			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",0,0,0
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
-			Property: "GeometricScaling", "Vector3D", "",1,1,1
-			Property: "LookAtProperty", "object", ""
-			Property: "UpVectorProperty", "object", ""
-			Property: "Show", "bool", "",1
-			Property: "NegativePercentShapeSupport", "bool", "",1
-			Property: "DefaultAttributeIndex", "int", "",0
-			Property: "Color", "Color", "A",0.8,0.8,0.8
-			Property: "Size", "double", "",100
-			Property: "Look", "enum", "",1
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-		Vertices: -1.000000,-1.000000,-1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,-1.000000,-1.000000,
-		          -1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,-1.000000,1.000000,
-		          -1.000000,2.800053,-1.000000,1.000000,2.800053,-1.000000,-1.000000,2.800053,1.000000,1.000000,2.800053,1.000000,
-		          -1.000000,1.000000,2.424590,1.000000,1.000000,2.424590,-1.000000,2.800053,2.424590,1.000000,2.800053,2.424590,
-		          -1.000000,4.890080,-1.000000,1.000000,4.890080,-1.000000,-1.000000,4.890080,1.000000,1.000000,4.890080,1.000000,
-		          -1.000000,4.890080,2.424590,1.000000,4.890080,2.424590,-1.000000,2.800053,4.014546,1.000000,2.800053,4.014546,
-		          -1.000000,4.890080,4.014546,1.000000,4.890080,4.014546,-1.000000,6.158645,-1.000000,1.000000,6.158645,-1.000000,
-		          -1.000000,6.158645,1.000000,1.000000,6.158645,1.000000,-1.000000,6.158645,2.424590,1.000000,6.158645,2.424590,
-		          -1.000000,6.158645,4.014546,1.000000,6.158645,4.014546,-1.000000,4.890080,5.833446,1.000000,4.890080,5.833446,
-		          -1.000000,6.158645,5.833446,1.000000,6.158645,5.833446
-		PolygonVertexIndex: 4,5,1,-1,2,1,8,-10,6,7,3,-3,7,4,0,-4,0,1,2,-4,7,6,5,-5,10,14,20,-19,6,2,9,-12,
-		                    10,5,12,-15,1,5,10,-9,12,13,15,-15,6,11,15,-14,15,11,19,-22,5,6,13,-13,32,24,34,-37,20,24,32,-31,
-		                    20,14,22,-25,9,8,16,-18,11,9,17,-20,8,10,18,-17,22,23,25,-25,25,21,31,-34,14,15,23,-23,15,21,25,-24,
-		                    28,29,27,-27,29,28,30,-32,31,30,32,-34,21,19,29,-32,18,20,30,-29,17,16,26,-28,19,17,27,-30,16,18,28,-27,
-		                    34,35,37,-37,33,32,36,-38,24,25,35,-35,25,33,37,-36
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000
-		}
-		LayerElementMaterial: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "AllSame"
-			ReferenceInformationType: "IndexToDirect"
-			Materials: 0
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementTexture"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementMaterial"
-				TypedIndex: 0
-			}
-		}
-	}
 	Model: "Model::Cube_012", "Mesh" {
 		Version: 232
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-4.680080413818359,0.130953595042229,-2.609156370162964
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000016164727199,39.138175812126995,-0.000002085626596
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173987984657,0.332608103752136,0.322812557220459
-			Property: "RotationOffset", "Vector3D", "",0,0,0
-			Property: "RotationPivot", "Vector3D", "",0,0,0
-			Property: "ScalingOffset", "Vector3D", "",0,0,0
-			Property: "ScalingPivot", "Vector3D", "",0,0,0
-			Property: "TranslationActive", "bool", "",0
-			Property: "TranslationMin", "Vector3D", "",0,0,0
-			Property: "TranslationMax", "Vector3D", "",0,0,0
-			Property: "TranslationMinX", "bool", "",0
-			Property: "TranslationMinY", "bool", "",0
-			Property: "TranslationMinZ", "bool", "",0
-			Property: "TranslationMaxX", "bool", "",0
-			Property: "TranslationMaxY", "bool", "",0
-			Property: "TranslationMaxZ", "bool", "",0
-			Property: "RotationOrder", "enum", "",0
-			Property: "RotationSpaceForLimitOnly", "bool", "",0
-			Property: "AxisLen", "double", "",10
-			Property: "PreRotation", "Vector3D", "",0,0,0
-			Property: "PostRotation", "Vector3D", "",0,0,0
-			Property: "RotationActive", "bool", "",0
-			Property: "RotationMin", "Vector3D", "",0,0,0
-			Property: "RotationMax", "Vector3D", "",0,0,0
-			Property: "RotationMinX", "bool", "",0
-			Property: "RotationMinY", "bool", "",0
-			Property: "RotationMinZ", "bool", "",0
-			Property: "RotationMaxX", "bool", "",0
-			Property: "RotationMaxY", "bool", "",0
-			Property: "RotationMaxZ", "bool", "",0
-			Property: "RotationStiffnessX", "double", "",0
-			Property: "RotationStiffnessY", "double", "",0
-			Property: "RotationStiffnessZ", "double", "",0
-			Property: "MinDampRangeX", "double", "",0
-			Property: "MinDampRangeY", "double", "",0
-			Property: "MinDampRangeZ", "double", "",0
-			Property: "MaxDampRangeX", "double", "",0
-			Property: "MaxDampRangeY", "double", "",0
-			Property: "MaxDampRangeZ", "double", "",0
-			Property: "MinDampStrengthX", "double", "",0
-			Property: "MinDampStrengthY", "double", "",0
-			Property: "MinDampStrengthZ", "double", "",0
-			Property: "MaxDampStrengthX", "double", "",0
-			Property: "MaxDampStrengthY", "double", "",0
-			Property: "MaxDampStrengthZ", "double", "",0
-			Property: "PreferedAngleX", "double", "",0
-			Property: "PreferedAngleY", "double", "",0
-			Property: "PreferedAngleZ", "double", "",0
-			Property: "InheritType", "enum", "",0
-			Property: "ScalingActive", "bool", "",0
-			Property: "ScalingMin", "Vector3D", "",1,1,1
-			Property: "ScalingMax", "Vector3D", "",1,1,1
-			Property: "ScalingMinX", "bool", "",0
-			Property: "ScalingMinY", "bool", "",0
-			Property: "ScalingMinZ", "bool", "",0
-			Property: "ScalingMaxX", "bool", "",0
-			Property: "ScalingMaxY", "bool", "",0
-			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",0,0,0
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
-			Property: "GeometricScaling", "Vector3D", "",1,1,1
-			Property: "LookAtProperty", "object", ""
-			Property: "UpVectorProperty", "object", ""
-			Property: "Show", "bool", "",1
-			Property: "NegativePercentShapeSupport", "bool", "",1
-			Property: "DefaultAttributeIndex", "int", "",0
-			Property: "Color", "Color", "A",0.8,0.8,0.8
-			Property: "Size", "double", "",100
-			Property: "Look", "enum", "",1
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-		Vertices: -1.000000,-1.000000,-1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,-1.000000,1.000000,-1.000000,-1.000000,
-		          -1.000000,-1.000000,1.000000,-1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,-1.000000,1.000000,
-		          -1.000000,2.800053,-1.000000,1.000000,2.800053,-1.000000,-1.000000,2.800053,1.000000,1.000000,2.800053,1.000000,
-		          -1.000000,1.000000,2.424590,1.000000,1.000000,2.424590,-1.000000,2.800053,2.424590,1.000000,2.800053,2.424590,
-		          -1.000000,4.890080,-1.000000,1.000000,4.890080,-1.000000,-1.000000,4.890080,1.000000,1.000000,4.890080,1.000000,
-		          -1.000000,4.890080,2.424590,1.000000,4.890080,2.424590,-1.000000,2.800053,4.014546,1.000000,2.800053,4.014546,
-		          -1.000000,4.890080,4.014546,1.000000,4.890080,4.014546,-1.000000,6.158645,-1.000000,1.000000,6.158645,-1.000000,
-		          -1.000000,6.158645,1.000000,1.000000,6.158645,1.000000,-1.000000,6.158645,2.424590,1.000000,6.158645,2.424590,
-		          -1.000000,6.158645,4.014546,1.000000,6.158645,4.014546,-1.000000,4.890080,5.833446,1.000000,4.890080,5.833446,
-		          -1.000000,6.158645,5.833446,1.000000,6.158645,5.833446
-		PolygonVertexIndex: 4,5,1,-1,2,1,8,-10,6,7,3,-3,7,4,0,-4,0,1,2,-4,7,6,5,-5,10,14,20,-19,6,2,9,-12,
-		                    10,5,12,-15,1,5,10,-9,12,13,15,-15,6,11,15,-14,15,11,19,-22,5,6,13,-13,32,24,34,-37,20,24,32,-31,
-		                    20,14,22,-25,9,8,16,-18,11,9,17,-20,8,10,18,-17,22,23,25,-25,25,21,31,-34,14,15,23,-23,15,21,25,-24,
-		                    28,29,27,-27,29,28,30,-32,31,30,32,-34,21,19,29,-32,18,20,30,-29,17,16,26,-28,19,17,27,-30,16,18,28,-27,
-		                    34,35,37,-37,33,32,36,-38,24,25,35,-35,25,33,37,-36
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,
-			         -1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000
-		}
-		LayerElementMaterial: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "AllSame"
-			ReferenceInformationType: "IndexToDirect"
-			Materials: 0
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementTexture"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementMaterial"
-				TypedIndex: 0
-			}
-		}
-	}
-	Model: "Model::Cube_011", "Mesh" {
-		Version: 232
-		Properties60:  {
-			Property: "QuaternionInterpolate", "bool", "",0
-			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-5.165942668914795,0.093180373311043,2.309651613235474
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,145.871448518782302,-0.000005577626280
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",-6.951670646667480,0.053396806120872,-4.311263084411621
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,39.138172397032413,-0.000002933567563
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.216651692986488,0.586968421936035,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -926,9 +606,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-4.415482521057129,0.093180373311043,2.770520448684692
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,145.871448518782302,-0.000005577626280
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",-6.810120582580566,-0.007779777050018,5.275985240936279
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999982013781349,145.871448518782302,0.000008684127064
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.214127823710442,0.593369483947754,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1086,9 +766,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.824997663497925,0.119843527674675,4.009601593017578
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,177.610859478544029,-0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173987984657,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",-0.995058298110962,0.035403206944466,7.574034214019775
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,177.610777516273998,0.000082032260563
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.204403638839722,0.616740882396698,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1246,9 +926,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.040437951683998,0.119843527674675,4.009601593017578
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999988843970513,-179.250118539723076,0.000000043860860
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",0.275595664978027,0.035403206944466,7.574034214019775
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999988843970513,-179.250118539723076,-0.000000069341868
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.204353719949722,0.616855680942535,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1406,9 +1086,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",3.715762138366699,0.365643501281738,3.385980129241943
+			Property: "Lcl Translation", "Lcl Translation", "A+",6.359045982360840,0.433494865894318,6.417441368103027
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,-148.696892872737408,-0.000008164366009
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.212762475013733,0.596772551536560,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1566,9 +1246,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",4.323049068450928,0.365643501281738,2.815332889556885
+			Property: "Lcl Translation", "Lcl Translation", "A+",7.342593193054199,0.433494865894318,5.359096050262451
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,-148.696892872737408,-0.000008164366009
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.212762475013733,0.596772551536560,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1726,9 +1406,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",5.619620323181152,0.218378186225891,0.340149283409119
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999941032646319,-86.565708257590501,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",9.442488670349121,0.194987550377846,0.768522500991821
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,-86.565715087779679,0.000029346221837
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.233907580375671,0.538984894752502,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -1886,9 +1566,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",5.619620323181152,0.218378186225891,-0.516175866127014
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999941032646319,-86.565708257590501,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",9.442488670349121,0.194987550377846,-0.819652140140533
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,-86.565715087779679,0.000029346221837
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.233907580375671,0.538984894752502,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2046,9 +1726,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",4.210791587829590,0.218378186225891,-3.070074081420898
+			Property: "Lcl Translation", "Lcl Translation", "A+",7.160783767700195,0.194987550377846,-5.556213378906250
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,-30.652505881666258,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608073949814,0.322812557220459
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.212456092238426,0.597530722618103,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2206,9 +1886,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",3.481798171997070,0.218378186225891,-3.472589015960693
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,-29.507813988097954,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173987984657,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",5.980123996734619,0.194987550377846,-6.302733421325684
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,-29.507813988097954,0.000001341633178
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.211925193667412,0.598839342594147,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2366,9 +2046,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.317024886608124,0.218378186225891,-4.218780517578125
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,4.400120561437197,-0.000000302523726
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608103752136,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",-0.172357797622681,0.194987550377846,-7.686649322509766
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,4.400120134550374,0.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.204535469412804,0.616436839103699,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2526,9 +2206,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-1.146761059761047,0.208365187048912,-4.217447280883789
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,6.792923231004578,-0.000000303454585
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.126173973083496,0.332608073949814,0.322812557220459
+			Property: "Lcl Translation", "Lcl Translation", "A+",-1.516178369522095,0.178770750761032,-7.684177398681641
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,6.792923657891401,0.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.204792901873589,0.615842878818512,0.522819399833679
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2686,9 +2366,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",4.986059665679932,-0.494267135858536,-1.968482971191406
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-96.835457750201869,-63.128726913236655,4.296111721416862
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.795960783958435,0.887823343276978,0.999490618705750
+			Property: "Lcl Translation", "Lcl Translation", "A+",8.416389465332031,-0.959195494651794,-3.513158559799194
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-96.835464580391033,-63.128726913236655,4.296120686040148
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.439974427223206,1.482293128967285,1.619480371475220
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2818,9 +2498,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",5.057339191436768,-0.494267135858536,1.523658394813538
+			Property: "Lcl Translation", "Lcl Translation", "A+",8.531831741333008,-0.959195494651794,2.963505506515503
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.318746942345385,-125.894975687221262,-3.310675293300698
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.795960843563080,0.887823343276978,0.999490559101105
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.414698719978333,1.512884616851807,1.618753671646118
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -2950,9 +2630,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",1.864591002464294,-0.494267135858536,3.625309705734253
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.244738511072114,-168.030207771294272,0.497077422213277
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.999999940395355,1.000000119209290,1.000000119209290
+			Property: "Lcl Translation", "Lcl Translation", "A+",3.360934495925903,-0.959195494651794,6.861310958862305
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.244718020504592,-168.030248752429287,0.497074380644663
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.630384325981140,1.844466805458069,1.620348691940308
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3082,9 +2762,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-2.568087816238403,-0.494267135858536,3.316969633102417
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.382824445522061,160.912071486262363,1.135510091611408
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.000000000000000,1.000000000000000,0.999999821186066
+			Property: "Lcl Translation", "Lcl Translation", "A+",-3.818124532699585,-0.959195494651794,6.289451599121094
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.382831275711226,160.912085146640692,1.135513720149405
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.646317839622498,1.830250024795532,1.620359539985657
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3214,9 +2894,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-2.889389038085938,-0.494267135858536,-3.397323846817017
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-94.166267633888907,21.004528999767778,-1.149437701102691
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.999999761581421,0.999999880790710,0.999999821186066
+			Property: "Lcl Translation", "Lcl Translation", "A+",-4.172481536865234,-0.959195494651794,-5.959795475006104
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-94.350757873559857,29.068011277252296,-1.227707293400987
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.651651024818420,1.825104475021362,1.620735049247742
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3288,15 +2968,15 @@ Objects:  {
 		MultiTake: 1
 		Shading: Y
 		Culling: "CullingOff"
-		Vertices: -1.872948,-0.197391,0.754959,1.786300,-0.197391,0.754959,-1.878954,0.197391,0.754959,1.792306,0.197391,0.754959,
-		          -1.872948,-0.197391,0.399219,1.786300,-0.197391,0.399219,-1.977804,0.197391,1.110699,1.830024,0.197391,1.110699,
-		          -2.009922,0.592174,1.110699,1.851652,0.592174,1.110699,-1.925672,0.197391,0.754959,1.839024,0.197391,0.754959,
-		          -2.105493,0.592174,1.466438,1.957713,0.592174,1.466438,-2.186526,0.986957,1.466438,1.954157,0.986957,1.466438,
-		          -2.060174,0.592174,1.110699,1.901904,0.592174,1.110699,-2.231284,0.986957,1.822178,2.026764,0.986957,1.822178,
-		          -2.340544,1.381740,1.822178,2.042956,1.381740,1.822178,-2.240280,0.986957,1.466438,2.007911,0.986957,1.466438,
-		          -2.404451,1.381740,2.177918,2.099109,1.381740,2.177918,-2.485610,1.776523,2.177918,2.124875,1.776523,2.177918,
-		          -2.396696,1.381740,1.822178,2.099109,1.381740,1.822178,-2.524168,1.776524,2.533658,2.181028,1.776523,2.533658,
-		          -2.644878,2.171307,2.533658,2.223227,2.171306,2.533658,-2.541763,1.776523,2.177918,2.181028,1.776523,2.177918
+		Vertices: -1.872948,-0.197391,0.754959,1.786300,-0.197391,0.754959,-1.878954,0.197391,0.754959,1.828183,0.197391,0.754959,
+		          -1.872948,-0.197391,0.399219,1.786300,-0.197391,0.399219,-1.977804,0.197391,1.110699,1.865901,0.197391,1.110699,
+		          -2.009922,0.592174,1.110699,1.968335,0.592174,1.110699,-1.925672,0.197391,0.754959,1.874901,0.197391,0.754959,
+		          -2.105493,0.592174,1.466438,2.074396,0.592174,1.466438,-2.186526,0.986957,1.466438,2.070840,0.986957,1.466438,
+		          -2.060174,0.592174,1.110699,2.018587,0.592174,1.110699,-2.231284,0.986957,1.822178,2.143447,0.986957,1.822178,
+		          -2.340544,1.381740,1.822178,2.338983,1.381740,1.822178,-2.240280,0.986957,1.466438,2.124595,0.986957,1.466438,
+		          -2.404451,1.381740,2.177918,2.395135,1.381740,2.177918,-2.485610,1.776523,2.177918,2.420902,1.776523,2.177918,
+		          -2.396696,1.381740,1.822178,2.395135,1.381740,1.822178,-2.524168,1.776524,2.533658,2.477055,1.776523,2.533658,
+		          -2.644878,2.171307,2.533658,2.519254,2.171306,2.533658,-2.541763,1.776523,2.177918,2.477055,1.776523,2.177918
 		PolygonVertexIndex: 0,1,3,-3,1,0,4,-6,6,7,9,-9,7,6,10,-12,12,13,15,-15,13,12,16,-18,18,19,21,-21,19,18,22,-24,
 		                    24,25,27,-27,25,24,28,-30,30,31,33,-33,31,30,34,-36
 		GeometryVersion: 124
@@ -3311,12 +2991,12 @@ Objects:  {
 			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
 			         -0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,
 			         -0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,
+			         -0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,
+			         -0.000000,-1.000000,0.000001,-0.000000,-1.000000,0.000001,-0.000000,-1.000000,0.000001,-0.000000,-1.000000,0.000001,
 			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
 			         -0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         -0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,-0.000000,-1.000000,-0.000000,
 			         -0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,-0.000000,0.000000,1.000000,
-			         -0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000,-0.000000,-1.000000,0.000000
+			         0.000000,-1.000000,0.000001,0.000000,-1.000000,0.000001,0.000000,-1.000000,0.000001,0.000000,-1.000000,0.000001
 		}
 		LayerElementMaterial: 0 {
 			Version: 101
@@ -3346,9 +3026,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",1.521676778793335,-0.494267135858536,-3.686676263809204
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.539345060541848,-11.321504709690721,-1.094348170021797
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.999999821186066,1.000000000000000,0.999999821186066
+			Property: "Lcl Translation", "Lcl Translation", "A+",2.805558919906616,-0.959195494651794,-6.699787616729736
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-93.539351890731012,-11.321504709690721,-1.094346249031093
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.629263520240784,1.845324635505676,1.620499253273010
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3478,9 +3158,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",5.831790924072266,0.078674435615540,-0.409391939640045
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000104957186409,-87.608787426876674,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907932758331,0.576907932758331,0.576907932758331
+			Property: "Lcl Translation", "Lcl Translation", "A+",9.786114692687988,-0.031273245811462,-0.621606469154358
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000104957186409,-87.608780596687510,0.000041771350497
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",1.069735407829285,0.934599339962006,0.934346079826355
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3625,156 +3305,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.134477168321609,0.078674435615540,4.339179992675781
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,177.242903527577653,-0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907992362976,0.576907992362976,0.576907932758331
-			Property: "RotationOffset", "Vector3D", "",0,0,0
-			Property: "RotationPivot", "Vector3D", "",0,0,0
-			Property: "ScalingOffset", "Vector3D", "",0,0,0
-			Property: "ScalingPivot", "Vector3D", "",0,0,0
-			Property: "TranslationActive", "bool", "",0
-			Property: "TranslationMin", "Vector3D", "",0,0,0
-			Property: "TranslationMax", "Vector3D", "",0,0,0
-			Property: "TranslationMinX", "bool", "",0
-			Property: "TranslationMinY", "bool", "",0
-			Property: "TranslationMinZ", "bool", "",0
-			Property: "TranslationMaxX", "bool", "",0
-			Property: "TranslationMaxY", "bool", "",0
-			Property: "TranslationMaxZ", "bool", "",0
-			Property: "RotationOrder", "enum", "",0
-			Property: "RotationSpaceForLimitOnly", "bool", "",0
-			Property: "AxisLen", "double", "",10
-			Property: "PreRotation", "Vector3D", "",0,0,0
-			Property: "PostRotation", "Vector3D", "",0,0,0
-			Property: "RotationActive", "bool", "",0
-			Property: "RotationMin", "Vector3D", "",0,0,0
-			Property: "RotationMax", "Vector3D", "",0,0,0
-			Property: "RotationMinX", "bool", "",0
-			Property: "RotationMinY", "bool", "",0
-			Property: "RotationMinZ", "bool", "",0
-			Property: "RotationMaxX", "bool", "",0
-			Property: "RotationMaxY", "bool", "",0
-			Property: "RotationMaxZ", "bool", "",0
-			Property: "RotationStiffnessX", "double", "",0
-			Property: "RotationStiffnessY", "double", "",0
-			Property: "RotationStiffnessZ", "double", "",0
-			Property: "MinDampRangeX", "double", "",0
-			Property: "MinDampRangeY", "double", "",0
-			Property: "MinDampRangeZ", "double", "",0
-			Property: "MaxDampRangeX", "double", "",0
-			Property: "MaxDampRangeY", "double", "",0
-			Property: "MaxDampRangeZ", "double", "",0
-			Property: "MinDampStrengthX", "double", "",0
-			Property: "MinDampStrengthY", "double", "",0
-			Property: "MinDampStrengthZ", "double", "",0
-			Property: "MaxDampStrengthX", "double", "",0
-			Property: "MaxDampStrengthY", "double", "",0
-			Property: "MaxDampStrengthZ", "double", "",0
-			Property: "PreferedAngleX", "double", "",0
-			Property: "PreferedAngleY", "double", "",0
-			Property: "PreferedAngleZ", "double", "",0
-			Property: "InheritType", "enum", "",0
-			Property: "ScalingActive", "bool", "",0
-			Property: "ScalingMin", "Vector3D", "",1,1,1
-			Property: "ScalingMax", "Vector3D", "",1,1,1
-			Property: "ScalingMinX", "bool", "",0
-			Property: "ScalingMinY", "bool", "",0
-			Property: "ScalingMinZ", "bool", "",0
-			Property: "ScalingMaxX", "bool", "",0
-			Property: "ScalingMaxY", "bool", "",0
-			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",0,0,0
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
-			Property: "GeometricScaling", "Vector3D", "",1,1,1
-			Property: "LookAtProperty", "object", ""
-			Property: "UpVectorProperty", "object", ""
-			Property: "Show", "bool", "",1
-			Property: "NegativePercentShapeSupport", "bool", "",1
-			Property: "DefaultAttributeIndex", "int", "",0
-			Property: "Color", "Color", "A",0.8,0.8,0.8
-			Property: "Size", "double", "",100
-			Property: "Look", "enum", "",1
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-		Vertices: -0.038451,-1.000000,0.000000,1.000000,-1.000000,0.000000,-0.038451,-0.620980,0.000000,1.000000,-0.620980,0.000000,
-		          -0.038451,-1.000000,-0.328027,1.000000,-1.000000,-0.328027,-0.038451,-0.620980,0.328027,1.000000,-0.620980,0.328027,
-		          -0.038451,-0.241961,0.328027,1.000000,-0.241961,0.328027,-0.038451,-0.620980,0.000000,1.000000,-0.620980,0.000000,
-		          -0.038451,-0.241961,0.656054,1.000000,-0.241961,0.656054,-0.038451,0.137059,0.656054,1.000000,0.137059,0.656054,
-		          -0.038451,-0.241961,0.328027,1.000000,-0.241961,0.328027,-0.038451,0.137059,0.984081,1.000000,0.137059,0.984081,
-		          -0.038451,0.516079,0.984081,1.000000,0.516079,0.984081,-0.038451,0.137059,0.656054,1.000000,0.137059,0.656054,
-		          -0.038451,0.516079,1.312108,1.000000,0.516079,1.312108,-0.038451,0.895099,1.312108,1.000000,0.895099,1.312108,
-		          -0.038451,0.516079,0.984081,1.000000,0.516079,0.984081,-0.038451,0.895099,1.640135,1.000000,0.895099,1.640135,
-		          -0.038451,1.274118,1.640135,1.000000,1.274118,1.640135,-0.038451,0.895099,1.312108,1.000000,0.895099,1.312108,
-		          -0.038451,1.274118,1.968162,1.000000,1.274118,1.968162,-0.038451,1.653138,1.968162,1.000000,1.653138,1.968162,
-		          -0.038451,1.274118,1.640135,1.000000,1.274118,1.640135,-0.038451,1.653138,2.296189,1.000000,1.653138,2.296189,
-		          -0.038451,2.032158,2.296189,1.000000,2.032158,2.296189,-0.038451,1.653138,1.968162,1.000000,1.653138,1.968162,
-		          -0.038451,2.032158,2.624216,1.000000,2.032158,2.624216,-0.038451,2.411178,2.624216,1.000000,2.411178,2.624216,
-		          -0.038451,2.032158,2.296189,1.000000,2.032158,2.296189,-0.038451,2.411178,2.952243,1.000000,2.411178,2.952243,
-		          -0.038451,2.790197,2.952243,1.000000,2.790197,2.952243,-0.038451,2.411178,2.624216,1.000000,2.411178,2.624216
-		PolygonVertexIndex: 0,1,3,-3,1,0,4,-6,6,7,9,-9,7,6,10,-12,12,13,15,-15,13,12,16,-18,18,19,21,-21,19,18,22,-24,
-		                    24,25,27,-27,25,24,28,-30,30,31,33,-33,31,30,34,-36,36,37,39,-39,37,36,40,-42,42,43,45,-45,43,42,46,-48,
-		                    48,49,51,-51,49,48,52,-54,54,55,57,-57,55,54,58,-60
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: 0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000
-		}
-		LayerElementMaterial: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "AllSame"
-			ReferenceInformationType: "IndexToDirect"
-			Materials: 0
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementTexture"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementMaterial"
-				TypedIndex: 0
-			}
-		}
-	}
-	Model: "Model::Plane_005", "Mesh" {
-		Version: 232
-		Properties60:  {
-			Property: "QuaternionInterpolate", "bool", "",0
-			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-4.726110458374023,0.078674435615540,2.946309804916382
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,145.145372089254295,-0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907873153687,0.576907873153687,0.576907932758331
+			Property: "Lcl Translation", "Lcl Translation", "A+",0.123292207717896,-0.031273245811462,8.185282707214355
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,177.242835225685951,0.000071113804115
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.934682846069336,1.069662332534790,0.934346199035645
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -3919,156 +3452,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",4.470329284667969,0.311050891876221,3.249573230743408
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999982013781349,-150.390369975547941,-0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907873153687,0.576907873153687,0.576907932758331
-			Property: "RotationOffset", "Vector3D", "",0,0,0
-			Property: "RotationPivot", "Vector3D", "",0,0,0
-			Property: "ScalingOffset", "Vector3D", "",0,0,0
-			Property: "ScalingPivot", "Vector3D", "",0,0,0
-			Property: "TranslationActive", "bool", "",0
-			Property: "TranslationMin", "Vector3D", "",0,0,0
-			Property: "TranslationMax", "Vector3D", "",0,0,0
-			Property: "TranslationMinX", "bool", "",0
-			Property: "TranslationMinY", "bool", "",0
-			Property: "TranslationMinZ", "bool", "",0
-			Property: "TranslationMaxX", "bool", "",0
-			Property: "TranslationMaxY", "bool", "",0
-			Property: "TranslationMaxZ", "bool", "",0
-			Property: "RotationOrder", "enum", "",0
-			Property: "RotationSpaceForLimitOnly", "bool", "",0
-			Property: "AxisLen", "double", "",10
-			Property: "PreRotation", "Vector3D", "",0,0,0
-			Property: "PostRotation", "Vector3D", "",0,0,0
-			Property: "RotationActive", "bool", "",0
-			Property: "RotationMin", "Vector3D", "",0,0,0
-			Property: "RotationMax", "Vector3D", "",0,0,0
-			Property: "RotationMinX", "bool", "",0
-			Property: "RotationMinY", "bool", "",0
-			Property: "RotationMinZ", "bool", "",0
-			Property: "RotationMaxX", "bool", "",0
-			Property: "RotationMaxY", "bool", "",0
-			Property: "RotationMaxZ", "bool", "",0
-			Property: "RotationStiffnessX", "double", "",0
-			Property: "RotationStiffnessY", "double", "",0
-			Property: "RotationStiffnessZ", "double", "",0
-			Property: "MinDampRangeX", "double", "",0
-			Property: "MinDampRangeY", "double", "",0
-			Property: "MinDampRangeZ", "double", "",0
-			Property: "MaxDampRangeX", "double", "",0
-			Property: "MaxDampRangeY", "double", "",0
-			Property: "MaxDampRangeZ", "double", "",0
-			Property: "MinDampStrengthX", "double", "",0
-			Property: "MinDampStrengthY", "double", "",0
-			Property: "MinDampStrengthZ", "double", "",0
-			Property: "MaxDampStrengthX", "double", "",0
-			Property: "MaxDampStrengthY", "double", "",0
-			Property: "MaxDampStrengthZ", "double", "",0
-			Property: "PreferedAngleX", "double", "",0
-			Property: "PreferedAngleY", "double", "",0
-			Property: "PreferedAngleZ", "double", "",0
-			Property: "InheritType", "enum", "",0
-			Property: "ScalingActive", "bool", "",0
-			Property: "ScalingMin", "Vector3D", "",1,1,1
-			Property: "ScalingMax", "Vector3D", "",1,1,1
-			Property: "ScalingMinX", "bool", "",0
-			Property: "ScalingMinY", "bool", "",0
-			Property: "ScalingMinZ", "bool", "",0
-			Property: "ScalingMaxX", "bool", "",0
-			Property: "ScalingMaxY", "bool", "",0
-			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",0,0,0
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
-			Property: "GeometricScaling", "Vector3D", "",1,1,1
-			Property: "LookAtProperty", "object", ""
-			Property: "UpVectorProperty", "object", ""
-			Property: "Show", "bool", "",1
-			Property: "NegativePercentShapeSupport", "bool", "",1
-			Property: "DefaultAttributeIndex", "int", "",0
-			Property: "Color", "Color", "A",0.8,0.8,0.8
-			Property: "Size", "double", "",100
-			Property: "Look", "enum", "",1
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-		Vertices: -0.038451,-1.000000,0.000000,1.000000,-1.000000,0.000000,-0.038451,-0.620980,0.000000,1.000000,-0.620980,0.000000,
-		          -0.038451,-1.000000,-0.328027,1.000000,-1.000000,-0.328027,-0.038451,-0.620980,0.328027,1.000000,-0.620980,0.328027,
-		          -0.038451,-0.241961,0.328027,1.000000,-0.241961,0.328027,-0.038451,-0.620980,0.000000,1.000000,-0.620980,0.000000,
-		          -0.038451,-0.241961,0.656054,1.000000,-0.241961,0.656054,-0.038451,0.137059,0.656054,1.000000,0.137059,0.656054,
-		          -0.038451,-0.241961,0.328027,1.000000,-0.241961,0.328027,-0.038451,0.137059,0.984081,1.000000,0.137059,0.984081,
-		          -0.038451,0.516079,0.984081,1.000000,0.516079,0.984081,-0.038451,0.137059,0.656054,1.000000,0.137059,0.656054,
-		          -0.038451,0.516079,1.312108,1.000000,0.516079,1.312108,-0.038451,0.895099,1.312108,1.000000,0.895099,1.312108,
-		          -0.038451,0.516079,0.984081,1.000000,0.516079,0.984081,-0.038451,0.895099,1.640135,1.000000,0.895099,1.640135,
-		          -0.038451,1.274118,1.640135,1.000000,1.274118,1.640135,-0.038451,0.895099,1.312108,1.000000,0.895099,1.312108,
-		          -0.038451,1.274118,1.968162,1.000000,1.274118,1.968162,-0.038451,1.653138,1.968162,1.000000,1.653138,1.968162,
-		          -0.038451,1.274118,1.640135,1.000000,1.274118,1.640135,-0.038451,1.653138,2.296189,1.000000,1.653138,2.296189,
-		          -0.038451,2.032158,2.296189,1.000000,2.032158,2.296189,-0.038451,1.653138,1.968162,1.000000,1.653138,1.968162,
-		          -0.038451,2.032158,2.624216,1.000000,2.032158,2.624216,-0.038451,2.411178,2.624216,1.000000,2.411178,2.624216,
-		          -0.038451,2.032158,2.296189,1.000000,2.032158,2.296189,-0.038451,2.411178,2.952243,1.000000,2.411178,2.952243,
-		          -0.038451,2.790197,2.952243,1.000000,2.790197,2.952243,-0.038451,2.411178,2.624216,1.000000,2.411178,2.624216
-		PolygonVertexIndex: 0,1,3,-3,1,0,4,-6,6,7,9,-9,7,6,10,-12,12,13,15,-15,13,12,16,-18,18,19,21,-21,19,18,22,-24,
-		                    24,25,27,-27,25,24,28,-30,30,31,33,-33,31,30,34,-36,36,37,39,-39,37,36,40,-42,42,43,45,-45,43,42,46,-48,
-		                    48,49,51,-51,49,48,52,-54,54,55,57,-57,55,54,58,-60
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: 0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,
-			         0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,0.000000,0.000000,1.000000,
-			         0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000,-1.000000,0.000000
-		}
-		LayerElementMaterial: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "AllSame"
-			ReferenceInformationType: "IndexToDirect"
-			Materials: 0
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementTexture"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementMaterial"
-				TypedIndex: 0
-			}
-		}
-	}
-	Model: "Model::Plane_003", "Mesh" {
-		Version: 232
-		Properties60:  {
-			Property: "QuaternionInterpolate", "bool", "",0
-			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-5.356592655181885,0.078674435615540,-2.324115037918091
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,39.288016502138518,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907932758331,0.576907932758331,0.576907932758331
+			Property: "Lcl Translation", "Lcl Translation", "A+",7.365298748016357,0.345078021287918,5.831795692443848
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000002504348856,-149.479659872376430,-0.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.934346318244934,0.934346318244934,0.934346199035645
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -4213,9 +3599,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",3.763476133346558,0.078674435615540,-3.733976364135742
+			Property: "Lcl Translation", "Lcl Translation", "A+",6.436322212219238,-0.031273245811462,-6.787512302398682
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-89.999995674159678,-31.046587306207915,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907992362976,0.576907992362976,0.576907932758331
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.972264349460602,1.035621523857117,0.934346199035645
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -4360,9 +3746,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-1.007119655609131,0.078674435615540,-4.467903137207031
-			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,6.921070813325350,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.576907992362976,0.576907992362976,0.576907932758331
+			Property: "Lcl Translation", "Lcl Translation", "A+",-1.290018320083618,-0.031273245811462,-8.148682594299316
+			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,6.921069959551704,0.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",0.936455607414246,1.068110227584839,0.934346199035645
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -4507,9 +3893,9 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.094406694173813,-0.000010519510397,0.025882273912430
+			Property: "Lcl Translation", "Lcl Translation", "A+",0.188189268112183,-0.158709496259689,0.109573073685169
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,0.000000000000000,0.000000000000000
-			Property: "Lcl Scaling", "Lcl Scaling", "A+",3.863521575927734,3.103197813034058,1.000000000000000
+			Property: "Lcl Scaling", "Lcl Scaling", "A+",6.257266044616699,5.501898288726807,1.619575738906860
 			Property: "RotationOffset", "Vector3D", "",0,0,0
 			Property: "RotationPivot", "Vector3D", "",0,0,0
 			Property: "ScalingOffset", "Vector3D", "",0,0,0
@@ -4586,12 +3972,12 @@ Objects:  {
 		          -0.578856,-1.590394,-0.104577,-0.000000,-1.692462,-0.104577,0.578856,-1.590394,-0.104577,1.087893,-1.296501,-0.104577,
 		          1.465715,-0.846231,-0.104577,1.666749,-0.293894,-0.104577,1.666750,0.293892,-0.104577,1.465716,0.846230,-0.104577,
 		          1.087894,1.296500,-0.104577,0.578857,1.590394,-0.104577,0.000000,2.167829,1.855777,-0.741441,2.037093,1.855777,
-		          -1.393453,1.660653,1.855777,-1.877395,1.083914,1.855777,-2.134895,0.376439,1.855777,-2.134895,-0.376440,1.855777,
-		          -1.877395,-1.083914,1.855777,-1.393453,-1.660653,1.855777,-0.741441,-2.037092,1.855777,-0.000000,-2.167828,1.855777,
+		          -1.393453,1.660653,1.855777,-1.567492,1.083914,1.855777,-1.824992,0.376439,1.855777,-1.824992,-0.376440,1.855777,
+		          -1.567492,-1.083914,1.855777,-1.393453,-1.660653,1.855777,-0.741441,-2.037092,1.855777,-0.000000,-2.167828,1.855777,
 		          0.741441,-2.037092,1.855777,1.393453,-1.660653,1.855777,1.877394,-1.083915,1.855777,2.134894,-0.376440,1.855777,
 		          2.134895,0.376438,1.855777,1.877395,1.083913,1.855777,1.393455,1.660652,1.855777,0.741443,2.037092,1.855777,
-		          -0.000000,2.378787,2.720224,-0.813593,2.235328,2.720224,-1.529055,1.822256,2.720224,-2.060090,1.189393,2.720224,
-		          -2.342648,0.413072,2.720224,-2.342648,-0.413072,2.720224,-2.060090,-1.189393,2.720224,-1.529055,-1.822256,2.720224,
+		          -0.000000,2.378787,2.720224,-0.813593,2.235328,2.720224,-1.529055,1.822256,2.720224,-1.750187,1.189393,2.720224,
+		          -2.032745,0.413072,2.720224,-2.032745,-0.413072,2.720224,-1.750187,-1.189393,2.720224,-1.529055,-1.822256,2.720224,
 		          -0.813593,-2.235328,2.720224,-0.000000,-2.378787,2.720224,0.813593,-2.235328,2.720224,1.529054,-1.822257,2.720224,
 		          2.060089,-1.189394,2.720224,2.342647,-0.413073,2.720224,2.342648,0.413071,2.720224,2.060091,1.189392,2.720224,
 		          1.529056,1.822255,2.720224,0.813595,2.235328,2.720224
@@ -4607,47 +3993,86 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "Direct"
-			Normals: 0.224769,-0.617542,0.753716,0.422407,-0.503433,0.753716,0.569109,-0.328593,0.753716,0.647175,-0.114109,0.753716,
-			         0.647175,0.114109,0.753716,0.569109,0.328593,0.753716,0.422407,0.503433,0.753716,0.224769,0.617542,0.753716,
+			Normals: 0.224769,-0.617542,0.753716,0.477004,-0.460768,0.748405,0.641926,-0.284524,0.711997,0.702292,-0.121616,0.701376,
+			         0.702292,0.121616,0.701376,0.641926,0.284524,0.711997,0.477004,0.460768,0.748405,0.224769,0.617542,0.753716,
 			         0.000000,0.657186,0.753716,-0.224769,0.617542,0.753716,-0.422407,0.503433,0.753716,-0.569109,0.328593,0.753716,
 			         -0.647175,0.114109,0.753716,-0.647175,-0.114109,0.753716,-0.569140,-0.328562,0.753716,-0.422407,-0.503403,0.753716,
 			         -0.224769,-0.617542,0.753716,0.000000,-0.657186,0.753716,-0.224769,-0.617542,0.753716,-0.332316,-0.913053,0.236366,
-			         0.000000,-0.971648,0.236366,0.000000,-0.657186,0.753716,0.569109,0.328593,0.753716,0.841456,0.485824,0.236366,
-			         0.624561,0.744316,0.236366,0.422407,0.503433,0.753716,0.647175,-0.114109,0.753716,0.956877,-0.168706,0.236366,
-			         0.956877,0.168706,0.236366,0.647175,0.114109,0.753716,-0.569140,-0.328562,0.753716,-0.841456,-0.485824,0.236366,
-			         -0.624561,-0.744316,0.236366,-0.422407,-0.503403,0.753716,0.422407,-0.503433,0.753716,0.624561,-0.744316,0.236366,
-			         0.841456,-0.485824,0.236366,0.569109,-0.328593,0.753716,-0.647175,0.114109,0.753716,-0.956877,0.168706,0.236366,
+			         0.000000,-0.971648,0.236366,0.000000,-0.657186,0.753716,0.641926,0.284524,0.711997,0.914060,0.364574,0.177587,
+			         0.731651,0.643727,0.224219,0.477004,0.460768,0.748405,0.702292,-0.121616,0.701376,0.971252,-0.172735,0.163640,
+			         0.971252,0.172735,0.163640,0.702292,0.121616,0.701376,-0.569140,-0.328562,0.753716,-0.841456,-0.485824,0.236366,
+			         -0.624561,-0.744316,0.236366,-0.422407,-0.503403,0.753716,0.477004,-0.460768,0.748405,0.731651,-0.643727,0.224219,
+			         0.914060,-0.364574,0.177587,0.641926,-0.284524,0.711997,-0.647175,0.114109,0.753716,-0.956877,0.168706,0.236366,
 			         -0.956877,-0.168706,0.236366,-0.647175,-0.114109,0.753716,0.000000,-0.657186,0.753716,0.000000,-0.971648,0.236366,
 			         0.332316,-0.913053,0.236366,0.224769,-0.617542,0.753716,-0.422407,0.503433,0.753716,-0.624561,0.744316,0.236366,
 			         -0.841456,0.485824,0.236366,-0.569109,0.328593,0.753716,0.000000,0.657186,0.753716,0.000000,0.971648,0.236366,
-			         -0.332316,0.913053,0.236366,-0.224769,0.617542,0.753716,0.422407,0.503433,0.753716,0.624561,0.744316,0.236366,
+			         -0.332316,0.913053,0.236366,-0.224769,0.617542,0.753716,0.477004,0.460768,0.748405,0.731651,0.643727,0.224219,
 			         0.332316,0.913053,0.236366,0.224769,0.617542,0.753716,-0.422407,-0.503403,0.753716,-0.624561,-0.744316,0.236366,
-			         -0.332316,-0.913053,0.236366,-0.224769,-0.617542,0.753716,0.647175,0.114109,0.753716,0.956877,0.168706,0.236366,
-			         0.841456,0.485824,0.236366,0.569109,0.328593,0.753716,0.569109,-0.328593,0.753716,0.841456,-0.485824,0.236366,
-			         0.956877,-0.168706,0.236366,0.647175,-0.114109,0.753716,-0.647175,-0.114109,0.753716,-0.956877,-0.168706,0.236366,
+			         -0.332316,-0.913053,0.236366,-0.224769,-0.617542,0.753716,0.702292,0.121616,0.701376,0.971252,0.172735,0.163640,
+			         0.914060,0.364574,0.177587,0.641926,0.284524,0.711997,0.641926,-0.284524,0.711997,0.914060,-0.364574,0.177587,
+			         0.971252,-0.172735,0.163640,0.702292,-0.121616,0.701376,-0.647175,-0.114109,0.753716,-0.956877,-0.168706,0.236366,
 			         -0.841456,-0.485824,0.236366,-0.569140,-0.328562,0.753716,0.224769,-0.617542,0.753716,0.332316,-0.913053,0.236366,
-			         0.624561,-0.744316,0.236366,0.422407,-0.503433,0.753716,-0.569109,0.328593,0.753716,-0.841456,0.485824,0.236366,
+			         0.731651,-0.643727,0.224219,0.477004,-0.460768,0.748405,-0.569109,0.328593,0.753716,-0.841456,0.485824,0.236366,
 			         -0.956877,0.168706,0.236366,-0.647175,0.114109,0.753716,-0.224769,0.617542,0.753716,-0.332316,0.913053,0.236366,
 			         -0.624561,0.744316,0.236366,-0.422407,0.503433,0.753716,0.224769,0.617542,0.753716,0.332316,0.913053,0.236366,
 			         0.000000,0.971648,0.236366,0.000000,0.657186,0.753716,0.332316,-0.913053,0.236366,0.000000,-0.971648,0.236366,
 			         -0.000000,-0.971490,0.237081,0.332269,-0.912902,0.237081,-0.841456,0.485824,0.236366,-0.624561,0.744316,0.236366,
 			         -0.624461,0.744205,0.237081,-0.841335,0.485745,0.237081,-0.332316,0.913053,0.236366,0.000000,0.971648,0.236366,
-			         0.000000,0.971490,0.237081,-0.332269,0.912902,0.237081,0.332316,0.913053,0.236366,0.624561,0.744316,0.236366,
-			         0.624461,0.744205,0.237081,0.332269,0.912902,0.237081,-0.332316,-0.913053,0.236366,-0.624561,-0.744316,0.236366,
-			         -0.624462,-0.744204,0.237081,-0.332270,-0.912902,0.237081,0.841456,0.485824,0.236366,0.956877,0.168706,0.236366,
-			         0.956731,0.168698,0.237081,0.841335,0.485745,0.237081,0.956877,-0.168706,0.236366,0.841456,-0.485824,0.236366,
-			         0.841335,-0.485745,0.237081,0.956731,-0.168697,0.237081,-0.841456,-0.485824,0.236366,-0.956877,-0.168706,0.236366,
-			         -0.956731,-0.168697,0.237081,-0.841335,-0.485744,0.237081,0.624561,-0.744316,0.236366,0.332316,-0.913053,0.236366,
-			         0.332269,-0.912902,0.237081,0.624462,-0.744205,0.237081,-0.956877,0.168706,0.236366,-0.841456,0.485824,0.236366,
+			         0.000000,0.971490,0.237081,-0.332269,0.912902,0.237081,0.332316,0.913053,0.236366,0.731651,0.643727,0.224219,
+			         0.747857,0.618584,0.240963,0.332269,0.912902,0.237081,-0.332316,-0.913053,0.236366,-0.624561,-0.744316,0.236366,
+			         -0.624462,-0.744204,0.237081,-0.332270,-0.912902,0.237081,0.914060,0.364574,0.177587,0.971252,0.172735,0.163640,
+			         0.956731,0.168698,0.237081,0.921070,0.317478,0.225473,0.971252,-0.172735,0.163640,0.914060,-0.364574,0.177587,
+			         0.921070,-0.317478,0.225473,0.956731,-0.168697,0.237081,-0.841456,-0.485824,0.236366,-0.956877,-0.168706,0.236366,
+			         -0.956731,-0.168697,0.237081,-0.841335,-0.485744,0.237081,0.731651,-0.643727,0.224219,0.332316,-0.913053,0.236366,
+			         0.332269,-0.912902,0.237081,0.747857,-0.618584,0.240963,-0.956877,0.168706,0.236366,-0.841456,0.485824,0.236366,
 			         -0.841335,0.485745,0.237081,-0.956731,0.168698,0.237081,-0.624561,0.744316,0.236366,-0.332316,0.913053,0.236366,
 			         -0.332269,0.912902,0.237081,-0.624461,0.744205,0.237081,0.000000,0.971648,0.236366,0.332316,0.913053,0.236366,
 			         0.332269,0.912902,0.237081,0.000000,0.971490,0.237081,0.000000,-0.971648,0.236366,-0.332316,-0.913053,0.236366,
-			         -0.332270,-0.912902,0.237081,-0.000000,-0.971490,0.237081,0.624561,0.744316,0.236366,0.841456,0.485824,0.236366,
-			         0.841335,0.485745,0.237081,0.624461,0.744205,0.237081,0.956877,0.168706,0.236366,0.956877,-0.168706,0.236366,
+			         -0.332270,-0.912902,0.237081,-0.000000,-0.971490,0.237081,0.731651,0.643727,0.224219,0.914060,0.364574,0.177587,
+			         0.921070,0.317478,0.225473,0.747857,0.618584,0.240963,0.971252,0.172735,0.163640,0.971252,-0.172735,0.163640,
 			         0.956731,-0.168697,0.237081,0.956731,0.168698,0.237081,-0.624561,-0.744316,0.236366,-0.841456,-0.485824,0.236366,
-			         -0.841335,-0.485744,0.237081,-0.624462,-0.744204,0.237081,0.841456,-0.485824,0.236366,0.624561,-0.744316,0.236366,
-			         0.624462,-0.744205,0.237081,0.841335,-0.485745,0.237081,-0.956877,-0.168706,0.236366,-0.956877,0.168706,0.236366,
+			         -0.841335,-0.485744,0.237081,-0.624462,-0.744204,0.237081,0.914060,-0.364574,0.177587,0.731651,-0.643727,0.224219,
+			         0.747857,-0.618584,0.240963,0.921070,-0.317478,0.225473,-0.956877,-0.168706,0.236366,-0.956877,0.168706,0.236366,
 			         -0.956731,0.168698,0.237081,-0.956731,-0.168697,0.237081
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: 0.299223,0.847639,0.072274,0.914001,0.251799,0.780668,0.270368,0.938683,0.225549,0.938856,0.246837,0.940633,
+			    0.246837,0.912213,0.180541,0.892120,0.049695,0.892645,0.049695,0.911540,0.159080,0.802030,0.159080,0.868769,
+			    0.114093,0.898372,0.223478,0.710552,0.223478,0.852976,0.113921,0.866762,0.159080,0.731914,0.287703,0.715879,
+			    0.251799,0.807324,0.159080,0.958332,0.159080,0.801858,0.159080,0.891948,0.159080,0.710552,0.049695,0.821622,
+			    0.104301,0.821450,0.085337,0.818106,0.068660,0.808477,0.223478,0.910264,0.251971,0.780668,0.261535,0.900311,
+			    0.284578,0.845863,0.113921,0.847505,0.113921,0.829409,0.251799,0.857419,0.123266,0.818106,0.223305,0.813960,
+			    0.223305,0.866065,0.223305,0.791847,0.091030,0.940244,0.265648,0.835117,0.280292,0.784124,0.049695,0.844801,
+			    0.139943,0.808477,0.142414,0.940618,0.114093,0.945913,0.159080,0.780496,0.159080,0.756205,0.223305,0.756205,
+			    0.114093,0.821622,0.070449,0.942755,0.223478,0.783032,0.251799,0.833979,0.142414,0.893930,0.287703,0.770485,
+			    0.142414,0.823986,0.180541,0.938288,0.223305,0.846808,0.208862,0.916310,0.180541,0.912854,0.223478,0.861047,
+			    0.251799,0.857591,0.251799,0.883025,0.270368,0.910264,0.251971,0.806102,0.251799,0.910091,0.051520,0.940466,
+			    0.223478,0.884225,0.070276,0.942755,0.114093,0.848277,0.180368,0.892120,0.091030,0.911712,0.158908,0.756373,
+			    0.158908,0.775630,0.152321,0.793725,0.056281,0.793725,0.049695,0.775630,0.049695,0.756373,0.223305,0.775170,
+			    0.049695,0.869466,0.159080,0.820925,0.159080,0.844103,0.142414,0.921723,0.114093,0.899745,0.280292,0.807303,
+			    0.223305,0.737240,0.113921,0.884858,0.299223,0.782943,0.223305,0.828712,0.208862,0.939488,0.247009,0.940633,
+			    0.223478,0.908891,0.070276,0.914224,0.280292,0.831969,0.251971,0.833169,0.142414,0.848277,0.142414,0.872569,
+			    0.114093,0.874932,0.142414,0.898545,0.114093,0.925179,0.280292,0.898037,0.280292,0.833341,0.287703,0.734844,
+			    0.223478,0.734844,0.223478,0.759135,0.287703,0.753808,0.163748,0.893499,0.180368,0.956566,0.223478,0.807324,
+			    0.223478,0.831615,0.139943,0.723525,0.056281,0.738277,0.068660,0.723525,0.085337,0.713896,0.104301,0.710552,
+			    0.123266,0.713896,0.152321,0.738277,0.223305,0.884161,0.223305,0.720563,0.223478,0.780496,0.208862,0.897415,
+			    0.049695,0.911712,0.249080,0.912040,0.113921,0.899610,0.280465,0.780668
+			UVIndex: 110,111,112,113,114,109,115,71,72,73,42,34,24,25,26,74,75,76,77,45,46,47,87,79,10,35,36,11,80,56,85,8,9,122,30,123,86,0,31,41,78,15,47,46,16,84,39,29,99,100,101,102,103,104,105,19,106,69,37,20,45,77,56,80,
+			         79,87,116,21,11,36,15,78,8,85,84,16,22,117,32,23,41,31,104,103,118,53,17,13,102,101,54,94,68,48,70,1,49,38,50,107,18,2,108,14,33,51,95,52,12,96,57,88,55,58,66,59,60,61,81,97,82,98,121,62,3,89,83,40,
+			         28,63,4,5,6,27,107,108,51,18,94,95,96,68,119,57,58,7,90,66,61,64,43,81,98,44,67,65,120,91,92,83,63,93
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 0
 		}
 		LayerElementMaterial: 0 {
 			Version: 101
@@ -4660,6 +4085,10 @@ Objects:  {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -4677,7 +4106,7 @@ Objects:  {
 		Properties60:  {
 			Property: "QuaternionInterpolate", "bool", "",0
 			Property: "Visibility", "Visibility", "A+",1
-			Property: "Lcl Translation", "Lcl Translation", "A+",-0.751083076000214,0.013572026044130,-0.036220967769623
+			Property: "Lcl Translation", "Lcl Translation", "A+",-2.771579265594482,0.013572026044130,-0.036220967769623
 			Property: "Lcl Rotation", "Lcl Rotation", "A+",-90.000009334538021,0.000000000000000,0.000000000000000
 			Property: "Lcl Scaling", "Lcl Scaling", "A+",2.973724842071533,1.858469724655151,1.000000000000000
 			Property: "RotationOffset", "Vector3D", "",0,0,0
@@ -4751,17 +4180,17 @@ Objects:  {
 		MultiTake: 1
 		Shading: Y
 		Culling: "CullingOff"
-		Vertices: 1.143435,-1.599133,0.000000,1.143435,1.599133,0.000000,-1.565041,0.832154,0.000009,-1.659824,0.707689,0.000009,
-		          -1.795411,0.382999,0.000009,-1.737610,-0.556028,0.000009,-1.565041,-0.832154,0.000009,-1.339569,-0.981593,0.000009,
-		          -1.187606,-1.026916,0.000000,-1.659824,-0.707689,0.000009,-1.795411,-0.382998,0.000009,-1.831004,-0.195251,0.000009,
-		          -1.843022,0.000000,0.000009,-1.831004,0.195251,0.000009,-1.737610,0.556028,0.000009,-1.456904,0.924640,0.000009,
-		          -1.339569,0.981593,0.000009,-1.187606,1.026916,0.000000,-1.456904,-0.924640,0.000009,1.143435,-1.599133,0.665340,
-		          -1.187606,-1.026916,0.665340,-1.565041,-0.832154,0.665350,-1.659824,-0.707689,0.665350,-1.737610,-0.556028,0.665350,
-		          -1.795411,-0.382998,0.550440,-1.831004,-0.195251,0.277529,-1.831004,0.195251,0.277529,-1.795411,0.382999,0.550440,
-		          -1.737610,0.556028,0.665350,-1.659824,0.707689,0.665350,-1.565041,0.832154,0.665350,-1.456904,0.924640,0.665350,
-		          -1.339569,0.981593,0.665350,1.143435,1.599133,0.665340,-1.187606,1.026916,0.665340,-1.456904,-0.924640,0.665350,
-		          -1.339569,-0.981593,0.665350,1.679335,0.799566,0.665340,1.679335,-0.799566,0.665340,1.679335,0.000000,0.665340,
-		          1.679335,0.000000,0.000000,1.679335,0.799566,0.000000,1.679335,-0.799566,0.000000
+		Vertices: 1.172999,-3.337935,0.000000,1.172999,3.337935,0.000000,-1.565041,1.030686,0.000009,-1.659824,0.876527,0.000009,
+		          -1.795411,0.474373,0.000009,-1.737610,-0.688683,0.000009,-1.565041,-1.030686,0.000009,-1.339569,-1.215777,0.000009,
+		          -1.187606,-1.338243,0.000000,-1.659824,-0.876527,0.000009,-1.795411,-0.474373,0.000009,-1.831004,-0.241833,0.000009,
+		          -1.843022,0.000000,0.000009,-1.831004,0.241833,0.000009,-1.737610,0.688683,0.000009,-1.456904,1.145237,0.000009,
+		          -1.339569,1.215777,0.000009,-1.187606,1.338243,0.000000,-1.456904,-1.145237,0.000009,1.172999,-3.337935,0.665340,
+		          -1.187606,-1.338243,0.345184,-1.565041,-1.030686,0.345194,-1.659824,-0.876527,0.345194,-1.737610,-0.688683,0.345194,
+		          -1.795411,-0.474373,0.230284,-1.831004,-0.241833,-0.042627,-1.831004,0.241833,-0.042627,-1.795411,0.474373,0.230284,
+		          -1.737610,0.688683,0.345194,-1.659824,0.876527,0.345194,-1.565041,1.030686,0.345194,-1.456904,1.145237,0.345194,
+		          -1.339569,1.215777,0.345194,1.172999,3.337935,0.665340,-1.187606,1.338243,0.345184,-1.456904,-1.145237,0.345194,
+		          -1.339569,-1.215777,0.345194,2.845740,2.822637,0.665340,2.845740,-2.822637,0.665340,3.762555,0.000000,0.665340,
+		          3.762555,0.000000,0.000000,2.845740,2.822637,0.000000,2.845740,-2.822637,0.000000
 		PolygonVertexIndex: 8,0,42,40,41,1,-18,16,15,2,3,14,4,13,12,11,10,5,9,6,18,7,8,-18,17,1,33,-35,13,4,27,-27,
 		                    0,8,20,-20,0,19,38,-43,4,14,28,-28,6,9,22,-22,14,3,29,-29,9,5,23,-23,18,6,21,-36,3,2,30,-30,
 		                    5,10,24,-24,7,18,35,-37,2,15,31,-31,10,11,25,-25,16,17,34,-33,15,16,32,-32,8,7,36,-21,39,40,42,-39,
@@ -4772,32 +4201,32 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "Direct"
-			Normals: 0.186804,0.687613,0.701621,-0.289682,0.747307,0.597980,-0.729392,0.221809,0.647084,-0.707083,0.000000,0.707083,
-			         -0.729392,-0.221809,0.647084,-0.289682,-0.747307,0.597980,0.186804,-0.687613,0.701621,0.262551,-0.675161,0.689322,
-			         0.401898,-0.613788,0.679495,0.530229,-0.500961,0.683981,0.614124,-0.387066,0.687735,0.666768,-0.280435,0.690451,
-			         0.698355,-0.181921,0.692221,0.453889,-0.086046,0.886894,0.000018,0.000000,1.000000,0.453889,0.086046,0.886894,
-			         0.698355,0.181921,0.692221,0.666768,0.280435,0.690451,0.614124,0.387066,0.687735,0.530229,0.500961,0.683981,
-			         0.401898,0.613788,0.679495,0.262551,0.675192,0.689322,0.186804,0.687613,0.701621,0.186804,-0.687613,0.701621,
-			         0.186804,-0.687613,0.701621,-0.289682,-0.747307,0.597980,-0.361433,-0.932398,0.000000,0.262185,-0.965017,0.000000,
-			         0.453889,-0.086046,0.886894,0.698355,-0.181921,0.692221,0.957563,-0.288223,0.000000,0.982500,-0.186263,0.000000,
-			         -0.289682,0.747307,0.597980,0.186804,0.687613,0.701621,0.262185,0.965017,0.000000,-0.361433,0.932398,0.000000,
-			         -0.289682,0.747307,0.597980,-0.361433,0.932398,0.000000,-0.956734,0.290965,0.000000,-0.729392,0.221809,0.647084,
-			         0.698355,-0.181921,0.692221,0.666768,-0.280435,0.690451,0.915240,-0.402908,0.000000,0.957563,-0.288223,0.000000,
-			         0.530229,0.500961,0.683981,0.614124,0.387066,0.687735,0.845993,0.533194,0.000000,0.726870,0.686775,0.000000,
-			         0.666768,-0.280435,0.690451,0.614124,-0.387066,0.687735,0.845993,-0.533194,0.000000,0.915240,-0.402908,0.000000,
-			         0.614124,0.387066,0.687735,0.666768,0.280435,0.690451,0.915241,0.402908,0.000000,0.845993,0.533194,0.000000,
-			         0.401898,0.613788,0.679495,0.530229,0.500961,0.683981,0.726870,0.686775,0.000000,0.547785,0.836619,0.000000,
-			         0.614124,-0.387066,0.687735,0.530229,-0.500961,0.683981,0.726870,-0.686775,0.000000,0.845993,-0.533194,0.000000,
-			         0.666768,0.280435,0.690451,0.698355,0.181921,0.692221,0.957563,0.288222,0.000000,0.915241,0.402908,0.000000,
-			         0.262551,0.675192,0.689322,0.401898,0.613788,0.679495,0.547785,0.836619,0.000000,0.362428,0.932012,0.000000,
-			         0.530229,-0.500961,0.683981,0.401898,-0.613788,0.679495,0.547785,-0.836619,0.000000,0.726870,-0.686775,0.000000,
-			         0.698355,0.181921,0.692221,0.453889,0.086046,0.886894,0.982500,0.186263,0.000000,0.957563,0.288222,0.000000,
-			         0.262551,-0.675161,0.689322,0.186804,-0.687613,0.701621,0.262185,-0.965017,0.000000,0.362428,-0.932012,0.000000,
-			         0.401898,-0.613788,0.679495,0.262551,-0.675161,0.689322,0.362428,-0.932012,0.000000,0.547785,-0.836619,0.000000,
-			         0.186804,0.687613,0.701621,0.262551,0.675192,0.689322,0.362428,0.932012,0.000000,0.262185,0.965017,0.000000,
-			         -1.000000,0.000000,0.000000,-0.707083,0.000000,0.707083,-0.729392,0.221809,0.647084,-0.956734,0.290965,0.000000,
-			         -0.956734,-0.290965,0.000000,-0.729392,-0.221809,0.647084,-0.707083,0.000000,0.707083,-1.000000,0.000000,0.000000,
-			         -0.289682,-0.747307,0.597980,-0.729392,-0.221809,0.647084,-0.956734,-0.290965,0.000000,-0.361433,-0.932398,0.000000
+			Normals: 0.448622,0.542924,0.709861,0.158452,0.773766,0.613300,-0.552416,0.560900,0.616596,-0.765221,0.000000,0.643727,
+			         -0.552416,-0.560900,0.616596,0.158452,-0.773766,0.613300,0.448622,-0.542924,0.709861,0.413434,-0.591754,0.692007,
+			         0.461043,-0.572771,0.677725,0.578417,-0.443312,0.684744,0.644948,-0.329173,0.689688,0.682607,-0.232276,0.692831,
+			         0.703757,-0.148259,0.694754,0.453853,-0.069466,0.888365,0.000018,0.000000,1.000000,0.453853,0.069466,0.888365,
+			         0.703757,0.148259,0.694754,0.682607,0.232276,0.692831,0.644948,0.329173,0.689688,0.578417,0.443312,0.684744,
+			         0.461043,0.572771,0.677725,0.413434,0.591754,0.692007,0.448622,0.542924,0.709861,0.448622,-0.542924,0.709861,
+			         0.448622,-0.542924,0.709861,0.158452,-0.773766,0.613300,0.182390,-0.983226,0.000000,0.637276,-0.770636,0.000000,
+			         0.453853,-0.069466,0.888365,0.703757,-0.148259,0.694754,0.972583,-0.232555,0.000000,0.988488,-0.151302,0.000000,
+			         0.158452,0.773766,0.613300,0.448622,0.542924,0.709861,0.637276,0.770635,0.000000,0.182390,0.983226,0.000000,
+			         0.158452,0.773766,0.613300,0.182390,0.983226,0.000000,-0.701703,0.712470,0.000000,-0.552416,0.560900,0.616596,
+			         0.703757,-0.148259,0.694754,0.682607,-0.232276,0.692831,0.942883,-0.333125,0.000000,0.972583,-0.232555,0.000000,
+			         0.578417,0.443312,0.684744,0.644948,0.329173,0.689688,0.890693,0.454606,0.000000,0.793699,0.608310,0.000000,
+			         0.682607,-0.232276,0.692831,0.644948,-0.329173,0.689688,0.890693,-0.454606,0.000000,0.942883,-0.333125,0.000000,
+			         0.644948,0.329173,0.689688,0.682607,0.232276,0.692831,0.942883,0.333125,0.000000,0.890693,0.454606,0.000000,
+			         0.461043,0.572771,0.677725,0.578417,0.443312,0.684744,0.793699,0.608310,0.000000,0.627035,0.778991,0.000000,
+			         0.644948,-0.329173,0.689688,0.578417,-0.443312,0.684744,0.793699,-0.608310,0.000000,0.890693,-0.454606,0.000000,
+			         0.682607,0.232276,0.692831,0.703757,0.148259,0.694754,0.972583,0.232555,0.000000,0.942883,0.333125,0.000000,
+			         0.413434,0.591754,0.692007,0.461043,0.572771,0.677725,0.627035,0.778991,0.000000,0.572709,0.819759,0.000000,
+			         0.578417,-0.443312,0.684744,0.461043,-0.572771,0.677725,0.627035,-0.778991,0.000000,0.793699,-0.608310,0.000000,
+			         0.703757,0.148259,0.694754,0.453853,0.069466,0.888365,0.988488,0.151302,0.000000,0.972583,0.232555,0.000000,
+			         0.413434,-0.591754,0.692007,0.448622,-0.542924,0.709861,0.637276,-0.770636,0.000000,0.572709,-0.819759,0.000000,
+			         0.461043,-0.572771,0.677725,0.413434,-0.591754,0.692007,0.572709,-0.819759,0.000000,0.627035,-0.778991,0.000000,
+			         0.448622,0.542924,0.709861,0.413434,0.591754,0.692007,0.572709,0.819759,0.000000,0.637276,0.770635,0.000000,
+			         -1.000000,0.000000,0.000000,-0.765221,0.000000,0.643727,-0.552416,0.560900,0.616596,-0.701703,0.712470,0.000000,
+			         -0.701703,-0.712470,0.000000,-0.552416,-0.560900,0.616596,-0.765221,0.000000,0.643727,-1.000000,0.000000,0.000000,
+			         0.158452,-0.773766,0.613300,-0.552416,-0.560900,0.616596,-0.701703,-0.712470,0.000000,0.182390,-0.983226,0.000000
 		}
 		LayerElementUV: 0 {
 			Version: 101
@@ -4805,16 +4234,16 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: 0.077269,0.614065,0.044654,0.616694,0.156277,0.603866,0.160315,0.599789,0.163868,0.594471,0.042868,0.591667,
-			    0.042868,0.611252,0.870092,0.636657,0.804802,0.871366,0.098053,0.909755,0.078421,0.903800,0.060328,0.894129,
-			    0.015828,0.786696,0.021783,0.767064,0.031454,0.748971,0.044469,0.733112,0.060328,0.720097,0.078421,0.710426,
-			    0.098053,0.704471,0.156277,0.623450,0.960652,0.839217,0.960890,0.434188,0.150199,0.627153,0.688923,0.872449,
+			    0.042868,0.611252,0.870092,0.636657,0.804802,0.871366,0.077868,0.868030,0.068277,0.864426,0.059438,0.858574,
+			    0.037698,0.793568,0.040607,0.781689,0.045332,0.770741,0.051690,0.761145,0.059438,0.753270,0.068277,0.747418,
+			    0.077868,0.743814,0.156277,0.623450,0.960652,0.839217,0.960890,0.434188,0.150199,0.627153,0.688923,0.872449,
 			    0.044654,0.597109,0.807559,0.512425,0.088123,0.623750,0.869974,0.839171,0.142315,0.610754,0.067411,0.611782,
-			    0.067411,0.631367,0.047327,0.620926,0.150199,0.607568,0.021783,0.847162,0.015828,0.827530,0.013817,0.807113,
-			    0.513501,0.974329,0.123479,0.699731,0.513501,0.639896,0.603167,0.723505,0.603167,0.807113,0.603167,0.890721,
-			    0.123479,0.914494,0.163868,0.614056,0.160314,0.619374,0.088123,0.615581,0.691680,0.513508,0.058929,0.608822,
+			    0.067411,0.631367,0.047327,0.620926,0.150199,0.607568,0.040607,0.830155,0.037698,0.818276,0.036716,0.805922,
+			    0.283246,0.976440,0.090290,0.737558,0.283246,0.635404,0.419977,0.661728,0.494918,0.805922,0.419977,0.950116,
+			    0.090290,0.874286,0.163868,0.614056,0.160314,0.619374,0.088123,0.615581,0.691680,0.513508,0.058929,0.608822,
 			    0.058929,0.628406,0.052147,0.624881,0.052147,0.605296,0.044378,0.330706,0.677592,0.330686,0.677152,0.390705,
 			    0.043938,0.390725,1.000136,0.878663,1.000136,0.997588,0.612089,0.999814,0.612089,0.880889,0.132928,0.613300,
-			    0.132928,0.632885,0.044469,0.881114,0.031454,0.865255,0.043555,0.433369,0.637115,0.432362,0.637981,0.488932,
+			    0.132928,0.632885,0.051690,0.850699,0.045332,0.841103,0.043555,0.433369,0.637115,0.432362,0.637981,0.488932,
 			    0.044421,0.489939,0.111130,0.616114,0.122398,0.615111,0.122398,0.631313,0.111130,0.624283,0.077269,0.630267,
 			    0.870211,0.434142,0.960771,0.636703,0.142315,0.630338,0.047327,0.601341
 			UVIndex: 37,38,39,40,41,36,42,9,10,11,61,62,33,34,35,12,13,14,15,16,17,18,37,42,63,64,65,66,67,68,69,70,51,52,53,54,55,56,57,58,68,59,60,69,50,47,48,49,59,28,74,60,47,29,30,48,75,50,49,31,28,32,22,74,
@@ -5934,6 +5363,36 @@ Objects:  {
 		AudioColor: 0,1,0
 		CameraOrthoZoom: 1
 	}
+	Material: "Material::Material_001__StadiumInteriorText", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties60:  {
+			Property: "ShadingModel", "KString", "", "Lambert"
+			Property: "MultiLayer", "bool", "",0
+			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "EmissiveFactor", "double", "",0.0000
+			Property: "AmbientColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "AmbientFactor", "double", "",1.0000
+			Property: "DiffuseColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "DiffuseFactor", "double", "",0.8000
+			Property: "Bump", "Vector3D", "",0,0,0
+			Property: "TransparentColor", "ColorRGB", "",1,1,1
+			Property: "TransparencyFactor", "double", "",0.0000
+			Property: "SpecularColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "SpecularFactor", "double", "",0.5000
+			Property: "ShininessExponent", "double", "",12.3
+			Property: "ReflectionColor", "ColorRGB", "",0,0,0
+			Property: "ReflectionFactor", "double", "",1
+			Property: "Emissive", "ColorRGB", "",0,0,0
+			Property: "Ambient", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.8
+			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Shininess", "double", "",12.3
+			Property: "Opacity", "double", "",1.0
+			Property: "Reflectivity", "double", "",0
+		}
+	}
 	Material: "Material::Material__StadiumText", "" {
 		Version: 102
 		ShadingModel: "lambert"
@@ -5994,6 +5453,27 @@ Objects:  {
 			Property: "Reflectivity", "double", "",0
 		}
 	}
+	Video: "Video::StadiumInteriorText", "Clip" {
+		Type: "Clip"
+		Properties60:  {
+			Property: "FrameRate", "double", "",0
+			Property: "LastFrame", "int", "",0
+			Property: "Width", "int", "",0
+			Property: "Height", "int", "",0
+			Property: "Path", "charptr", "", "StadiumInteriorText.png"
+			Property: "StartFrame", "int", "",0
+			Property: "StopFrame", "int", "",0
+			Property: "PlaySpeed", "double", "",1
+			Property: "Offset", "KTime", "",0
+			Property: "InterlaceMode", "enum", "",0
+			Property: "FreeRunning", "bool", "",0
+			Property: "Loop", "bool", "",0
+			Property: "AccessMode", "enum", "",0
+		}
+		UseMipMap: 0
+		Filename: "StadiumInteriorText.png"
+		RelativeFilename: "StadiumInteriorText.png"
+	}
 	Video: "Video::StadiumText", "Clip" {
 		Type: "Clip"
 		Properties60:  {
@@ -6015,6 +5495,35 @@ Objects:  {
 		Filename: "StadiumText.png"
 		RelativeFilename: "StadiumText.png"
 	}
+	Texture: "Texture::StadiumInteriorText", "TextureVideoClip" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::StadiumInteriorText"
+		Properties60:  {
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "Texture alpha", "Number", "A+",0
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UseMaterial", "bool", "",0
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "VideoProperty", "object", ""
+		}
+		Media: "Video::StadiumInteriorText"
+		FileName: "StadiumInteriorText.png"
+		RelativeFilename: "StadiumInteriorText.png"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
 	Texture: "Texture::StadiumText", "TextureVideoClip" {
 		Type: "TextureVideoClip"
 		Version: 202
@@ -6023,7 +5532,7 @@ Objects:  {
 			Property: "Translation", "Vector", "A+",0,0,0
 			Property: "Rotation", "Vector", "A+",0,0,0
 			Property: "Scaling", "Vector", "A+",1,1,1
-			Property: "Texture alpha", "Number", "A+",0
+			Property: "Texture alpha", "Number", "A+",1
 			Property: "TextureTypeUse", "enum", "",0
 			Property: "CurrentTextureBlendMode", "enum", "",1
 			Property: "UseMaterial", "bool", "",0
@@ -6049,130 +5558,114 @@ Objects:  {
 		Version: 100
 		Properties60:  {
 		}
-		NbPoseNodes: 31
+		NbPoseNodes: 27
 		PoseNode:  {
 			Node: "Model::Cylinder"
-			Matrix: 0.000000000000006,-0.000000075497901,-1.000000000000000,0.000000000000000,-0.000000075497901,1.000000000000000,-0.000000075497901,0.000000000000000,1.000000000000000,0.000000075497901,0.000000000000000,0.000000000000000,6.880644798278809,3.474583148956299,-0.194224357604980,1.000000000000000
+			Matrix: 0.000000000000009,-0.000000122274571,-1.619575738906860,0.000000000000000,-0.000000122274571,1.619575738906860,-0.000000122274571,0.000000000000000,1.619575738906860,0.000000122274571,0.000000000000000,0.000000000000000,11.484812736511230,5.468657970428467,-0.246906280517578,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_014"
-			Matrix: 0.000000004376428,0.000000000000000,-1.511770486831665,0.000000000000000,-0.057967547327280,0.000000000000000,-0.000000114135496,0.000000000000000,0.000000000000000,0.753491282463074,0.000000000000000,0.000000000000000,6.359782218933105,3.029319524765015,-0.177957534790039,1.000000000000000
-		}
-		PoseNode:  {
-			Node: "Model::Cube_013"
-			Matrix: -0.209939777851105,0.000000000000000,-0.257979482412338,0.000000000000000,-0.097863838076591,0.000000000000000,0.079640068113804,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-5.333693504333496,0.130953595042229,-2.039988279342651,1.000000000000000
+			Matrix: 0.000000007087957,0.000000000000000,-2.448426723480225,0.000000000000000,-0.093882836401463,0.000000000000000,-0.000000184851075,0.000000000000000,0.000000000000000,1.220336198806763,0.000000000000000,0.000000000000000,10.641236305236816,4.747519493103027,-0.220560938119888,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_012"
-			Matrix: -0.209939777851105,0.000000000000000,-0.257979482412338,0.000000000000000,-0.097863838076591,0.000000000000000,0.079640068113804,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-4.680080413818359,0.130953595042229,-2.609156370162964,1.000000000000000
-		}
-		PoseNode:  {
-			Node: "Model::Cube_011"
-			Matrix: -0.186610355973244,0.000000000000000,0.275326579809189,0.000000000000000,0.104444377124310,0.000000000000000,0.070790149271488,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-5.165942668914795,0.093180373311043,2.309651613235474,1.000000000000000
+			Matrix: -0.370490223169327,0.000000000000000,-0.455268055200577,0.000000000000000,-0.168040722608566,0.000000000000000,0.136748939752579,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,-6.951670646667480,0.053396806120872,-4.311263084411621,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_010"
-			Matrix: -0.186610355973244,0.000000000000000,0.275326579809189,0.000000000000000,0.104444377124310,0.000000000000000,0.070790149271488,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-4.415482521057129,0.093180373311043,2.770520448684692,1.000000000000000
+			Matrix: -0.332911014556885,0.000000000000000,0.491179913282394,0.000000000000000,0.177250877022743,0.000000000000000,0.120136827230453,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,-6.810120582580566,-0.007779777050018,5.275985240936279,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_009"
-			Matrix: -0.013866529799998,0.000000000000000,0.332318902015686,0.000000000000000,0.126064285635948,0.000000000000000,0.005260252393782,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-0.824997663497925,0.119843527674675,4.009601593017578,1.000000000000000
+			Matrix: -0.025712111964822,0.000000000000000,0.616204738616943,0.000000000000000,0.204225912690163,0.000000000000000,0.008521689102054,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,-0.995058298110962,0.035403206944466,7.574034214019775,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_008"
-			Matrix: 0.004353007767349,0.000000000000000,0.332579582929611,0.000000000000000,0.126163169741631,0.000000000000000,-0.001651280093938,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-0.040437951683998,0.119843527674675,4.009601593017578,1.000000000000000
+			Matrix: 0.008073098957539,0.000000000000000,0.616802811622620,0.000000000000000,0.204336225986481,0.000000000000000,-0.002674438524991,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,0.275595664978027,0.035403206944466,7.574034214019775,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_007"
-			Matrix: 0.172811657190323,0.000000000000000,0.284190535545349,0.000000000000000,0.107806928455830,0.000000000000000,-0.065555617213249,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,3.715762138366699,0.365643501281738,3.385980129241943,1.000000000000000
+			Matrix: 0.310062408447266,0.000000000000000,0.509900748729706,0.000000000000000,0.181790828704834,0.000000000000000,-0.110544003546238,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,6.359045982360840,0.433494865894318,6.417441368103027,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_006"
-			Matrix: 0.172811657190323,0.000000000000000,0.284190535545349,0.000000000000000,0.107806928455830,0.000000000000000,-0.065555617213249,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,4.323049068450928,0.365643501281738,2.815332889556885,1.000000000000000
+			Matrix: 0.310062408447266,0.000000000000000,0.509900748729706,0.000000000000000,0.181790828704834,0.000000000000000,-0.110544003546238,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,7.342593193054199,0.433494865894318,5.359096050262451,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Cube_005"
-			Matrix: 0.332010775804520,0.000000000000000,-0.019924443215132,0.000000000000000,-0.007558261509985,0.000000000000000,-0.125947386026382,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,5.619620323181152,0.218378186225891,0.340149283409119,1.000000000000000
+			Matrix: 0.538016915321350,0.000000000000000,-0.032287161797285,0.000000000000000,-0.014011885039508,0.000000000000000,-0.233487486839294,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,9.442488670349121,0.194987550377846,0.768522500991821,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Barrier5"
-			Matrix: 0.332010775804520,0.000000000000000,-0.019924443215132,0.000000000000000,-0.007558261509985,0.000000000000000,-0.125947386026382,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,5.619620323181152,0.218378186225891,-0.516175866127014,1.000000000000000
+			Matrix: 0.538016915321350,0.000000000000000,-0.032287161797285,0.000000000000000,-0.014011885039508,0.000000000000000,-0.233487486839294,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,9.442488670349121,0.194987550377846,-0.819652140140533,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Barrier4"
-			Matrix: 0.169573575258255,0.000000000000000,-0.286134481430054,0.000000000000000,-0.108544327318668,0.000000000000000,-0.064327292144299,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,4.210791587829590,0.218378186225891,-3.070074081420898,1.000000000000000
+			Matrix: 0.304639041423798,0.000000000000000,-0.514040887355804,0.000000000000000,-0.182770684361458,0.000000000000000,-0.108316510915756,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,7.160783767700195,0.194987550377846,-5.556213378906250,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Barrier3"
-			Matrix: 0.163823544979095,0.000000000000000,-0.289465010166168,0.000000000000000,-0.109807752072811,0.000000000000000,-0.062146037817001,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,3.481798171997070,0.218378186225891,-3.472589015960693,1.000000000000000
+			Matrix: 0.294953674077988,0.000000000000000,-0.521163046360016,0.000000000000000,-0.184436067938805,0.000000000000000,-0.104382157325745,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,5.980123996734619,0.194987550377846,-6.302733421325684,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Barrier2"
-			Matrix: -0.025518054142594,0.000000000000000,-0.331627756357193,0.000000000000000,-0.125802084803581,0.000000000000000,0.009680182673037,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-0.317024886608124,0.218378186225891,-4.218780517578125,1.000000000000000
+			Matrix: -0.047293704003096,0.000000000000000,-0.614619910717010,0.000000000000000,-0.203932613134384,0.000000000000000,0.015692142769694,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,-0.172357797622681,0.194987550377846,-7.686649322509766,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Barrier1"
-			Matrix: -0.039341304451227,0.000000000000000,-0.330273211002350,0.000000000000000,-0.125288248062134,0.000000000000000,0.014923997223377,0.000000000000000,0.000000000000000,0.322812557220459,0.000000000000000,0.000000000000000,-1.146761059761047,0.208365187048912,-4.217447280883789,1.000000000000000
+			Matrix: -0.072842687368393,0.000000000000000,-0.611519753932953,0.000000000000000,-0.203355282545090,0.000000000000000,0.024223124608397,0.000000000000000,0.000000000000000,0.522819399833679,0.000000000000000,0.000000000000000,-1.516178369522095,0.178770750761032,-7.684177398681641,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_013"
-			Matrix: 0.792036890983582,-0.046465385705233,-0.398432791233063,0.000000000000000,-0.358753532171249,-0.026950327679515,-0.710016369819641,0.000000000000000,0.031474202871323,0.997547030448914,-0.053767353296280,0.000000000000000,4.986059665679932,-0.494267135858536,-1.968482971191406,1.000000000000000
+			Matrix: 1.322369933128357,-0.077577739953995,-0.665215909481049,0.000000000000000,-0.649021804332733,-0.048755895346403,-1.284492015838623,0.000000000000000,0.050997827202082,1.616330981254578,-0.087119549512863,0.000000000000000,8.416389465332031,-0.959195494651794,-3.513158559799194,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_012"
-			Matrix: 0.717722833156586,-0.046465389430523,0.520523965358734,0.000000000000000,0.465894043445587,-0.026950329542160,-0.644802272319794,0.000000000000000,0.062216758728027,0.997547030448914,0.003260218771175,0.000000000000000,5.057339191436768,-0.494267135858536,1.523658394813538,1.000000000000000
+			Matrix: 1.223026752471924,-0.079178787767887,0.886992454528809,0.000000000000000,0.828055441379547,-0.047900091856718,-1.146037459373474,0.000000000000000,0.100764945149422,1.615605950355530,0.005280180834234,0.000000000000000,8.531831741333008,-0.959195494651794,2.963505506515503,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_011"
-			Matrix: 0.207546800374985,-0.054802447557449,0.976688802242279,0.000000000000000,0.978220224380493,0.008486677892506,-0.207396045327187,0.000000000000000,0.003076968714595,0.998461127281189,0.055370245128870,0.000000000000000,1.864591002464294,-0.494267135858536,3.625309705734253,1.000000000000000
+			Matrix: 0.382813245058060,-0.101081311702728,1.801470279693604,0.000000000000000,1.594875097274780,0.013836545869708,-0.338135272264481,0.000000000000000,0.004985762760043,1.617855310440063,0.089719109237194,0.000000000000000,3.360934495925903,-0.959195494651794,6.861310958862305,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_010"
-			Matrix: -0.325215488672256,-0.065464846789837,0.943371236324310,0.000000000000000,0.944832324981689,0.018727157264948,0.327018737792969,0.000000000000000,-0.039074894040823,0.997679114341736,0.055762942880392,0.000000000000000,-2.568087816238403,-0.494267135858536,3.316969633102417,1.000000000000000
+			Matrix: -0.595225691795349,-0.119817048311234,1.726605296134949,0.000000000000000,1.555494308471680,0.030830852687359,0.538376808166504,0.000000000000000,-0.063315384089947,1.616598963737488,0.090356022119522,0.000000000000000,-3.818124532699585,-0.959195494651794,6.289451599121094,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_009"
-			Matrix: -0.358879923820496,-0.065464854240417,-0.931085109710693,0.000000000000000,-0.933364212512970,0.018727159127593,0.358441680669785,0.000000000000000,-0.006028753239661,0.997679114341736,-0.067823357880116,0.000000000000000,-2.889389038085938,-0.494267135858536,-3.397323846817017,1.000000000000000
+			Matrix: -0.886930584907532,-0.119480200111866,-1.590624094009399,0.000000000000000,-1.443283677101135,0.030930729582906,0.802450299263000,0.000000000000000,-0.025096667930484,1.616973400115967,-0.107465565204620,0.000000000000000,-4.172481536865234,-0.959195494651794,-5.959795475006104,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_008"
-			Matrix: 0.194725021719933,-0.065464861690998,-0.978670835494995,0.000000000000000,-0.980362176895142,0.018727160990238,-0.196314245462418,0.000000000000000,0.031179413199425,0.997679114341736,-0.060532633215189,0.000000000000000,1.521676778793335,-0.494267135858536,-3.686676263809204,1.000000000000000
+			Matrix: 0.359330862760544,-0.120803922414780,-1.805965423583984,0.000000000000000,-1.597268342971802,0.030511479824781,-0.319847673177719,0.000000000000000,0.050526216626167,1.616738319396973,-0.098093084990978,0.000000000000000,2.805558919906616,-0.959195494651794,-6.699787616729736,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_007"
-			Matrix: 0.576405584812164,0.000000000000000,-0.024070050567389,0.000000000000000,-0.024070050567389,0.000000000000000,-0.576405584812164,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,5.831790924072266,0.078674435615540,-0.409391939640045,1.000000000000000
+			Matrix: 0.933785557746887,0.000000000000000,-0.038993827998638,0.000000000000000,-0.044632062315941,0.000000000000000,-1.068803906440735,0.000000000000000,0.000000000000000,0.934346079826355,0.000000000000000,0.000000000000000,9.786114692687988,-0.031273245811462,-0.621606469154358,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_006"
-			Matrix: -0.027752300724387,0.000000000000000,0.576240062713623,0.000000000000000,0.576240062713623,0.000000000000000,0.027752300724387,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,-0.134477168321609,0.078674435615540,4.339179992675781,1.000000000000000
-		}
-		PoseNode:  {
-			Node: "Model::Plane_005"
-			Matrix: -0.329700857400894,0.000000000000000,0.473413258790970,0.000000000000000,0.473413258790970,0.000000000000000,0.329700857400894,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,-4.726110458374023,0.078674435615540,2.946309804916382,1.000000000000000
+			Matrix: -0.051456365734339,0.000000000000000,1.068423986434937,0.000000000000000,0.933600783348083,0.000000000000000,0.044963166117668,0.000000000000000,0.000000000000000,0.934346079826355,0.000000000000000,0.000000000000000,0.123292207717896,-0.031273245811462,8.185282707214355,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_004"
-			Matrix: 0.285043448209763,0.000000000000000,0.501570522785187,0.000000000000000,0.501570522785187,0.000000000000000,-0.285043448209763,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,4.470329284667969,0.311050891876221,3.249573230743408,1.000000000000000
-		}
-		PoseNode:  {
-			Node: "Model::Plane_003"
-			Matrix: -0.365309029817581,0.000000000000000,-0.446511000394821,0.000000000000000,-0.446511000394821,0.000000000000000,0.365309029817581,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,-5.356592655181885,0.078674435615540,-2.324115037918091,1.000000000000000
+			Matrix: 0.474502265453339,0.000000000000000,0.804891705513000,0.000000000000000,0.804891705513000,0.000000000000000,-0.474502265453339,0.000000000000000,0.000000000000000,0.934346079826355,0.000000000000000,0.000000000000000,7.365298748016357,0.345078021287918,5.831795692443848,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_002"
-			Matrix: 0.297531545162201,0.000000000000000,-0.494264811277390,0.000000000000000,-0.494264811277390,0.000000000000000,-0.297531545162201,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,3.763476133346558,0.078674435615540,-3.733976364135742,1.000000000000000
+			Matrix: 0.534106135368347,0.000000000000000,-0.887266755104065,0.000000000000000,-0.832985699176788,0.000000000000000,-0.501430690288544,0.000000000000000,0.000000000000000,0.934346079826355,0.000000000000000,0.000000000000000,6.436322212219238,-0.031273245811462,-6.787512302398682,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::Plane_001"
-			Matrix: -0.069518454372883,0.000000000000000,-0.572704076766968,0.000000000000000,-0.572704076766968,0.000000000000000,0.069518454372883,0.000000000000000,0.000000000000000,0.576907932758331,0.000000000000000,0.000000000000000,-1.007119655609131,0.078674435615540,-4.467903137207031,1.000000000000000
+			Matrix: -0.128709211945534,0.000000000000000,-1.060326933860779,0.000000000000000,-0.929631710052490,0.000000000000000,0.112844578921795,0.000000000000000,0.000000000000000,0.934346079826355,0.000000000000000,0.000000000000000,-1.290018320083618,-0.031273245811462,-8.148682594299316,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::StadiumWalls"
-			Matrix: 0.000000291687769,0.000000000000000,-3.103197813034058,0.000000000000000,-3.863521575927734,0.000000000000000,-0.000000234284926,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,-0.094406694173813,-0.000010519510397,0.025882273912430,1.000000000000000
+			Matrix: 0.000000472410449,0.000000000000000,-5.501898288726807,0.000000000000000,-6.257266044616699,0.000000000000000,-0.000000415381777,0.000000000000000,0.000000000000000,1.619575738906860,0.000000000000000,0.000000000000000,0.188189268112183,-0.158709496259689,0.109573073685169,1.000000000000000
 		}
 		PoseNode:  {
 			Node: "Model::PlayingField"
-			Matrix: 0.000000224509989,0.000000000000000,-1.858469724655151,0.000000000000000,-2.973724842071533,0.000000000000000,-0.000000140310561,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,-0.751083076000214,0.013572026044130,-0.036220967769623,1.000000000000000
+			Matrix: 0.000000224509989,0.000000000000000,-1.858469724655151,0.000000000000000,-2.973724842071533,0.000000000000000,-0.000000140310561,0.000000000000000,0.000000000000000,1.000000000000000,0.000000000000000,0.000000000000000,-2.771579265594482,0.013572026044130,-0.036220967769623,1.000000000000000
 		}
 	}
 	GlobalSettings:  {
@@ -6197,11 +5690,7 @@ Relations:  {
 	}
 	Model: "Model::Cube_014", "Mesh" {
 	}
-	Model: "Model::Cube_013", "Mesh" {
-	}
 	Model: "Model::Cube_012", "Mesh" {
-	}
-	Model: "Model::Cube_011", "Mesh" {
 	}
 	Model: "Model::Cube_010", "Mesh" {
 	}
@@ -6241,11 +5730,7 @@ Relations:  {
 	}
 	Model: "Model::Plane_006", "Mesh" {
 	}
-	Model: "Model::Plane_005", "Mesh" {
-	}
 	Model: "Model::Plane_004", "Mesh" {
-	}
-	Model: "Model::Plane_003", "Mesh" {
 	}
 	Model: "Model::Plane_002", "Mesh" {
 	}
@@ -6271,11 +5756,17 @@ Relations:  {
 	}
 	Model: "Model::Camera Switcher", "CameraSwitcher" {
 	}
+	Material: "Material::Material_001__StadiumInteriorText", "" {
+	}
 	Material: "Material::Material__StadiumText", "" {
 	}
 	Material: "Material::unnamed", "" {
 	}
+	Texture: "Texture::StadiumInteriorText", "TextureVideoClip" {
+	}
 	Texture: "Texture::StadiumText", "TextureVideoClip" {
+	}
+	Video: "Video::StadiumInteriorText", "Clip" {
 	}
 	Video: "Video::StadiumText", "Clip" {
 	}
@@ -6287,9 +5778,7 @@ Relations:  {
 Connections:  {
 	Connect: "OO", "Model::Cylinder", "Model::Scene"
 	Connect: "OO", "Model::Cube_014", "Model::Scene"
-	Connect: "OO", "Model::Cube_013", "Model::Scene"
 	Connect: "OO", "Model::Cube_012", "Model::Scene"
-	Connect: "OO", "Model::Cube_011", "Model::Scene"
 	Connect: "OO", "Model::Cube_010", "Model::Scene"
 	Connect: "OO", "Model::Cube_009", "Model::Scene"
 	Connect: "OO", "Model::Cube_008", "Model::Scene"
@@ -6309,18 +5798,14 @@ Connections:  {
 	Connect: "OO", "Model::Plane_008", "Model::Scene"
 	Connect: "OO", "Model::Plane_007", "Model::Scene"
 	Connect: "OO", "Model::Plane_006", "Model::Scene"
-	Connect: "OO", "Model::Plane_005", "Model::Scene"
 	Connect: "OO", "Model::Plane_004", "Model::Scene"
-	Connect: "OO", "Model::Plane_003", "Model::Scene"
 	Connect: "OO", "Model::Plane_002", "Model::Scene"
 	Connect: "OO", "Model::Plane_001", "Model::Scene"
 	Connect: "OO", "Model::StadiumWalls", "Model::Scene"
 	Connect: "OO", "Model::PlayingField", "Model::Scene"
 	Connect: "OO", "Material::unnamed", "Model::Cylinder"
 	Connect: "OO", "Material::unnamed", "Model::Cube_014"
-	Connect: "OO", "Material::unnamed", "Model::Cube_013"
 	Connect: "OO", "Material::unnamed", "Model::Cube_012"
-	Connect: "OO", "Material::unnamed", "Model::Cube_011"
 	Connect: "OO", "Material::unnamed", "Model::Cube_010"
 	Connect: "OO", "Material::unnamed", "Model::Cube_009"
 	Connect: "OO", "Material::unnamed", "Model::Cube_008"
@@ -6340,14 +5825,14 @@ Connections:  {
 	Connect: "OO", "Material::unnamed", "Model::Plane_008"
 	Connect: "OO", "Material::unnamed", "Model::Plane_007"
 	Connect: "OO", "Material::unnamed", "Model::Plane_006"
-	Connect: "OO", "Material::unnamed", "Model::Plane_005"
 	Connect: "OO", "Material::unnamed", "Model::Plane_004"
-	Connect: "OO", "Material::unnamed", "Model::Plane_003"
 	Connect: "OO", "Material::unnamed", "Model::Plane_002"
 	Connect: "OO", "Material::unnamed", "Model::Plane_001"
-	Connect: "OO", "Material::unnamed", "Model::StadiumWalls"
+	Connect: "OO", "Material::Material_001__StadiumInteriorText", "Model::StadiumWalls"
 	Connect: "OO", "Material::Material__StadiumText", "Model::PlayingField"
+	Connect: "OO", "Texture::StadiumInteriorText", "Model::StadiumWalls"
 	Connect: "OO", "Texture::StadiumText", "Model::PlayingField"
+	Connect: "OO", "Video::StadiumInteriorText", "Texture::StadiumInteriorText"
 	Connect: "OO", "Video::StadiumText", "Texture::StadiumText"
 }
 ;Takes and animation section
@@ -6367,27 +5852,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 6.880644798278809
+						Default: 11.484812736511230
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,6.880644798278809,L
+							1924423250,11.484812736511230,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 3.474583148956299
+						Default: 5.468657970428467
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.474583148956299,L
+							1924423250,5.468657970428467,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -0.194224357604980
+						Default: -0.246906280517578
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.194224357604980,L
+							1924423250,-0.246906280517578,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -6421,27 +5906,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 1.000000000000000
+						Default: 1.619575738906860
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.619575738906860,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 1.000000000000000
+						Default: 1.619575738906860
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.619575738906860,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 1.000000000000000
+						Default: 1.619575738906860
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.619575738906860,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -6453,27 +5938,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 6.359782218933105
+						Default: 10.641236305236816
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,6.359782218933105,L
+							1924423250,10.641236305236816,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 3.029319524765015
+						Default: 4.747519493103027
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.029319524765015,L
+							1924423250,4.747519493103027,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -0.177957534790039
+						Default: -0.220560938119888
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.177957534790039,L
+							1924423250,-0.220560938119888,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -6507,113 +5992,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.057967547327280
+						Default: 0.093882836401463
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.057967547327280,L
+							1924423250,0.093882836401463,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 1.511770486831665
+						Default: 2.448426723480225
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.511770486831665,L
+							1924423250,2.448426723480225,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.753491282463074
+						Default: 1.220336198806763
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.753491282463074,L
-						Color: 0,0,1
-					}
-					LayerType: 3
-				}
-			}
-		}
-		Model: "Model::Cube_013" {
-			Version: 1.1
-			Channel: "Transform" {
-				Channel: "T" {
-					Channel: "X" {
-						Default: -5.333693504333496
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-5.333693504333496,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.130953595042229
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.130953595042229,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: -2.039988279342651
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-2.039988279342651,L
-						Color: 0,0,1
-					}
-					LayerType: 1
-				}
-				Channel: "R" {
-					Channel: "X" {
-						Default: -90.000002504348856
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-90.000002504348856,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 39.138172397032413
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,39.138172397032413,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.000000000000000
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.000000000000000,L
-						Color: 0,0,1
-					}
-					LayerType: 2
-				}
-				Channel: "S" {
-					Channel: "X" {
-						Default: 0.126173987984657
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.126173987984657,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.332608103752136
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.332608103752136,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.322812557220459
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,1.220336198806763,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -6625,27 +6024,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -4.680080413818359
+						Default: -6.951670646667480
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-4.680080413818359,L
+							1924423250,-6.951670646667480,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.130953595042229
+						Default: 0.053396806120872
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.130953595042229,L
+							1924423250,0.053396806120872,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -2.609156370162964
+						Default: -4.311263084411621
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-2.609156370162964,L
+							1924423250,-4.311263084411621,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -6679,113 +6078,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173987984657
+						Default: 0.216651692986488
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173987984657,L
+							1924423250,0.216651692986488,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.586968421936035
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.586968421936035,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
-						Color: 0,0,1
-					}
-					LayerType: 3
-				}
-			}
-		}
-		Model: "Model::Cube_011" {
-			Version: 1.1
-			Channel: "Transform" {
-				Channel: "T" {
-					Channel: "X" {
-						Default: -5.165942668914795
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-5.165942668914795,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.093180373311043
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.093180373311043,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 2.309651613235474
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,2.309651613235474,L
-						Color: 0,0,1
-					}
-					LayerType: 1
-				}
-				Channel: "R" {
-					Channel: "X" {
-						Default: -90.000002504348856
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-90.000002504348856,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 145.871434858403944
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,145.871434858403944,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: -0.000000000000000
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-0.000000000000000,L
-						Color: 0,0,1
-					}
-					LayerType: 2
-				}
-				Channel: "S" {
-					Channel: "X" {
-						Default: 0.126173973083496
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.126173973083496,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.332608103752136
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.332608103752136,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.322812557220459
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -6797,27 +6110,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -4.415482521057129
+						Default: -6.810120582580566
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-4.415482521057129,L
+							1924423250,-6.810120582580566,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.093180373311043
+						Default: -0.007779777050018
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.093180373311043,L
+							1924423250,-0.007779777050018,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 2.770520448684692
+						Default: 5.275985240936279
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,2.770520448684692,L
+							1924423250,5.275985240936279,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -6851,27 +6164,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.214127823710442
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.214127823710442,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.593369483947754
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.593369483947754,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -6883,27 +6196,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.824997663497925
+						Default: -0.995058298110962
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.824997663497925,L
+							1924423250,-0.995058298110962,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.119843527674675
+						Default: 0.035403206944466
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.119843527674675,L
+							1924423250,0.035403206944466,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 4.009601593017578
+						Default: 7.574034214019775
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.009601593017578,L
+							1924423250,7.574034214019775,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -6937,27 +6250,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173987984657
+						Default: 0.204403638839722
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173987984657,L
+							1924423250,0.204403638839722,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.616740882396698
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.616740882396698,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -6969,27 +6282,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.040437951683998
+						Default: 0.275595664978027
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.040437951683998,L
+							1924423250,0.275595664978027,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.119843527674675
+						Default: 0.035403206944466
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.119843527674675,L
+							1924423250,0.035403206944466,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 4.009601593017578
+						Default: 7.574034214019775
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.009601593017578,L
+							1924423250,7.574034214019775,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7023,27 +6336,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.204353719949722
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.204353719949722,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.616855680942535
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.616855680942535,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7055,27 +6368,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 3.715762138366699
+						Default: 6.359045982360840
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.715762138366699,L
+							1924423250,6.359045982360840,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.365643501281738
+						Default: 0.433494865894318
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.365643501281738,L
+							1924423250,0.433494865894318,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 3.385980129241943
+						Default: 6.417441368103027
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.385980129241943,L
+							1924423250,6.417441368103027,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7109,27 +6422,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.212762475013733
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.212762475013733,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.596772551536560
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.596772551536560,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7141,27 +6454,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 4.323049068450928
+						Default: 7.342593193054199
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.323049068450928,L
+							1924423250,7.342593193054199,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.365643501281738
+						Default: 0.433494865894318
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.365643501281738,L
+							1924423250,0.433494865894318,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 2.815332889556885
+						Default: 5.359096050262451
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,2.815332889556885,L
+							1924423250,5.359096050262451,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7195,27 +6508,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.212762475013733
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.212762475013733,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.596772551536560
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.596772551536560,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7227,27 +6540,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 5.619620323181152
+						Default: 9.442488670349121
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,5.619620323181152,L
+							1924423250,9.442488670349121,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.218378186225891
+						Default: 0.194987550377846
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.218378186225891,L
+							1924423250,0.194987550377846,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.340149283409119
+						Default: 0.768522500991821
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.340149283409119,L
+							1924423250,0.768522500991821,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7281,27 +6594,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.233907580375671
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.233907580375671,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.538984894752502
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.538984894752502,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7313,27 +6626,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 5.619620323181152
+						Default: 9.442488670349121
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,5.619620323181152,L
+							1924423250,9.442488670349121,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.218378186225891
+						Default: 0.194987550377846
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.218378186225891,L
+							1924423250,0.194987550377846,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -0.516175866127014
+						Default: -0.819652140140533
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.516175866127014,L
+							1924423250,-0.819652140140533,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7367,27 +6680,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.233907580375671
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.233907580375671,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.538984894752502
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.538984894752502,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7399,27 +6712,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 4.210791587829590
+						Default: 7.160783767700195
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.210791587829590,L
+							1924423250,7.160783767700195,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.218378186225891
+						Default: 0.194987550377846
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.218378186225891,L
+							1924423250,0.194987550377846,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -3.070074081420898
+						Default: -5.556213378906250
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-3.070074081420898,L
+							1924423250,-5.556213378906250,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7453,27 +6766,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.212456092238426
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.212456092238426,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608073949814
+						Default: 0.597530722618103
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608073949814,L
+							1924423250,0.597530722618103,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7485,27 +6798,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 3.481798171997070
+						Default: 5.980123996734619
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.481798171997070,L
+							1924423250,5.980123996734619,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.218378186225891
+						Default: 0.194987550377846
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.218378186225891,L
+							1924423250,0.194987550377846,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -3.472589015960693
+						Default: -6.302733421325684
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-3.472589015960693,L
+							1924423250,-6.302733421325684,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7539,27 +6852,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173987984657
+						Default: 0.211925193667412
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173987984657,L
+							1924423250,0.211925193667412,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.598839342594147
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.598839342594147,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7571,27 +6884,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.317024886608124
+						Default: -0.172357797622681
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.317024886608124,L
+							1924423250,-0.172357797622681,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.218378186225891
+						Default: 0.194987550377846
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.218378186225891,L
+							1924423250,0.194987550377846,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -4.218780517578125
+						Default: -7.686649322509766
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-4.218780517578125,L
+							1924423250,-7.686649322509766,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7625,27 +6938,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.204535469412804
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.204535469412804,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608103752136
+						Default: 0.616436839103699
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608103752136,L
+							1924423250,0.616436839103699,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7657,27 +6970,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -1.146761059761047
+						Default: -1.516178369522095
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-1.146761059761047,L
+							1924423250,-1.516178369522095,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.208365187048912
+						Default: 0.178770750761032
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.208365187048912,L
+							1924423250,0.178770750761032,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -4.217447280883789
+						Default: -7.684177398681641
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-4.217447280883789,L
+							1924423250,-7.684177398681641,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7711,27 +7024,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.126173973083496
+						Default: 0.204792901873589
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.126173973083496,L
+							1924423250,0.204792901873589,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.332608073949814
+						Default: 0.615842878818512
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.332608073949814,L
+							1924423250,0.615842878818512,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.322812557220459
+						Default: 0.522819399833679
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.322812557220459,L
+							1924423250,0.522819399833679,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7743,27 +7056,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 4.986059665679932
+						Default: 8.416389465332031
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.986059665679932,L
+							1924423250,8.416389465332031,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -1.968482971191406
+						Default: -3.513158559799194
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-1.968482971191406,L
+							1924423250,-3.513158559799194,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7786,38 +7099,38 @@ Takes:  {
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 4.296110013869569
+						Default: 4.296109586982746
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.296110013869569,L
+							1924423250,4.296109586982746,L
 						Color: 0,0,1
 					}
 					LayerType: 2
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.795960783958435
+						Default: 1.439974427223206
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.795960783958435,L
+							1924423250,1.439974427223206,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.887823343276978
+						Default: 1.482293128967285
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.887823343276978,L
+							1924423250,1.482293128967285,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.999490618705750
+						Default: 1.619480371475220
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999490618705750,L
+							1924423250,1.619480371475220,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7829,27 +7142,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 5.057339191436768
+						Default: 8.531831741333008
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,5.057339191436768,L
+							1924423250,8.531831741333008,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 1.523658394813538
+						Default: 2.963505506515503
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.523658394813538,L
+							1924423250,2.963505506515503,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7883,27 +7196,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.795960843563080
+						Default: 1.414698719978333
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.795960843563080,L
+							1924423250,1.414698719978333,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.887823343276978
+						Default: 1.512884616851807
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.887823343276978,L
+							1924423250,1.512884616851807,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.999490559101105
+						Default: 1.618753671646118
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999490559101105,L
+							1924423250,1.618753671646118,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -7915,27 +7228,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 1.864591002464294
+						Default: 3.360934495925903
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.864591002464294,L
+							1924423250,3.360934495925903,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 3.625309705734253
+						Default: 6.861310958862305
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.625309705734253,L
+							1924423250,6.861310958862305,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -7969,27 +7282,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.999999940395355
+						Default: 1.630384325981140
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999940395355,L
+							1924423250,1.630384325981140,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 1.000000119209290
+						Default: 1.844466805458069
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000119209290,L
+							1924423250,1.844466805458069,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 1.000000119209290
+						Default: 1.620348691940308
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000119209290,L
+							1924423250,1.620348691940308,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8001,27 +7314,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -2.568087816238403
+						Default: -3.818124532699585
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-2.568087816238403,L
+							1924423250,-3.818124532699585,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 3.316969633102417
+						Default: 6.289451599121094
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.316969633102417,L
+							1924423250,6.289451599121094,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8036,11 +7349,11 @@ Takes:  {
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 160.912085146640692
+						Default: 160.912071486262363
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,160.912085146640692,L
+							1924423250,160.912071486262363,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
@@ -8055,27 +7368,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 1.000000000000000
+						Default: 1.646317839622498
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.646317839622498,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 1.000000000000000
+						Default: 1.830250024795532
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.830250024795532,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.999999821186066
+						Default: 1.620359539985657
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999821186066,L
+							1924423250,1.620359539985657,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8087,81 +7400,81 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -2.889389038085938
+						Default: -4.172481536865234
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-2.889389038085938,L
+							1924423250,-4.172481536865234,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -3.397323846817017
+						Default: -5.959795475006104
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-3.397323846817017,L
+							1924423250,-5.959795475006104,L
 						Color: 0,0,1
 					}
 					LayerType: 1
 				}
 				Channel: "R" {
 					Channel: "X" {
-						Default: -94.166260803699728
+						Default: -94.350751043370678
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-94.166260803699728,L
+							1924423250,-94.350751043370678,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 21.004527292220484
+						Default: 29.068011277252296
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,21.004527292220484,L
+							1924423250,29.068011277252296,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -1.149437167494162
+						Default: -1.227707186679281
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-1.149437167494162,L
+							1924423250,-1.227707186679281,L
 						Color: 0,0,1
 					}
 					LayerType: 2
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.999999761581421
+						Default: 1.651651024818420
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999761581421,L
+							1924423250,1.651651024818420,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.999999880790710
+						Default: 1.825104475021362
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999880790710,L
+							1924423250,1.825104475021362,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.999999821186066
+						Default: 1.620735049247742
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999821186066,L
+							1924423250,1.620735049247742,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8173,27 +7486,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 1.521676778793335
+						Default: 2.805558919906616
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.521676778793335,L
+							1924423250,2.805558919906616,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.494267135858536
+						Default: -0.959195494651794
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.494267135858536,L
+							1924423250,-0.959195494651794,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -3.686676263809204
+						Default: -6.699787616729736
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-3.686676263809204,L
+							1924423250,-6.699787616729736,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8208,11 +7521,11 @@ Takes:  {
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -11.321504709690721
+						Default: -11.321503855917076
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-11.321504709690721,L
+							1924423250,-11.321503855917076,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
@@ -8227,27 +7540,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.999999821186066
+						Default: 1.629263520240784
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999821186066,L
+							1924423250,1.629263520240784,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 1.000000000000000
+						Default: 1.845324635505676
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.845324635505676,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.999999821186066
+						Default: 1.620499253273010
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.999999821186066,L
+							1924423250,1.620499253273010,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8259,27 +7572,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 5.831790924072266
+						Default: 9.786114692687988
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,5.831790924072266,L
+							1924423250,9.786114692687988,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.078674435615540
+						Default: -0.031273245811462
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.078674435615540,L
+							1924423250,-0.031273245811462,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -0.409391939640045
+						Default: -0.621606469154358
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.409391939640045,L
+							1924423250,-0.621606469154358,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8313,27 +7626,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.576907932758331
+						Default: 1.069735407829285
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,1.069735407829285,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.576907932758331
+						Default: 0.934599339962006
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934599339962006,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.576907932758331
+						Default: 0.934346079826355
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934346079826355,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8345,27 +7658,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.134477168321609
+						Default: 0.123292207717896
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.134477168321609,L
+							1924423250,0.123292207717896,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.078674435615540
+						Default: -0.031273245811462
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.078674435615540,L
+							1924423250,-0.031273245811462,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 4.339179992675781
+						Default: 8.185282707214355
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.339179992675781,L
+							1924423250,8.185282707214355,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8399,113 +7712,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.576907992362976
+						Default: 0.934682846069336
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,0.934682846069336,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.576907992362976
+						Default: 1.069662332534790
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,1.069662332534790,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.576907932758331
+						Default: 0.934346199035645
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
-						Color: 0,0,1
-					}
-					LayerType: 3
-				}
-			}
-		}
-		Model: "Model::Plane_005" {
-			Version: 1.1
-			Channel: "Transform" {
-				Channel: "T" {
-					Channel: "X" {
-						Default: -4.726110458374023
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-4.726110458374023,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.078674435615540
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.078674435615540,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 2.946309804916382
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,2.946309804916382,L
-						Color: 0,0,1
-					}
-					LayerType: 1
-				}
-				Channel: "R" {
-					Channel: "X" {
-						Default: -90.000002504348856
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-90.000002504348856,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 145.145358428875966
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,145.145358428875966,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: -0.000000000000000
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-0.000000000000000,L
-						Color: 0,0,1
-					}
-					LayerType: 2
-				}
-				Channel: "S" {
-					Channel: "X" {
-						Default: 0.576907873153687
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907873153687,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.576907873153687
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907873153687,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.576907932758331
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934346199035645,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8517,27 +7744,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 4.470329284667969
+						Default: 7.365298748016357
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,4.470329284667969,L
+							1924423250,7.365298748016357,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.311050891876221
+						Default: 0.345078021287918
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.311050891876221,L
+							1924423250,0.345078021287918,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 3.249573230743408
+						Default: 5.831795692443848
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.249573230743408,L
+							1924423250,5.831795692443848,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8552,11 +7779,11 @@ Takes:  {
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -150.390342654791255
+						Default: -149.479659872376430
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-150.390342654791255,L
+							1924423250,-149.479659872376430,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
@@ -8571,113 +7798,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.576907873153687
+						Default: 0.934346318244934
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907873153687,L
+							1924423250,0.934346318244934,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.576907873153687
+						Default: 0.934346318244934
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907873153687,L
+							1924423250,0.934346318244934,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.576907932758331
+						Default: 0.934346199035645
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
-						Color: 0,0,1
-					}
-					LayerType: 3
-				}
-			}
-		}
-		Model: "Model::Plane_003" {
-			Version: 1.1
-			Channel: "Transform" {
-				Channel: "T" {
-					Channel: "X" {
-						Default: -5.356592655181885
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-5.356592655181885,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.078674435615540
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.078674435615540,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: -2.324115037918091
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-2.324115037918091,L
-						Color: 0,0,1
-					}
-					LayerType: 1
-				}
-				Channel: "R" {
-					Channel: "X" {
-						Default: -90.000002504348856
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,-90.000002504348856,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 39.288016502138518
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,39.288016502138518,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.000000000000000
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.000000000000000,L
-						Color: 0,0,1
-					}
-					LayerType: 2
-				}
-				Channel: "S" {
-					Channel: "X" {
-						Default: 0.576907932758331
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907932758331,L
-						Color: 1,0,0
-					}
-					Channel: "Y" {
-						Default: 0.576907932758331
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907932758331,L
-						Color: 0,1,0
-					}
-					Channel: "Z" {
-						Default: 0.576907932758331
-						KeyVer: 4005
-						KeyCount: 1
-						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934346199035645,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8689,27 +7830,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: 3.763476133346558
+						Default: 6.436322212219238
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.763476133346558,L
+							1924423250,6.436322212219238,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.078674435615540
+						Default: -0.031273245811462
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.078674435615540,L
+							1924423250,-0.031273245811462,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -3.733976364135742
+						Default: -6.787512302398682
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-3.733976364135742,L
+							1924423250,-6.787512302398682,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8743,27 +7884,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.576907992362976
+						Default: 0.972264349460602
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,0.972264349460602,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.576907992362976
+						Default: 1.035621523857117
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,1.035621523857117,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.576907932758331
+						Default: 0.934346199035645
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934346199035645,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8775,27 +7916,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -1.007119655609131
+						Default: -1.290018320083618
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-1.007119655609131,L
+							1924423250,-1.290018320083618,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.078674435615540
+						Default: -0.031273245811462
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.078674435615540,L
+							1924423250,-0.031273245811462,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: -4.467903137207031
+						Default: -8.148682594299316
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-4.467903137207031,L
+							1924423250,-8.148682594299316,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8810,11 +7951,11 @@ Takes:  {
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 6.921069105778058
+						Default: 6.921068678891235
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,6.921069105778058,L
+							1924423250,6.921068678891235,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
@@ -8829,27 +7970,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 0.576907992362976
+						Default: 0.936455607414246
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,0.936455607414246,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 0.576907992362976
+						Default: 1.068110227584839
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907992362976,L
+							1924423250,1.068110227584839,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.576907932758331
+						Default: 0.934346199035645
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.576907932758331,L
+							1924423250,0.934346199035645,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8861,27 +8002,27 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.094406694173813
+						Default: 0.188189268112183
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.094406694173813,L
+							1924423250,0.188189268112183,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: -0.000010519510397
+						Default: -0.158709496259689
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.000010519510397,L
+							1924423250,-0.158709496259689,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 0.025882273912430
+						Default: 0.109573073685169
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,0.025882273912430,L
+							1924423250,0.109573073685169,L
 						Color: 0,0,1
 					}
 					LayerType: 1
@@ -8915,27 +8056,27 @@ Takes:  {
 				}
 				Channel: "S" {
 					Channel: "X" {
-						Default: 3.863521575927734
+						Default: 6.257266044616699
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.863521575927734,L
+							1924423250,6.257266044616699,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
-						Default: 3.103197813034058
+						Default: 5.501898288726807
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,3.103197813034058,L
+							1924423250,5.501898288726807,L
 						Color: 0,1,0
 					}
 					Channel: "Z" {
-						Default: 1.000000000000000
+						Default: 1.619575738906860
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,1.000000000000000,L
+							1924423250,1.619575738906860,L
 						Color: 0,0,1
 					}
 					LayerType: 3
@@ -8947,11 +8088,11 @@ Takes:  {
 			Channel: "Transform" {
 				Channel: "T" {
 					Channel: "X" {
-						Default: -0.751083076000214
+						Default: -2.771579265594482
 						KeyVer: 4005
 						KeyCount: 1
 						Key: 
-							1924423250,-0.751083076000214,L
+							1924423250,-2.771579265594482,L
 						Color: 1,0,0
 					}
 					Channel: "Y" {
