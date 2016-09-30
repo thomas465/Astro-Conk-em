@@ -5,9 +5,10 @@ public class ScreenShake : MonoBehaviour
 {
     public static ScreenShake g_instance;
 
+    //cap the magnitude of the shakes so it doesn't hurt the player's brain
     public float m_maxMagnitude = 4.5f;
     public float m_lerpValue = 25.0f;
-    public float m_duration;
+    private float m_duration;
 
     [SerializeField]
     private float m_currentMag;
@@ -49,8 +50,9 @@ public class ScreenShake : MonoBehaviour
                 if (gameObject.transform.position == m_target)
                 {
                     //Get new target
-                    m_target = m_startPos + (Random.insideUnitSphere * m_currentMag);
-                    m_target.z = m_startPos.z;
+                    m_target = restPos.position + (Random.insideUnitSphere * m_currentMag);
+                    m_startPos = transform.position;
+                    m_target.z = restPos.position.z;
                     //Reset lerpval
                     m_currentLerpValue = 0;
                 }
@@ -75,25 +77,28 @@ public class ScreenShake : MonoBehaviour
             if (m_target != m_startPos)
             {
                 //Lerp to start
-                gameObject.transform.position = Vector3.Lerp(m_target, m_startPos, m_currentLerpValue);
+                gameObject.transform.position = Vector3.Lerp(m_target, restPos.position, m_currentLerpValue);
                 //Update lerp
-                m_currentLerpValue += m_lerpValue;
+                m_currentLerpValue += m_lerpValue * Time.deltaTime;
             }
 
         }
 	}
 
-    public void shake(float _magnitude = 1.0f)
+    //screenshake is additive, so calling this multiple times'll ramp up no problemo
+    //0.4f mag and 0.15f duration make small shake
+    public void shake(float _magnitude = 1.0f, float _duration = 0.15f)
     {
         if (m_shaking)
         {
+            m_duration += _duration;
             m_currentMag += _magnitude;
             m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
         }
         else
         {
             m_shaking = true;
-           
+            m_duration = _duration;
             m_currentMag = 1;
             m_target = m_startPos; //initate shake by setting these equal
             m_currentLerpValue = 0;
