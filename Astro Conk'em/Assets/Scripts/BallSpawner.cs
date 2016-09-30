@@ -8,14 +8,14 @@ public class BallSpawner : MonoBehaviour
 
 
     [SerializeField]
-    private const int m_maxBalls = 2;
+    private const int m_maxBalls = 20;
     private BallScript[] m_balls;
 
     //Yo ozone please get it so that this references the ball which the player will hit next time he swings :)
     public static BallScript currentBall;
    
   
-    public Vector3 m_spawnTarget;
+    private Transform m_spawnTarget;
     private Vector3 m_spawnStart;
     private Vector3 m_spawnForce;
     public float m_lerpChange;
@@ -41,7 +41,7 @@ public class BallSpawner : MonoBehaviour
 
         currentBall = m_balls[0];
         m_spawnStart = transform.position;
-        m_spawnTarget = GameObject.Find("BallSpawnPos").transform.position;
+        m_spawnTarget = GameObject.Find("BallSpawnPos").transform;
     }
 
 	void Update ()
@@ -55,7 +55,7 @@ public class BallSpawner : MonoBehaviour
 
         if (currentBall.getState() == BallScript.BALL_STATE.SPAWNING)
         {
-            currentBall.gameObject.transform.position = Vector3.Lerp(m_spawnStart,m_spawnTarget, m_currentLerp);
+            currentBall.gameObject.transform.position = Vector3.Lerp(m_spawnStart,m_spawnTarget.position, m_currentLerp);
             
             if (m_currentLerp >= 1)
             {

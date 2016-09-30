@@ -21,10 +21,12 @@ public class BallScript : MonoBehaviour {
     //float around position
     private float m_mag = 0.1f;
     private float m_currentLerpValue = 0;
-    private Vector3 m_startPos;
+    private float m_sineLerp = 0;
+    private Transform m_spwnPosTransform;
     private Vector3 m_target;
+ 
     private float m_lerpValue = 10.0f;
-
+    
     //float around rotation
     private float m_torqueModifier = 3.0f;
 
@@ -36,8 +38,8 @@ public class BallScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        m_startPos = GameObject.Find("BallSpawnPos").transform.position;
-        m_target = m_startPos;
+        m_spwnPosTransform = GameObject.Find("BallSpawnPos").transform;
+        m_target = m_spwnPosTransform.position;
         state = BALL_STATE.NOT_IN_USE;
         rb = GetComponent<Rigidbody>();
 
@@ -50,13 +52,11 @@ public class BallScript : MonoBehaviour {
     {
         trail.enabled = false;
         critTrail.enabled = false;
-        Debug.Log("Disabling trail");
     }
     public void enableTrails()
     {
         trail.enabled = true;
         critTrail.enabled = true;
-        Debug.Log("Enabling trail");
     }
 
     public void spwaningBall()
@@ -96,16 +96,16 @@ public class BallScript : MonoBehaviour {
         if (gameObject.transform.position == m_target)
         {
             //Get new target
-            m_target = m_startPos + (Random.insideUnitSphere * m_mag);
+            m_target = m_spwnPosTransform.position + (Random.insideUnitSphere * m_mag);
 
             //Reset lerpval
             m_currentLerpValue = 0;
         }
         //Lerp to target
-        gameObject.transform.position = Vector3.Lerp(m_startPos, m_target, m_currentLerpValue);
+        gameObject.transform.position = Vector3.Lerp(m_spwnPosTransform.position, m_target, m_currentLerpValue);
 
-        //Update lerp
-        m_currentLerpValue += m_lerpValue * Time.deltaTime;
+        //Update lerpd
+        m_currentLerpValue += m_lerpValue * Time.deltaTime;// * Mathf.Sin(Mathf.PI  * m_currentLerpValue) + sinYOffset;
     }
     public void ResetParticles()
     {
@@ -162,6 +162,7 @@ public class BallScript : MonoBehaviour {
             }
         }
 
+        
         state = BALL_STATE.HAS_BEEN_HIT;
     }
 
