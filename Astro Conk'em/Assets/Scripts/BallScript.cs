@@ -2,32 +2,111 @@
 using System.Collections;
 
 public class BallScript : MonoBehaviour {
-
+    public enum BALL_STATE
+    {
+        NOT_IN_USE,
+        SPAWNING,
+        READY_FOR_PLAYER_HIT,
+        HAS_BEEN_HIT
+    }
+   
     public ParticleSystem standardHit, critHit, critFire;
     public ParticleSystem standardDamage;
 
     public TrailRenderer trail, critTrail;
 
-    Rigidbody rb;
+    private Rigidbody rb;
+    private BALL_STATE state;
 
-	// Use this for initialization
-	void Start () {
+    //float around position
+    private float m_mag = 0.1f;
+    private float m_currentLerpValue = 0;
+    private Vector3 m_startPos;
+    private Vector3 m_target;
+    private float m_lerpValue = 10.0f;
+
+    //float around rotation
+    private float m_torqueModifier = 3.0f;
+
+    public BALL_STATE getState()
+    {
+        return state;
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        m_startPos = GameObject.Find("BallSpawnPos").transform.position;
+        m_target = m_startPos;
+        state = BALL_STATE.NOT_IN_USE;
         rb = GetComponent<Rigidbody>();
 
-        BallSpawner.currentBall = this;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        transform.rotation = Random.rotation;
+        disableTrails();
 
-        if(rb.velocity.magnitude>0.1f)
+        //BallSpawner.currentBall = this;
+    }
+    public void disableTrails()
+    {
+        trail.enabled = false;
+        critTrail.enabled = false;
+        Debug.Log("Disabling trail");
+    }
+    public void enableTrails()
+    {
+        trail.enabled = true;
+        critTrail.enabled = true;
+        Debug.Log("Enabling trail");
+    }
+
+    public void spwaningBall()
+    {
+        ResetParticles();
+        disableTrails();
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        state = BALL_STATE.SPAWNING;
+    }
+    public void readyForPlayerHit()
+    {
+        state = BALL_STATE.READY_FOR_PLAYER_HIT;
+        rb.AddTorque(Random.insideUnitSphere * m_torqueModifier, ForceMode.Force);
+    }
+  
+	// Update is called once per frame
+	void Update ()
+    {
+        if (rb.velocity.magnitude > 0.1f)
             transform.rotation = Quaternion.LookRotation(rb.velocity);
 
         //Positioning of crit trail
         Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 8;
         critTrail.transform.position = transform.position + critTrailOffset;
-	}
 
+
+        if (state == BALL_STATE.READY_FOR_PLAYER_HIT)
+        {
+            floatAround();
+        }
+       
+	}
+    private void floatAround()
+    {
+        //If we are at our target position...
+        if (gameObject.transform.position == m_target)
+        {
+            //Get new target
+            m_target = m_startPos + (Random.insideUnitSphere * m_mag);
+
+            //Reset lerpval
+            m_currentLerpValue = 0;
+        }
+        //Lerp to target
+        gameObject.transform.position = Vector3.Lerp(m_startPos, m_target, m_currentLerpValue);
+
+        //Update lerp
+        m_currentLerpValue += m_lerpValue * Time.deltaTime;
+    }
     public void ResetParticles()
     {
         trail.Clear();
@@ -41,6 +120,8 @@ public class BallScript : MonoBehaviour {
 
     public void HitByPlayer(float power, Vector3 dir)
     {
+        enableTrails();
+
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;
 
         //All crits have the same speed
@@ -80,15 +161,15 @@ public class BallScript : MonoBehaviour {
                 standardHit.Play();
             }
         }
+
+        state = BALL_STATE.HAS_BEEN_HIT;
     }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
         rb.useGravity = true;
 
-        trail.enabled = false;
-        critTrail.enabled = false;
-
         ResetParticles();
+        disableTrails();
     }
 }

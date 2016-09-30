@@ -96,8 +96,8 @@ public class PlayerScript : MonoBehaviour
 
     void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
     {
-        ballTest.transform.position = ballSpawnPos.position;
-        ballTest.velocity = Vector3.zero;
+        //ballTest.transform.position = ballSpawnPos.position;
+        //ballTest.velocity = Vector3.zero;
 
         RaycastHit swingCastHit;
         Ray swingCastRay = cam.ScreenPointToRay(reticle.transform.position);
@@ -141,9 +141,11 @@ public class PlayerScript : MonoBehaviour
     {
         swingDelay = 0.25f;
         //ballTest.velocity = swingAngle * ballSpeed;
-
-        BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
-        CameraScript.cameraSingleton.HitBall();
+        if (BallSpawner.currentBall.getState() == BallScript.BALL_STATE.READY_FOR_PLAYER_HIT)
+        {
+            BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
+            CameraScript.cameraSingleton.HitBall();
+        }
     }
 
     public void Die()

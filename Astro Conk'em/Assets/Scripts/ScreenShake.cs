@@ -6,7 +6,7 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake screenShake;
 
     public float m_maxMagnitude = 4.5f;
-    public float m_lerpValue = 0.4f;
+    public float m_lerpValue = 25.0f;
     public float m_duration;
 
     [SerializeField]
@@ -58,7 +58,7 @@ public class ScreenShake : MonoBehaviour
                 //Lerp to target
                 gameObject.transform.position = Vector3.Lerp(m_startPos, m_target, m_currentLerpValue);
                 //Update lerp
-                m_currentLerpValue += m_lerpValue;
+                m_currentLerpValue += m_lerpValue * Time.deltaTime;
 
             }
             else
