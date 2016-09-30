@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: getPlatforms
 Cmd: compileSnippet
@@ -28,3 +29,7 @@ Cmd: compileSnippet
   api=4 type=0 insize=927 outsize=2013 kw=DIRECTIONAL SHADOWS_OFF _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=927 outsize=2993 kw=DIRECTIONAL SHADOWS_OFF _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+=======
+Base path: D:/Program Files/Unity 5.3.4/Editor/Data
+Cmd: getPlatforms
+>>>>>>> 28dffe6e74c7baa98b79da312bda066bfe76a191

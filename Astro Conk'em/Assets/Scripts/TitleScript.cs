@@ -22,7 +22,7 @@ public class TitleScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        GameManager.g_GameManager.registerState((int)GameManager.STATE.start, StartTitle, EndTitle);
+        GameManager.instance.registerState((int)GameManager.STATE.start, StartTitle, EndTitle);
 
         conkemOffscreenPos = conkem.transform.localPosition + Vector3.up * 300;
         astroOffscreenPos = astro.transform.localPosition + Vector3.up * 380;
