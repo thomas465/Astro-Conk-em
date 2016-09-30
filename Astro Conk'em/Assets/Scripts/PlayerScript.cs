@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour
 
             Debug.DrawLine(swingCastRay.origin, swingCastHit.point, Color.green, 10);
             reticle.transform.position = cam.WorldToScreenPoint(swingCastHit.point);
-            swingAngle = (swingCastHit.point - ballTest.transform.position).normalized;
+            swingAngle = (swingCastHit.point - BallSpawner.currentBall.transform.position).normalized;
         }
         else
         {
@@ -140,7 +140,7 @@ public class PlayerScript : MonoBehaviour
     void HitBall()
     {
         swingDelay = 0.25f;
-        //ballTest.velocity = swingAngle * ballSpeed;
+
         if (BallSpawner.currentBall.getState() == BallScript.BALL_STATE.READY_FOR_PLAYER_HIT)
         {
             BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);

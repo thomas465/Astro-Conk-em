@@ -48,7 +48,7 @@ public class BallSpawner : MonoBehaviour
     {
   
         //Just for testing; activate the spawner with spacebar
-        if (Input.GetKeyDown(KeyCode.Space) && currentBall.getState() != BallScript.BALL_STATE.SPAWNING)
+        if (Input.GetButtonDown("Fire1") && currentBall.getState() != BallScript.BALL_STATE.SPAWNING)
         {
             spawnBall();
         }

@@ -80,7 +80,7 @@ public class BallScript : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
 
         //Positioning of crit trail
-        Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 8;
+        Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 15;
         critTrail.transform.position = transform.position + critTrailOffset;
 
 

@@ -25,6 +25,11 @@ public class PowerbarScript : MonoBehaviour
 
     bool visible = false;
 
+
+    Outline myOutline;
+    Color outlineCritColour;
+
+
     // Use this for initialization
     void Start()
     {
@@ -32,6 +37,9 @@ public class PowerbarScript : MonoBehaviour
 
         onScreenPos = transform.localPosition;
         offScreenPos = onScreenPos - Vector3.up * 200;
+
+        myOutline = GetComponent<Outline>();
+        outlineCritColour = myOutline.effectColor;
     }
 
     // Update is called once per frame
@@ -50,7 +58,6 @@ public class PowerbarScript : MonoBehaviour
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, 8 * Time.deltaTime);
 
-
         if (cursorPauseTime <= 0)
         {
             //This is a lerped thing so that the cursor never does massive jumps
@@ -58,15 +65,21 @@ public class PowerbarScript : MonoBehaviour
                 
             currentPower = Mathf.Sin(Time.time * currentBarSpeed);
 
-            cursor.transform.localPosition = new Vector3(currentPower * 450 / 2, 0, 0);
-            cursor.transform.localScale = Vector3.Lerp(Vector3.one * 0.4f, Vector3.one * 1.45f, 1 - Mathf.Abs(currentPower));
+            cursor.transform.localPosition = new Vector3(currentPower * 600 / 2, 0, 0);
+            cursor.transform.localScale = Vector3.Lerp(Vector3.one * 0.4f, Vector3.one * 1.45f, GetCurrentPower());
+
+            if (GetCurrentPower() > critThreshold)
+                transform.localScale = Vector3.one * 1.05f;
         }
         else
         {
-            cursor.transform.localScale = Vector3.Lerp(cursor.transform.localScale, Vector3.one*0.4f, Time.deltaTime * 15);
+            cursor.transform.localScale = Vector3.Lerp(cursor.transform.localScale, Vector3.one*1f, Time.deltaTime * 15);
             cursorPauseTime -= Time.deltaTime;
         }
 
+
+        myOutline.effectColor = Color.Lerp(Color.clear, outlineCritColour, GetCurrentPower());
+        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * 15);
         testText.text = ""+GetCurrentPower();
     }
 
@@ -96,7 +109,7 @@ public class PowerbarScript : MonoBehaviour
     public void LockInCurrentPower()
     {
         cursorPauseTime = 1;
-        cursor.transform.localScale = cursor.transform.localScale * 1.5f;
+        cursor.transform.localScale = new Vector3(1, 2, 1);
 
         if(GetCurrentPower()>critThreshold)
         {

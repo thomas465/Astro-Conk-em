@@ -33,7 +33,7 @@ public class ScreenShake : MonoBehaviour
         //For testing...
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            shake(0.35f);
+            //shake(0.35f);
         }
 
         //If we are shaking...
