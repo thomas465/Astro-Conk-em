@@ -23,9 +23,9 @@ public class BallScript : MonoBehaviour {
     private float m_currentLerpValue = 0;
     private float m_sineLerp = 0;
     private Transform m_spwnPosTransform;
+    private Vector3 m_start;
     private Vector3 m_target;
- 
-    private float m_lerpValue = 10.0f;
+    private float m_lerpValue = 3.0f;
     
     //float around rotation
     private float m_torqueModifier = 3.0f;
@@ -71,6 +71,8 @@ public class BallScript : MonoBehaviour {
     {
         state = BALL_STATE.READY_FOR_PLAYER_HIT;
         rb.AddTorque(Random.insideUnitSphere * m_torqueModifier, ForceMode.Force);
+        m_start = transform.position;
+        m_target = m_spwnPosTransform.position + (Random.insideUnitSphere * m_mag);
     }
   
 	// Update is called once per frame
@@ -97,12 +99,12 @@ public class BallScript : MonoBehaviour {
         {
             //Get new target
             m_target = m_spwnPosTransform.position + (Random.insideUnitSphere * m_mag);
-
+            m_start = transform.position;
             //Reset lerpval
             m_currentLerpValue = 0;
         }
         //Lerp to target
-        gameObject.transform.position = Vector3.Lerp(m_spwnPosTransform.position, m_target, m_currentLerpValue);
+        gameObject.transform.position = Vector3.Lerp(m_start, m_target, m_currentLerpValue);
 
         //Update lerpd
         m_currentLerpValue += m_lerpValue * Time.deltaTime;// * Mathf.Sin(Mathf.PI  * m_currentLerpValue) + sinYOffset;
