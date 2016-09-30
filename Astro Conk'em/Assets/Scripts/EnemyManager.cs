@@ -3,17 +3,7 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-
-	[System.Serializable]
-	public class SpawnPoint
-	{
-		public Transform transform;
-		public float minDifficultyLevel;
-		public float weight;
-		public bool isUnderGround;
-	}
-
-
+	
 	//List of all active enemies
 	private List<Enemy> enemyList = new List<Enemy>();
 
@@ -27,13 +17,18 @@ public class EnemyManager : MonoBehaviour
 
 	public GameObject enemyPrefab;
 
-	public List<SpawnPoint> spawnPoints;
-	private SpawnPoint lastSpawnPoint;
+	private EnemySpawnPoint[] spawnPoints;
+	private EnemySpawnPoint lastSpawnPoint;
 
 	void Awake()
 	{
 		//Set the spawn threshold to the initial difficulty
 		spawnThreshold = GameManager.instance.initialDifficulty;
+	}
+
+	void Start()
+	{
+		spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
 	}
 
 	void Update()
@@ -56,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 		Enemy enemy = GetNewEnemy();
 
 		//Pick a random spawn point
-		SpawnPoint sp = PickRandomSpawnPoint();
+		EnemySpawnPoint sp = PickRandomSpawnPoint();
 
 		//Set the enemy to be at the spawn point
 		enemy.transform.position = sp.transform.position;
@@ -65,12 +60,12 @@ public class EnemyManager : MonoBehaviour
 		//TODO: Call some 'start' function on the enemy, with sp.isUnderGround, maybe other stuff
 	}
 
-	private SpawnPoint PickRandomSpawnPoint()
+	private EnemySpawnPoint PickRandomSpawnPoint()
 	{
 		//Pick a random spawn point
-		List<SpawnPoint> possibleSpawnPoints = new List<SpawnPoint>();
+		List<EnemySpawnPoint> possibleSpawnPoints = new List<EnemySpawnPoint>();
 		float totalWeights = 0f;
-		foreach (SpawnPoint sp in spawnPoints)
+		foreach (EnemySpawnPoint sp in spawnPoints)
 		{
 			//Dont spawn at points that are too difficult yet
 			if (GameManager.instance.curDifficulty < sp.minDifficultyLevel)
@@ -90,7 +85,7 @@ public class EnemyManager : MonoBehaviour
 
 		float randomWeight = Random.Range(0f, totalWeights);
 
-		foreach (SpawnPoint sp in possibleSpawnPoints)
+		foreach (EnemySpawnPoint sp in possibleSpawnPoints)
 		{
 			randomWeight -= sp.weight;
 			if (randomWeight < 0f)

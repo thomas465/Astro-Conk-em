@@ -38,13 +38,13 @@ public class Enemy : MonoBehaviour
 	public void Init()
 	{
 		//Face the player
-		initialFacing = player.transform.position - transform.position;
+		initialFacing = GetVectorToPlayer();
 
 		//Rotate by up to randRotRange
 		initialFacing = Quaternion.Euler(0f, Random.Range(-randRotRange, randRotRange), 0f) * initialFacing;
 
 		//Set the initial distance to our current distance to player
-		initialDist = Vector3.Distance(transform.position, player.transform.position);
+		initialDist = GetDistToPlayer();
 	}
 
 	//will call Init
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 	private void Update()
 	{
 		//If we are far away from the target position
-		if ((transform.position - player.transform.position).sqrMagnitude > explodeDist * explodeDist)
+		if(GetDistToPlayer() > explodeDist)
 		{
 			DoMovement();
 		}
@@ -73,16 +73,24 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+	void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.CompareTag("Enemy"))
+		{
+
+		}
+	}
+
 	/// <summary>
 	/// Handles basic enemy AI, doesnt just move straight towards player
 	/// </summary>
 	private void DoMovement()
 	{
 		//Current distance to player
-		float dist = Vector3.Distance(transform.position, player.transform.position);
+		float dist = GetDistToPlayer();
 
 		//Steer towards the player
-		Vector3 forward = Vector3.Slerp(initialFacing, player.transform.position - transform.position, Mathf.InverseLerp(initialDist, 0f, dist));
+		Vector3 forward = Vector3.Slerp(initialFacing, GetVectorToPlayer(), Mathf.InverseLerp(initialDist, 0f, dist));
 
 		//Set the rotation
 		transform.rotation = Quaternion.LookRotation(forward);
@@ -96,11 +104,28 @@ public class Enemy : MonoBehaviour
 		transform.position += _dir * speed * Time.deltaTime;
 	}
 
+	private Vector3 GetVectorToPlayer()
+	{
+		Vector3 dir = player.transform.position - transform.position;
+		dir.Scale(new Vector3(1f, 0f, 1f)); //Remove everything in y component
+		return dir;
+	}
+
+	private float GetDistToPlayer()
+	{
+		return Vector3.Distance
+		(
+			new Vector3(transform.position.x, 0f, transform.position.z),
+			new Vector3(player.transform.position.x, 0f, player.transform.position.z)
+		);
+	}
+
 	/// <summary>
 	/// Detonate and damage the player.
 	/// </summary>
 	private void Detonate()
 	{
 		//place detonation logic here (Explode, inform the player, inform the EnemyManager
+		GameManager.instance.enemyManager.OnEnemyKilled(this);
 	}
 }
