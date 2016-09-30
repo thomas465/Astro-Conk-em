@@ -8,7 +8,7 @@ public class BallSpawner : MonoBehaviour
     private AudioSource m_source;
 
     [SerializeField]
-    private const int m_maxBalls = 20;
+    private const int m_maxBalls = 40;//PC's are great we don't have to arbitrarily limit ourselves!
     private BallScript[] m_balls;
 
     //Yo ozone please get it so that this references the ball which the player will hit next time he swings :)
