@@ -6,6 +6,8 @@ public class TitleScript : MonoBehaviour {
 
     public Text astro, conkem, prompt;
 
+
+
     bool active = true;
 
     Vector3 conkemOffscreenPos, astroOffscreenPos;
@@ -15,6 +17,7 @@ public class TitleScript : MonoBehaviour {
 
     public Camera myCam;
     public Transform gameCamPos;
+	public Animator anim;
 
     float panTime = 0;
 
@@ -31,6 +34,7 @@ public class TitleScript : MonoBehaviour {
         astroOnscreenPos = astro.transform.localPosition;
 
         promptPos = prompt.transform.localPosition;
+		anim = GetComponent<Animator> ();
     }
 
     void StartTitle()
@@ -42,10 +46,10 @@ public class TitleScript : MonoBehaviour {
     void EndTitle()
     {
         float maxPanTime = 2.2f;
-
         active = false;
         PlayerScript.playerSingleton.GiveSwingDelay(maxPanTime);
         panTime = maxPanTime;
+		anim.SetTrigger ("Fade");
         myCam.GetComponent<Animator>().Stop();
     }
 

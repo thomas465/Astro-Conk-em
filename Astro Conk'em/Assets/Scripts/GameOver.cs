@@ -26,7 +26,7 @@ public class GameOver : MonoBehaviour {
             restart += Time.deltaTime;
             if (restart >= 5)
             {
-                //Application.LoadLevel(Application.loadedLevel);
+                Application.LoadLevel(Application.loadedLevel);
                 //pherhaps a dodgey way of reloading the scene?
             }
         }
