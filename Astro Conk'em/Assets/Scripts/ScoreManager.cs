@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
 
-    public int score;
+    public int score = 0;
     Text text;
 
     void Start () {
@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour {
         
 	}
 	void Update () {
-        text.text = "Score " + score;
+        text.text = "Score: " + score;
         /*
         score value to be assigned in the enemy manager for different scoring enemies? 
         ScoreManager.score += score;

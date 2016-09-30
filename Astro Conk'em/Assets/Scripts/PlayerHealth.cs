@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour {
 
 		if (m_currentPlayerHealth <= 0)
 		{
-            //Dead();
+            Dead();
         }
 
     }
