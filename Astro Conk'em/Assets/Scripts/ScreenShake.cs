@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScreenShake : MonoBehaviour
 {
-    public static ScreenShake screenShake;
+    public static ScreenShake g_instance;
 
     public float m_maxMagnitude = 4.5f;
     public float m_lerpValue = 25.0f;
@@ -23,7 +23,7 @@ public class ScreenShake : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        screenShake = this;
+        g_instance = this;
         m_startPos = restPos.position;
     }
 	

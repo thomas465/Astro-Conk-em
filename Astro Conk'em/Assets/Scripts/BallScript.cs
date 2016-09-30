@@ -155,7 +155,7 @@ public class BallScript : MonoBehaviour {
 
             if (isCrit)
             {
-                ScreenShake.screenShake.shake(0.4f);
+                ScreenShake.g_instance.shake(0.4f);
                 critHit.Play();
                 critFire.Play();
             }

@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript playerSingleton;
 
+    public float hitShakeMultipler = 0.7f;
     public Image reticle;
     Animator anim;
     public Rigidbody ballTest;
@@ -145,6 +146,7 @@ public class PlayerScript : MonoBehaviour
         {
             BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
             CameraScript.cameraSingleton.HitBall();
+            ScreenShake.g_instance.shake(PowerbarScript.powerbarSingleton.GetCurrentPower() * hitShakeMultipler);
         }
     }
 
