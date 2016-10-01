@@ -41,6 +41,7 @@ ModelImporter:
     100066: StadiumBarrier
     100068: StepRail
     100070: Steps
+    100072: StadiumBarrier_010
     400000: Barrier1
     400002: Barrier2
     400004: Barrier3
@@ -77,6 +78,7 @@ ModelImporter:
     400066: StadiumBarrier
     400068: StepRail
     400070: Steps
+    400072: StadiumBarrier_010
     2300000: Barrier1
     2300002: Barrier2
     2300004: Barrier3
@@ -112,6 +114,7 @@ ModelImporter:
     2300064: StadiumBarrier
     2300066: StepRail
     2300068: Steps
+    2300070: StadiumBarrier_010
     3300000: Barrier1
     3300002: Barrier2
     3300004: Barrier3
@@ -147,6 +150,7 @@ ModelImporter:
     3300064: StadiumBarrier
     3300066: StepRail
     3300068: Steps
+    3300070: StadiumBarrier_010
     4300000: Cube
     4300002: Plane
     4300004: Cylinder
@@ -182,6 +186,7 @@ ModelImporter:
     4300064: StepRail
     4300066: Seats
     4300068: Steps
+    4300070: StadiumBarrier_010
     6400000: Barrier1
     6400002: Barrier2
     6400004: Barrier3
@@ -217,6 +222,7 @@ ModelImporter:
     6400064: StadiumBarrier
     6400066: StepRail
     6400068: Steps
+    6400070: StadiumBarrier_010
     7400000: Default Take
     9500000: //RootNode
   materials:
