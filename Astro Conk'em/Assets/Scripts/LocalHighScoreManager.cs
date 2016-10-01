@@ -113,7 +113,7 @@ public class LocalHighScoreManager : MonoBehaviour
         return placed;
     }
 
-    public void addAndShuffle(Pair _p, int _index)
+    private void addAndShuffle(Pair _p, int _index)
     {
         Pair temp;
         Pair prev = _p;
@@ -133,21 +133,24 @@ public class LocalHighScoreManager : MonoBehaviour
         loadScores();
     }
 
-    int maxScores()
+    public int maxScores()
     {
         return m_maxScores;
     }
-    int numberOfScores()
+    public int numberOfScores()
     {
         return m_numScores;
     }
 
-    Pair getScore(int index)
+    public Pair getScore(int index)
     {
         return m_leaderBoard[index];
     }
 
-
+    public Pair[] copyLeaderBoard()
+    {
+        return m_leaderBoard;
+    }
 	// Update is called once per frame
 	void Update ()
     {
