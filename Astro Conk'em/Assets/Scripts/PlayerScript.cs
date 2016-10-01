@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 
     public Transform ballSpawnPos;
 
+    public float aimScale = 0.7f;
+
     //This is used to check if the player has "flicked" the stick
     float prevStickMagnitude = 0;
     Vector3 prevStickDir;
@@ -27,6 +29,9 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 swingAngle;
     Vector3 reticleRestPos;
+
+    //Melee
+    public bool meleeMode = false;
 
     // Use this for initialization
     void Start()
@@ -53,6 +58,8 @@ public class PlayerScript : MonoBehaviour
         {
             swingDelay -= Time.deltaTime;
         }
+
+        anim.SetBool("MeleeMode", meleeMode);
     }
 
     public void GiveSwingDelay(float amount = 2)
@@ -64,8 +71,22 @@ public class PlayerScript : MonoBehaviour
     {
         Vector3 curStickDir = new Vector3(-Input.GetAxisRaw("Horizontal"), -Input.GetAxisRaw("Vertical"), 0);
 
-        curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
+        if (meleeMode)
+        {
+            curStickDir.x = -curStickDir.x;
 
+            if (curStickDir.y > 0.5f)
+                meleeMode = false;
+        }
+        else
+        {
+            if (curStickDir.y < -0.9f)
+                meleeMode = true;
+            else
+                curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
+        }
+
+        //
         float stickMagnitude = curStickDir.magnitude;
 
         if (stickMagnitude > 1)
@@ -76,11 +97,14 @@ public class PlayerScript : MonoBehaviour
 
         if (stickMagnitude < prevStickMagnitude - 0.2f && prevStickMagnitude > 0.1f)
         {
-            Swing(prevStickDir, reticle.transform.position);
+            if (!meleeMode)
+                Swing(prevStickDir, reticle.transform.position);
+            else
+                MeleeSwing();
         }
         else
         {
-            Vector3 reticleTargetPos = Vector3.zero + curStickDir * 400;
+            Vector3 reticleTargetPos = Vector3.zero + curStickDir * (400*aimScale);
 
             reticle.transform.localPosition = Vector3.Lerp(reticle.transform.localPosition, reticleTargetPos + reticleRestPos, 15 * Time.deltaTime);
 
@@ -95,6 +119,22 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void MeleeSwing()
+    {
+        meleeMode = true;
+        anim.SetBool("MeleeMode", true);
+        anim.SetTrigger("Swing");
+        swingDelay = 0.5f;
+        prevStickMagnitude = 0;
+        //Debug.Break();
+    }
+
+    void HitFloor()
+    {
+        meleeMode = false;
+        ScreenShake.g_instance.shake(0.3f, 0.2f);
+    }
+
     void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
     {
         //ballTest.transform.position = ballSpawnPos.position;
@@ -107,12 +147,13 @@ public class PlayerScript : MonoBehaviour
 
         if (Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250))
         {
-            Debug.Log("Aimed swing");
+            
 
             //Auto-aim
-            if (swingCastHit.collider.gameObject.layer == 8 && aimAssist)
+            if (swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
             {
-                swingCastHit.point = swingCastHit.collider.transform.position;
+                Debug.Log("Aimed swing");
+                swingCastHit.point = swingCastHit.collider.transform.position + Vector3.up/2;
             }
 
             Debug.DrawLine(swingCastRay.origin, swingCastHit.point, Color.green, 10);

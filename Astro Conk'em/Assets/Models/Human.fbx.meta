@@ -47,6 +47,10 @@ ModelImporter:
     100078: thumb1_r
     100080: thumb2_l
     100082: thumb2_r
+    100084: Arms_HIDDEN
+    100086: Arms_HIDDEN_001
+    100088: Hat
+    100090: Shirt
     400000: Blade
     400002: Cube
     400004: finger1_l
@@ -89,8 +93,16 @@ ModelImporter:
     400078: thumb1_r
     400080: thumb2_l
     400082: thumb2_r
+    400084: Arms_HIDDEN
+    400086: Arms_HIDDEN_001
+    400088: Hat
+    400090: Shirt
     4300000: Cube
     4300002: Blade
+    4300004: Arms_HIDDEN_001
+    4300006: Shirt
+    4300008: Hat
+    4300010: Arms_HIDDEN
     7400000: Default Take
     7400002: Aim
     7400004: Aim_FireBomb
@@ -115,9 +127,15 @@ ModelImporter:
     7400042: Sword_Hit1
     7400044: Sword_Hit2
     7400046: Walk
+    7400048: MeleeMode
+    7400050: MeleeMode_Swing
     9500000: //RootNode
     13700000: Blade
     13700002: Cube
+    13700004: Arms_HIDDEN
+    13700006: Arms_HIDDEN_001
+    13700008: Hat
+    13700010: Shirt
   materials:
     importMaterials: 1
     materialName: 0
@@ -2066,7 +2084,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.6628571
+        functionName: HitFloor
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c0d26aaa665f10d4faa09241ff9eb485,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -2747,6 +2773,238 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blade
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Human
+        weight: 1
+      - path: Human/LowSpine
+        weight: 1
+      - path: Human/LowSpine/HighSpine
+        weight: 1
+      - path: Human/LowSpine/HighSpine/neck
+        weight: 1
+      - path: Human/LowSpine/HighSpine/neck/head
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger1_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger1_l/finger1low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger2_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger2_l/finger2low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger3_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger3_l/finger3low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger4_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger4_l/finger4low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/thumb1_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/thumb1_l/thumb2_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger1_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger1_r/finger1low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger2_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger2_r/finger2low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger3_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger3_r/finger3low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger4_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger4_r/finger4low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/thumb1_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/thumb1_r/thumb2_r
+        weight: 1
+      - path: Human/thigh_l
+        weight: 1
+      - path: Human/thigh_l/shin_l
+        weight: 1
+      - path: Human/thigh_l/shin_l/foot_l
+        weight: 1
+      - path: Human/thigh_r
+        weight: 1
+      - path: Human/thigh_r/shin_r
+        weight: 1
+      - path: Human/thigh_r/shin_r/foot_r
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: MeleeMode
+      takeName: MeleeMode
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blade
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Human
+        weight: 1
+      - path: Human/LowSpine
+        weight: 1
+      - path: Human/LowSpine/HighSpine
+        weight: 1
+      - path: Human/LowSpine/HighSpine/neck
+        weight: 1
+      - path: Human/LowSpine/HighSpine/neck/head
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger1_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger1_l/finger1low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger2_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger2_l/finger2low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger3_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger3_l/finger3low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger4_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/finger4_l/finger4low_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/thumb1_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_l/higharm_l/lowarm_l/hand_l/thumb1_l/thumb2_l
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger1_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger1_r/finger1low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger2_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger2_r/finger2low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger3_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger3_r/finger3low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger4_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/finger4_r/finger4low_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/thumb1_r
+        weight: 1
+      - path: Human/LowSpine/HighSpine/Shoulder_r/higharm_r/lowarm_r/hand_r/thumb1_r/thumb2_r
+        weight: 1
+      - path: Human/thigh_l
+        weight: 1
+      - path: Human/thigh_l/shin_l
+        weight: 1
+      - path: Human/thigh_l/shin_l/foot_l
+        weight: 1
+      - path: Human/thigh_r
+        weight: 1
+      - path: Human/thigh_r/shin_r
+        weight: 1
+      - path: Human/thigh_r/shin_r/foot_r
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: MeleeMode_Swing
+      takeName: MeleeMode_Swing
+      firstFrame: 0
+      lastFrame: 64
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.7114286
+        functionName: HitFloor
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c0d26aaa665f10d4faa09241ff9eb485,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
