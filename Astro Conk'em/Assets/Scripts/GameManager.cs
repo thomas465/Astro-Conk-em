@@ -92,9 +92,20 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+    [SerializeField]
+    private MusicController m_musicController;
+    public MusicController musicManager
+    {
+        get
+        {
+            return m_musicController;
+        }
+    }
 
+    //This audiosource is used for menu sounds etc
+    public static AudioSource globalSoundSource;
 
-	void Awake()
+    void Awake()
 	{
 		if(s_instance != null)
 		{
@@ -108,6 +119,7 @@ public class GameManager : MonoBehaviour
 
 		//Set the current difficulty to the initial difficulty
 		curDifficulty = initialDifficulty;
+        globalSoundSource = GetComponent<AudioSource>();
 	}
 
 	void Start()

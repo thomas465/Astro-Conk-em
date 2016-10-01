@@ -7,8 +7,10 @@ public class MusicController : MonoBehaviour {
     int[] loopPoints;
 
     int curSongIndex = 0;
-
     AudioSource musicSource;
+
+    bool fadeToSilence = false;
+    float musicVolume = 0.9f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +27,19 @@ public class MusicController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+        //Looping
         if(musicSource.timeSamples>musicSource.clip.samples)
         {
             musicSource.timeSamples = loopPoints[curSongIndex];
             musicSource.Play();
             Debug.Log("LOOPED");
+        }
+
+
+        //Fading
+        if(fadeToSilence)
+        {
+            musicSource.volume -= Time.deltaTime;
         }
 	}
 
@@ -39,10 +49,13 @@ public class MusicController : MonoBehaviour {
         musicSource.Play();
 
         curSongIndex = index;
+        musicSource.volume = musicVolume;
+        fadeToSilence = false;
     }
 
     public void StopSong()
     {
-        musicSource.Stop();
+        fadeToSilence = true;
+        //musicSource.Stop();
     }
 }

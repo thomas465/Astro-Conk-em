@@ -48,6 +48,9 @@ public class TitleScript : MonoBehaviour {
         PlayerScript.playerSingleton.GiveSwingDelay(maxPanTime);
         panTime = maxPanTime;
         myCam.GetComponent<Animator>().Stop();
+
+        GameManager.globalSoundSource.PlayOneShot(SoundBank.sndBnk.menuClick);
+        GameManager.instance.musicManager.StopSong();
     }
 
     // Update is called once per frame
@@ -81,7 +84,12 @@ public class TitleScript : MonoBehaviour {
             else
             {
                 //Debug.Break();
-                titlePanFinished = true;
+                if(!titlePanFinished)
+                {
+                    GameManager.instance.musicManager.PlaySong(1);
+                    titlePanFinished = true;
+                }
+                
             }
         }
     }

@@ -29,7 +29,6 @@ public class PowerbarScript : MonoBehaviour
     Outline myOutline;
     Color outlineCritColour;
 
-
     // Use this for initialization
     void Start()
     {

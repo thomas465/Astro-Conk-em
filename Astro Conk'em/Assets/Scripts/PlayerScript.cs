@@ -33,6 +33,8 @@ public class PlayerScript : MonoBehaviour
     //Melee
     public bool meleeMode = false;
 
+    AudioSource myAudio;
+
     // Use this for initialization
     void Start()
     {
@@ -42,6 +44,8 @@ public class PlayerScript : MonoBehaviour
 
         reticleRestPos = new Vector3(0, -250, 0);
         reticle.transform.localPosition = reticleRestPos;
+
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -131,6 +135,7 @@ public class PlayerScript : MonoBehaviour
 
     void HitFloor()
     {
+        myAudio.PlayOneShot(SoundBank.sndBnk.hitFloorWithBat);
         meleeMode = false;
         ScreenShake.g_instance.shake(0.3f, 0.2f);
     }
@@ -154,6 +159,7 @@ public class PlayerScript : MonoBehaviour
             {
                 Debug.Log("Aimed swing");
                 swingCastHit.point = swingCastHit.collider.transform.position + Vector3.up/2;
+                reticleScript.LockOn();
             }
 
             Debug.DrawLine(swingCastRay.origin, swingCastHit.point, Color.green, 10);

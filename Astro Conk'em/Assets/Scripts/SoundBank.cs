@@ -5,9 +5,10 @@ public class SoundBank : MonoBehaviour {
 
     public static SoundBank sndBnk;
 
-    public AudioClip menuClick;
+    public AudioClip menuClick, critMetronome;
 
-    public AudioClip batHitBall;
+    public AudioClip batHitBall, batCritBall;
+    public AudioClip hitFloorWithBat;
     public AudioClip[] ballHits;
 
     public AudioClip[] slugVoices;
@@ -16,7 +17,7 @@ public class SoundBank : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
+        sndBnk = this;
 	}
 	
 	// Update is called once per frame

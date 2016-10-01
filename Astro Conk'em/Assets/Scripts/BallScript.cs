@@ -30,6 +30,8 @@ public class BallScript : MonoBehaviour {
     //float around rotation
     private float m_torqueModifier = 3.0f;
 
+    AudioSource myAudio;
+
     public BALL_STATE getState()
     {
         return state;
@@ -45,6 +47,8 @@ public class BallScript : MonoBehaviour {
 
         transform.rotation = Random.rotation;
         disableTrails();
+
+        myAudio = GetComponent<AudioSource>();
 
         //BallSpawner.currentBall = this;
     }
@@ -131,6 +135,13 @@ public class BallScript : MonoBehaviour {
         if(isCrit)
         {
             power = 1;
+            myAudio.pitch = Random.Range(0.9f, 1.1f);
+            myAudio.PlayOneShot(SoundBank.sndBnk.batCritBall);
+        }
+        else
+        {
+            myAudio.pitch = Random.Range(0.9f, 1.1f);
+            myAudio.PlayOneShot(SoundBank.sndBnk.batHitBall, power+0.15f);
         }
 
         float speed = 10;
