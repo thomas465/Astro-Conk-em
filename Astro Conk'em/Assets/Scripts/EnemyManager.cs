@@ -126,8 +126,6 @@ public class EnemyManager : MonoBehaviour
 	{
 		enemyList.Remove(enemy);
 		disabledEnemyList.Add(enemy);
-
-		enemy.gameObject.SetActive(false);
 	}
 
 }

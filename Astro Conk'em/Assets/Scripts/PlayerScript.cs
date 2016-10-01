@@ -159,7 +159,7 @@ public class PlayerScript : MonoBehaviour
 
 			//Debug.Log("Hit enemy");
 
-			enemy.TakeDamage();
+			enemy.TakeDamage(false, transform.forward);
 		}
 	}
 

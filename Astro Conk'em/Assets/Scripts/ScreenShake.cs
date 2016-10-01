@@ -74,7 +74,7 @@ public class ScreenShake : MonoBehaviour
         }
         else
         {
-            if (m_target != m_startPos)
+            if (transform.position != m_startPos && TitleScript.titlePanFinished)
             {
                 //Lerp to start
                 gameObject.transform.position = Vector3.Lerp(m_target, restPos.position, m_currentLerpValue);

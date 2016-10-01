@@ -32,14 +32,25 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float distToMoveDirect = 15f;
 
-
 	private Vector3 initialFacing;
 	private float initialDist;
 
-	/// <summary>
-	/// Called when an enemy is spawned or respawned
-	/// </summary>
-	public void Init()
+    //Particles
+    public GameObject standardHitParticles, critHitParticles;
+
+    Collider myCollider;
+
+    bool isDead = false;
+    float deathTime = 0;
+    Vector3 originalScale;
+
+    Animator anim;
+    AudioSource myAudio;
+
+    /// <summary>
+    /// Called when an enemy is spawned or respawned
+    /// </summary>
+    public void Init()
 	{
 		//aquire a target
 		player = GameManager.instance.player;
@@ -52,11 +63,30 @@ public class Enemy : MonoBehaviour
 
 		//Set the initial distance to our current distance to player
 		initialDist = GetDistToPlayer();
+
+        isDead = false;
+        deathTime = 0;
+
+        if(myCollider)
+        {
+            myCollider.enabled = true;
+        }
+
+        if (originalScale.x > 0)
+        {
+            transform.localScale = originalScale;
+        }
 	}
 
 	//will call Init
 	private void Start()
 	{
+        anim = GetComponent<Animator>();
+        myCollider = GetComponent<Collider>();
+        myAudio = GetComponent<AudioSource>();
+
+        originalScale = transform.localScale;
+
 		Init();
 	}
 
@@ -66,27 +96,73 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	private void Update()
 	{
-		//If we are far away from the target position
-		if(GetDistToPlayer() > explodeDist)
-		{
-			DoMovement();
-		}
-		else
-		{
-			Detonate();
-		}
+        if (!isDead)
+        {
+            //If we are far away from the target position
+            if (GetDistToPlayer() > explodeDist)
+            {
+                DoMovement();
+            }
+            else
+            {
+                Detonate();
+            }
+        }
+        else
+        {
+            deathTime -= Time.deltaTime;
+
+            if(deathTime<2)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.25f, 0, 1.25f), 3 * Time.deltaTime);
+                transform.position -= Vector3.up * Time.deltaTime * 1;
+            }
+
+            if(deathTime<=0)
+            {
+                isDead = false;
+                GameManager.instance.enemyManager.OnEnemyKilled(this);
+            }
+        }
 	}
+
+    void LateUpdate()
+    {
+        anim.SetBool("Alive", !isDead);
+    }
 
 	/// <summary>
 	/// Call this when the slug gets hit, currently instakills but we can expand to have hp if needed
 	/// </summary>
-	public void TakeDamage()
+	public void TakeDamage(bool isCrit, Vector3 hitDirection)
 	{
-		GameManager.instance.enemyManager.OnEnemyKilled(this);
+        if (isDead)
+            return;
 
-		//Probably want this ot be a function on the scoreManager
-		//GameManager.instance.scoreManager.score += 1;
-	}
+        myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
+
+        if (isCrit)
+        {
+            GameObject hit = Instantiate(critHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+            hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
+
+            Destroy(hit, 3);
+        }
+        else
+        {
+            GameObject hit = Instantiate(standardHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+            hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
+
+            Destroy(hit, 3);
+        }
+
+        ScreenShake.g_instance.shake(0.4f, 0.1f);
+        isDead = true;
+
+        myCollider.enabled = false;
+
+        deathTime = 4;
+    }
 
 	/// <summary>
 	/// Handles basic enemy AI, doesnt just move straight towards player

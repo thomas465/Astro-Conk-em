@@ -19,6 +19,8 @@ public class BallScript : MonoBehaviour {
     private Rigidbody rb;
     private BALL_STATE state;
 
+    bool isDangerous = false;
+
     //float around position
     private float m_mag = 0.1f;
     private float m_currentLerpValue = 0;
@@ -85,7 +87,14 @@ public class BallScript : MonoBehaviour {
 	void Update ()
     {
         if (rb.velocity.magnitude > 0.1f)
+        {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
+        }
+
+        if(rb.velocity.magnitude<2)
+        {
+            isDangerous = false;
+        }
 
         //Positioning of crit trail
         Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 15;
@@ -130,6 +139,7 @@ public class BallScript : MonoBehaviour {
     {
         enableTrails();
 
+        isDangerous = true;
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;
 
         //All crits have the same speed
@@ -188,15 +198,16 @@ public class BallScript : MonoBehaviour {
         ResetParticles();
         disableTrails();
 
-		if(state == BALL_STATE.HAS_BEEN_HIT)
+		if(state == BALL_STATE.HAS_BEEN_HIT && isDangerous)
 		{
 			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
 			if(enemy != null)
 			{
-				enemy.TakeDamage();
-			}
+				enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
+                state = BALL_STATE.HIT_SOMETHING;
+            }
 
-			state = BALL_STATE.HIT_SOMETHING;
+			
 		}
     }
 }

@@ -28,6 +28,7 @@ ModelImporter:
     100040: RightEyebrow
     100042: RightEyeStalk
     100044: SlugBody
+    100046: Lamp
     400000: Armature
     400002: Bone
     400004: Bone_002
@@ -51,6 +52,7 @@ ModelImporter:
     400040: RightEyebrow
     400042: RightEyeStalk
     400044: SlugBody
+    400046: Lamp
     4300000: SlugBody
     4300002: Mouth
     4300004: RightEyeStalk

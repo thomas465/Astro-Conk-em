@@ -24,4 +24,13 @@ public class SoundBank : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public AudioClip GetHitSound()
+    {
+        AudioClip returnThis;
+
+        returnThis = ballHits[Random.Range(0, ballHits.Length)];
+
+        return returnThis;
+    }
 }
