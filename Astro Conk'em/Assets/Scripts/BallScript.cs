@@ -7,7 +7,8 @@ public class BallScript : MonoBehaviour {
         NOT_IN_USE,
         SPAWNING,
         READY_FOR_PLAYER_HIT,
-        HAS_BEEN_HIT
+        HAS_BEEN_HIT,
+		HIT_SOMETHING
     }
    
     public ParticleSystem standardHit, critHit, critFire;
@@ -186,5 +187,16 @@ public class BallScript : MonoBehaviour {
 
         ResetParticles();
         disableTrails();
+
+		if(state == BALL_STATE.HAS_BEEN_HIT)
+		{
+			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
+			if(enemy != null)
+			{
+				enemy.TakeDamage();
+			}
+
+			state = BALL_STATE.HIT_SOMETHING;
+		}
     }
 }

@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
 		enemy.transform.position = sp.transform.position;
 		enemy.transform.rotation = sp.transform.rotation;
 
-		//TODO: Call some 'start' function on the enemy, with sp.isUnderGround, maybe other stuff
+		enemy.Init();
 	}
 
 	private EnemySpawnPoint PickRandomSpawnPoint()

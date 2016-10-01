@@ -12,7 +12,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
 	//reference to the player
-	public PlayerScript player;
+	private PlayerScript player;
 
 	//the difficulty modifier for the speed
 	[SerializeField]
@@ -24,8 +24,13 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float explodeDist = 1.0f;
 
+	//they spawn rotated randomly by this much in each direction in degrees
 	[SerializeField]
 	private float randRotRange = 30f;
+
+	//when they are this far from the player, they will be moving directly towards them
+	[SerializeField]
+	private float distToMoveDirect = 15f;
 
 
 	private Vector3 initialFacing;
@@ -33,10 +38,12 @@ public class Enemy : MonoBehaviour
 
 	/// <summary>
 	/// Called when an enemy is spawned or respawned
-	/// if the target is not known, get the target from the player pos
 	/// </summary>
 	public void Init()
 	{
+		//aquire a target
+		player = GameManager.instance.player;
+
 		//Face the player
 		initialFacing = GetVectorToPlayer();
 
@@ -50,9 +57,6 @@ public class Enemy : MonoBehaviour
 	//will call Init
 	private void Start()
 	{
-		//aquire a target
-		player = GameManager.instance.player;
-
 		Init();
 	}
 
@@ -73,12 +77,15 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter(Collision collision)
+	/// <summary>
+	/// Call this when the slug gets hit, currently instakills but we can expand to have hp if needed
+	/// </summary>
+	public void TakeDamage()
 	{
-		if(collision.gameObject.CompareTag("Enemy"))
-		{
+		GameManager.instance.enemyManager.OnEnemyKilled(this);
 
-		}
+		//Probably want this ot be a function on the scoreManager
+		//GameManager.instance.scoreManager.score += 1;
 	}
 
 	/// <summary>
@@ -90,7 +97,7 @@ public class Enemy : MonoBehaviour
 		float dist = GetDistToPlayer();
 
 		//Steer towards the player
-		Vector3 forward = Vector3.Slerp(initialFacing, GetVectorToPlayer(), Mathf.InverseLerp(initialDist, 0f, dist));
+		Vector3 forward = Vector3.Slerp(initialFacing, GetVectorToPlayer(), Mathf.InverseLerp(initialDist, distToMoveDirect, dist));
 
 		//Set the rotation
 		transform.rotation = Quaternion.LookRotation(forward);
@@ -101,7 +108,8 @@ public class Enemy : MonoBehaviour
 
 	private void Move(Vector3 _dir)
 	{
-		transform.position += _dir * speed * Time.deltaTime;
+		float s = speed * Time.deltaTime + GameManager.instance.GetDifficultyLevel() * diffMod;
+		transform.position += _dir * s;
 	}
 
 	private Vector3 GetVectorToPlayer()
@@ -126,6 +134,8 @@ public class Enemy : MonoBehaviour
 	private void Detonate()
 	{
 		//place detonation logic here (Explode, inform the player, inform the EnemyManager
-		GameManager.instance.enemyManager.OnEnemyKilled(this);
+		
+		
+		//GameManager.instance.enemyManager.OnEnemyKilled(this);
 	}
 }

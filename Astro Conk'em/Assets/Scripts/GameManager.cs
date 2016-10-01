@@ -136,6 +136,10 @@ public class GameManager : MonoBehaviour
 	}
 
 
+	public float GetDifficultyLevel()
+	{
+		return curDifficulty - initialDifficulty;
+	}
 
 
 	public void registerState(int _index, Fnct _init, Fnct _shutdown)
