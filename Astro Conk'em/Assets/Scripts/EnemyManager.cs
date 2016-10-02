@@ -135,8 +135,11 @@ public class EnemyManager : MonoBehaviour
 
 	public void OnEnemyKilled(Enemy enemy)
 	{
-		enemyList.Remove(enemy);
-		disabledEnemyList.Add(enemy);
+		//Sometimes this is called multiple times
+		if(enemyList.Remove(enemy))
+		{
+			disabledEnemyList.Add(enemy);
+		}
 	}
 
     //Added some public functions for gettin' at enemies for

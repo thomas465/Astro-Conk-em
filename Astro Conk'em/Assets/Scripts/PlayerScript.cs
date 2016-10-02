@@ -157,7 +157,7 @@ public class PlayerScript : MonoBehaviour
 		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 15f, LayerMask.GetMask("MeleeZone"), QueryTriggerInteraction.Collide);
 
         
-		Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
+		//Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
 
 		foreach(RaycastHit hit in slugs)
 		{
