@@ -8,10 +8,14 @@ public class EnemyEntranceScript : MonoBehaviour
 
     AudioSource audioSource;
 
+	private void Awake ()
+	{
+		audioSource = GetComponent<AudioSource>();    
+	}
+
     void Start()
     {
-        gameObject.SetActive(false);
-        audioSource = GetComponent<AudioSource>();       
+        gameObject.SetActive(false);   
     }
 
     // Use this for initialization

@@ -8,10 +8,14 @@ public class ScoreManager : MonoBehaviour {
     public static int score;
     
 	[SerializeField]
+	private Text comboDisp;
+
+	[SerializeField]
 	private int scoreBase = 25; //the scorebase will add itself to the scorebonus upon each consecutive hit
-	private int scorebonus; //the scorebonus will add itself to the score amount whilst in a combo
+	private static int scorebonus; //the scorebonus will add itself to the score amount whilst in a combo
+	private static int continualHits;
 	private Text text;
-	private int continualHits;
+	private bool alphaUp;
 
     void Awake ()
     {
@@ -26,8 +30,26 @@ public class ScoreManager : MonoBehaviour {
 
 	void Update ()
     {
-       text.text = "Score: " + score;
-        
+		//sorry, I know this is filth, but it is a workaround
+		if (!alphaUp && comboDisp)
+		{
+			if (text.color.a != 1)
+			{
+				Color newCol = text.color;
+				comboDisp.color = newCol;
+			}
+
+			if (comboDisp.color.a == 1)
+			{
+				alphaUp = false;
+			}
+		}
+		text.text = "Score: " + score;
+		if (comboDisp)
+		{
+			comboDisp.text = "Combo: " + continualHits;
+		}
+
        // text.text = "Score: " + score;
         /*
         score value to be assigned in the enemy manager for different scoring enemies? 
@@ -57,7 +79,7 @@ public class ScoreManager : MonoBehaviour {
 
     public void AddScore(int amount)
     {
-		if (continualHits != 0)
+		if (continualHits > 1)
 		{
 			scorebonus += scoreBase;
 
