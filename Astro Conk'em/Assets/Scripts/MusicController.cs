@@ -16,7 +16,8 @@ public class MusicController : MonoBehaviour {
 	void Start () {
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
-        PlaySong(0);
+        musicSource.volume = 0;
+        //PlaySong(0);
 
         loopPoints = new int[songList.Length];
         loopPoints[0] = 325662;
@@ -26,15 +27,17 @@ public class MusicController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-        //Looping
-        if(musicSource.timeSamples>musicSource.clip.samples)
-        {
-            musicSource.timeSamples = loopPoints[curSongIndex];
-            musicSource.Play();
-            Debug.Log("LOOPED");
-        }
 
+        //Looping
+        if (musicSource.clip)
+        {
+            if (musicSource.timeSamples > musicSource.clip.samples)
+            {
+                musicSource.timeSamples = loopPoints[curSongIndex];
+                musicSource.Play();
+                Debug.Log("LOOPED");
+            }
+        }
 
         //Fading
         if(fadeToSilence)
