@@ -8,7 +8,7 @@ public class BallSpawner : MonoBehaviour
     private AudioSource m_source;
 
     [SerializeField]
-    private const int m_maxBalls = 40;//PC's are great we don't have to arbitrarily limit ourselves!
+    private const int m_maxBalls = 45;//PC's are great we don't have to arbitrarily limit ourselves!
     private BallScript[] m_balls;
 
     //Yo ozone please get it so that this references the ball which the player will hit next time he swings :)
@@ -93,7 +93,7 @@ public class BallSpawner : MonoBehaviour
 
             ballState = m_balls[nextBall].getState();
             //don't spawn a ball if there are none left (this will effectively never happen as all of them would have to be spawning, but leave it here for now)
-            if (ballState == BallScript.BALL_STATE.NOT_IN_USE || ballState == BallScript.BALL_STATE.HAS_BEEN_HIT)
+            if (ballState == BallScript.BALL_STATE.HIT_SOMETHING || ballState == BallScript.BALL_STATE.NOT_IN_USE)
             {
                 readyUpCurrentBall(nextBall);
                 nextBall = nextBall >= m_maxBalls - 1 ? 0 : nextBall + 1;

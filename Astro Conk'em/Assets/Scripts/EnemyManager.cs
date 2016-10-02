@@ -20,6 +20,12 @@ public class EnemyManager : MonoBehaviour
 	private EnemySpawnPoint[] spawnPoints;
 	private EnemySpawnPoint lastSpawnPoint;
 
+
+    //Haz these are the holes which the slugs burst through
+    //SetActive() one of these objects to have it burst into existance and after that let slugs spawn from them
+    //The order of the Entrance objects might not match up with the positions of your spawners you've already arranged so you will need to change the order of the entrances to match up
+    public EnemyEntranceScript[] enemyEntrances;
+
 	void Awake()
 	{
 		//Set the spawn threshold to the initial difficulty
