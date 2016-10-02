@@ -114,8 +114,8 @@ public class EnemyManager : MonoBehaviour
 		Enemy enemy;
 		if (disabledEnemyList.Count == 0)
 		{
-			//No enemies in the 'dead' list, instantiate a new one
-			GameObject GO = Instantiate(enemyPrefab);
+            //No enemies in the 'dead' list, instantiate a new one
+            GameObject GO = Instantiate(enemyPrefab);
 			enemy = GO.GetComponent<Enemy>();
 			enemyList.Add(enemy);
 			return enemy;

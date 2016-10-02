@@ -14,6 +14,10 @@ public class BillBoardCam : MonoBehaviour
     [SerializeField]
     private float m_timeFromLastWeightUpdate;
     [SerializeField]
+    private float m_interestChangeDelta;
+    [SerializeField]
+    private float m_timeFromLastInterestChange;
+    [SerializeField]
     private float m_currentWeight;
     private BBCamInterests[] m_interests;
 
@@ -47,25 +51,33 @@ public class BillBoardCam : MonoBehaviour
         m_interests[(int)INTEREST.SINLGE_ENEMY] = new SingleEnemy(this);
         m_currentInterest = INTEREST.WIDE_ANGLE_FIELD;
 
-        m_weightUpdateDelta = 1.0f;
+        m_weightUpdateDelta = 0.5f;
         m_timeFromLastWeightUpdate = 0.0f;
-    }
+
+        m_interestChangeDelta = 5.0f;
+        m_timeFromLastInterestChange =0.0f;
+}
 	
 	// Update is called once per frame
 	void Update ()
     {
         if (m_timeFromLastWeightUpdate >= m_weightUpdateDelta)
         {
-            updateInterestWeights();//this is serperate from looking for new interests incase we want different intervals
-            checkForNewInterest();          //but can optimise this out later if that doesn't happen (not even using it now, for example)
+            updateInterestWeights();
+            
             m_timeFromLastWeightUpdate = 0;
         }
-
+        if (m_timeFromLastInterestChange >= m_interestChangeDelta)
+        {
+            checkForNewInterest();
+            m_timeFromLastInterestChange = 0;
+        }
         if (m_interests[(int)m_currentInterest].interestUpdate() == false)
         {
             checkForNewInterest();
         }
         m_timeFromLastWeightUpdate += Time.deltaTime;
+        m_timeFromLastInterestChange += Time.deltaTime;
     }
 
 
@@ -82,18 +94,27 @@ public class BillBoardCam : MonoBehaviour
     }
     private void checkForNewInterest()
     {
+        //for debugging whether the current interest is the same after this call....
+        INTEREST preInt = m_currentInterest;
+
         float highestWeight = 0;
+        //For every interest...
         for (int i = 0; i < m_interests.Length; ++i)
         {
+            //retrieve pre-calculated weight * precedence multiplier
             float weight = m_interests[i].currentWeight() * precedenceMultiplier(i);
+            //add to debug data
             debugWeights[i] = weight;
-            //use > not >= to give higher precedence to better interests if equal weight
-            if ((INTEREST)i != m_currentInterest && weight >= highestWeight)
+            //if i is not the current interest
+            //AND the weight is ge highest recorded weight
+           // if ((INTEREST)i != m_currentInterest && weight >= highestWeight)
+            if (weight >= highestWeight)
             {
+                //this should be the current interest
                 m_currentInterest = (INTEREST)i;
+                //update highest weight val
                 highestWeight = weight;
             }
         }
-        
     }
 }
