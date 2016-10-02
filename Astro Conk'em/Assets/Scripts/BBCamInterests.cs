@@ -8,7 +8,7 @@ public class BBCamInterests
 
     public BBCamInterests(BillBoardCam _cam) {m_cam = _cam;}
     //update the cam based on this interest //TODO change this to a bool, return (stillinterested?)
-    public virtual void interestUpdate() { }
+    public virtual bool interestUpdate() { return true; }
     //0-1 modifier for how good this particular thing is right now
     public virtual float recalcWeight() { return 0; }
     //current cached interest weight
@@ -31,7 +31,7 @@ public class CloseEnemy : BBCamInterests
     private EnemyManager m_enemyManager;
     private GameObject m_player;
     private Enemy m_enemy;
-    private const float m_minDistForInterest = 20.0f;
+    private const float m_minDistForInterest = 30.0f;
   
 
     public CloseEnemy(BillBoardCam _cam) : base(_cam)
@@ -40,9 +40,10 @@ public class CloseEnemy : BBCamInterests
         m_player = GameObject.Find("PLAYER");
     }
 
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         lerpLookAt(m_enemy.gameObject.transform.position);
+        return !m_enemy.isDead();
     }
 
     public override float recalcWeight()
@@ -76,9 +77,10 @@ public class BunchOfEnemies : BBCamInterests
         //have a hitbox that counts ins/outs 
        // m_group = GameObject.Find("EnemyGroupDetector").GetComponent<EnemyGroupDetector>(); 
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         //watch the box
+        return true;
     }
 
     public override float recalcWeight()
@@ -95,9 +97,9 @@ public class BallHit : BBCamInterests
     {
 
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
-
+        return true;
     }
 
     public override float recalcWeight()
@@ -118,9 +120,10 @@ public class BallHit : BBCamInterests
         m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
         m_scores = GameManager.instance.scoreManager;
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         lerpLookAt(m_player.transform.position);
+        return true;
     }
 
     public override float recalcWeight()
@@ -145,10 +148,11 @@ public class WideAngleField : BBCamInterests
     {
         m_target = GameObject.Find("WideAngleTarget").transform.position;
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         //lerp to m_target
         lerpLookAt(m_target);
+        return true;
     }
 
     public override float recalcWeight()
@@ -167,10 +171,11 @@ public class SingleEnemy : BBCamInterests
         m_enemyManager = GameManager.instance.enemyManager;
 
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         //lerp to m_target
         lerpLookAt(m_enemy.gameObject.transform.position);
+        return true;
     }
 
     public override float recalcWeight()
