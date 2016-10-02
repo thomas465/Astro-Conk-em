@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//TODO: change implementation to look for more interesting things every x-seconds
+//instead of re-chosing interest when timer runs out 
 public class BillBoardCam : MonoBehaviour
 {
     //references to managers of objects of interest
@@ -11,9 +12,8 @@ public class BillBoardCam : MonoBehaviour
     private Vector3 m_target;
     private bool m_lookForNewTarget;
     private INTEREST m_currentInterest;
-    private float m_maxInterestDuration;
-
-    private float m_currentInterstDuration;
+    private float m_weightUpdateDelta;
+    private float m_timeFromLastWeightUpdate;
 
     private BBCamInterests[] m_interests;
 
@@ -45,26 +45,32 @@ public class BillBoardCam : MonoBehaviour
         m_interests[(int)INTEREST.PLAYER] = new CloseEnemy(this);
         m_interests[(int)INTEREST.SINLGE_ENEMY] = new CloseEnemy(this);
         m_interests[(int)INTEREST.WIDE_ANGLE_FIELD] = new CloseEnemy(this);
-
-
         m_currentInterest = INTEREST.WIDE_ANGLE_FIELD;
+
+        m_weightUpdateDelta = 1.0f;
+        m_timeFromLastWeightUpdate = 0.0f;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_currentInterstDuration >= m_maxInterestDuration)
+        if (m_timeFromLastWeightUpdate >= m_weightUpdateDelta)
         {
-            findNewInterest();
-            m_currentInterstDuration = 0;
+            updateInterestWeights();//this is serperate from looking for new interests incase we want different intervals
+            checkForNewInterest();          //but can optimise this out later if that doesn't happen (not even using it now, for example)
+            m_timeFromLastWeightUpdate = 0;
         }
-
-
+        
         m_interests[(int)m_currentInterest].interestUpdate();
-        m_currentInterstDuration += Time.deltaTime;
+        m_timeFromLastWeightUpdate += Time.deltaTime;
     }
 
-    private void findNewInterest()
+
+    private float precedenceMultiplier(int _index)
+    {
+        return ((float)INTEREST.LENGTH - (float)_index) * 0.2f;
+    }
+    private void updateInterestWeights()
     {
         //systematically look for most desirable interest
         //that isn't the current interest
@@ -72,12 +78,21 @@ public class BillBoardCam : MonoBehaviour
         //sometimes, to mix it up
         for (int i = 0; i < m_interests.Length; ++i)
         {
-            if ((INTEREST)i != m_currentInterest && m_interests[i].interested())
+            m_interests[i].recalcWeight();
+        }
+    }
+    private void checkForNewInterest()
+    {
+        float highestWeight = 0;
+        for (int i = 0; i < m_interests.Length; ++i)
+        {
+            float weight = m_interests[i].currentWeight() * precedenceMultiplier(i);
+            //use > not >= to give higher precedence to better interests if equal weight
+            if ((INTEREST)i != m_currentInterest && weight > highestWeight)
             {
                 m_currentInterest = (INTEREST)i;
-                break;
+                highestWeight = weight;
             }
         }
     }
-
 }

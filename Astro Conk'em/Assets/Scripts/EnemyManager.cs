@@ -132,4 +132,20 @@ public class EnemyManager : MonoBehaviour
 		disabledEnemyList.Add(enemy);
 	}
 
+    //Added some public functions for gettin' at enemies for
+    //the billboard cam to calculate interesting POVs
+    public int getNumActiveEnemies()
+    {
+        return enemyList.Count;
+    }
+
+    public Enemy getEnemy(int index)
+    {
+        return enemyList[index];
+    }
+
+    public Enemy[] copyActiveEnemies()
+    {
+        return enemyList.ToArray();
+    }
 }

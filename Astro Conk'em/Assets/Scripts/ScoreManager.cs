@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
-
+    public int combo;
     public int score;
     Text text;
 
