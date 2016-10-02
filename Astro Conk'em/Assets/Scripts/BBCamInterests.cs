@@ -124,13 +124,13 @@ public class BallHit : BBCamInterests
     public override float recalcWeight()
     {
         //GameManager.instance.scoreManager.combo >= m_minCombo;
-        if (GameManager.instance.scoreManager.combo <= m_minCombo)
+        if (GameManager.instance.scoreManager.getComboNo() <= m_minCombo)
         {
             m_weight = 0.0f;
         }
         else
         {
-            m_weight = (GameManager.instance.scoreManager.combo - m_minCombo) / m_upperCombo;
+            m_weight = (GameManager.instance.scoreManager.getComboNo() - m_minCombo) / m_upperCombo;
             m_weight = m_weight >= 1.0f ? 1.0f : m_weight; 
         }
         return m_weight;
