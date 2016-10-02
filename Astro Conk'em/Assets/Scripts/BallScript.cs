@@ -206,8 +206,15 @@ public class BallScript : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
-
+                //inform the scoremanager that the ball hit
+                ScoreManager.scoreSingleton.BallHit();
             }
+            else
+            {
+                //let the score manager know that a miss occured
+                ScoreManager.scoreSingleton.BallMissed();
+            }
+
             state = BALL_STATE.HIT_SOMETHING;
 
         }

@@ -40,19 +40,20 @@ public class EnemyManager : MonoBehaviour
 	void Update()
 	{
         //Temporary quick way to make them not attack during the title screen
-        if (!TitleScript.titlePanFinished)
-            return;
+        if (TitleScript.titlePanFinished)
+        {
 
-		//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
-		if(GameManager.instance.curDifficulty > spawnThreshold)
-		{
-			//Spawn an enemy
-			SpawnEnemy();
-			//Debug.Log("Spawn");
+            //If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
+            if (GameManager.instance.curDifficulty > spawnThreshold)
+            {
+                //Spawn an enemy
+                SpawnEnemy();
+                //Debug.Log("Spawn");
 
-			//Increase the threshold
-			spawnThreshold += 1f;
-		}
+                //Increase the threshold
+                spawnThreshold += 1f;
+            }
+        }
 	}
 
 	public void SpawnEnemy()

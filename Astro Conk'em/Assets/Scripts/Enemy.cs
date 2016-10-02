@@ -171,6 +171,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            myAudio.Stop();
             myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
 
             if (isCrit)
@@ -270,7 +271,7 @@ public class Enemy : MonoBehaviour
     private void Explode()
     {
         ScreenShake.g_instance.shake();
-        GameManager.instance.player.TakeHit(15);
+        GameManager.instance.player.TakeHit(35);
 
         GameObject hit = Instantiate(burstParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
         Destroy(hit, 3);

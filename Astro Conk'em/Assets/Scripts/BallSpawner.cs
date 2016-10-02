@@ -99,7 +99,7 @@ public class BallSpawner : MonoBehaviour
                 nextBall = nextBall >= m_maxBalls - 1 ? 0 : nextBall + 1;
                 //have balls that are in HAS_BEEN_HIT state play an explosion on the frame they're reused!
                 spawning = true;
-                m_source.Play();
+                //m_source.Play();
             }
 
         }
