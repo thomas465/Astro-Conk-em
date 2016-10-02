@@ -86,7 +86,7 @@ public class BallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (rb.velocity.magnitude > 0.1f)
+        if (rb.velocity.magnitude > 0.1f && isDangerous)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }

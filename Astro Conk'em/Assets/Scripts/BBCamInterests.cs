@@ -71,7 +71,7 @@ public class CloseEnemy : BBCamInterests
 
 public class BunchOfEnemies : BBCamInterests
 {
-    private GroupDetector[] m_groups;
+    //private GroupDetector[] m_groups;
     public BunchOfEnemies(BillBoardCam _cam) : base(_cam)
     {
         //have a hitbox that counts ins/outs 
