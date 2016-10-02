@@ -75,6 +75,9 @@ public class BallScript : MonoBehaviour
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
         state = BALL_STATE.SPAWNING;
+
+        if (BallSpawner.hoverParticles)
+            BallSpawner.hoverParticles.Play();
     }
     public void readyForPlayerHit()
     {
@@ -139,7 +142,11 @@ public class BallScript : MonoBehaviour
 
     public void HitByPlayer(float power, Vector3 dir)
     {
+        BallSpawner.hoverParticles.Stop();
+        BallSpawner.hoverParticles.Clear();
+
         enableTrails();
+
 
         isDangerous = true;
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;

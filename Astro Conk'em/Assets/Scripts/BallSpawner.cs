@@ -24,7 +24,9 @@ public class BallSpawner : MonoBehaviour
 
     private int nextBall = 0;
 
-
+    //This is filthy but time is running out a bit - TMS
+    public static ParticleSystem hoverParticles;
+    public ParticleSystem hoverParticleReference;
 
 	void Start ()
     {
@@ -47,6 +49,8 @@ public class BallSpawner : MonoBehaviour
         m_spawnTarget = GameObject.Find("BallSpawnPos").transform;
         nextBall = 0;
         spawnBall();
+
+        hoverParticles = hoverParticleReference;
     }
 
 	void Update ()
