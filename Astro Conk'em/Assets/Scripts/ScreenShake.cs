@@ -6,7 +6,9 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake g_instance;
 
     //cap the magnitude of the shakes so it doesn't hurt the player's brain
-    public float m_maxMagnitude = 4.5f;
+    public float m_maxMagnitude = 0.65f;
+    public float m_maxDuration = 0.5f;
+
     public float m_lerpValue = 25.0f;
     [SerializeField]
     private float m_duration;
@@ -75,6 +77,8 @@ public class ScreenShake : MonoBehaviour
                 m_shaking = false;
                 m_currentLerpValue = 0;
                 m_currentTime = 0;
+                m_currentMag = 0;
+                m_duration = 0;
             }
 
         }
@@ -90,7 +94,10 @@ public class ScreenShake : MonoBehaviour
                 //Update lerp
                 m_currentLerpValue += m_lerpValue * Time.deltaTime;
             }
-
+            else
+            {   //this isn't really necessary but i'm including it for sanity checking this mysterious bug
+                m_currentLerpValue = 0;
+            }
         }
 	}
 
@@ -100,19 +107,21 @@ public class ScreenShake : MonoBehaviour
     {
         if (m_shaking)
         {
-            m_duration += _duration;
-            m_currentMag += _magnitude;
-            m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
+            m_duration += Mathf.Sqrt(_duration);
+            m_currentMag += Mathf.Sqrt(_magnitude);
         }
         else
         {
-            m_shaking = true;
             m_duration = _duration;
-            m_currentMag = 1;
-            m_target = m_startPos; //initate shake by setting these equal
-            m_currentLerpValue = 0;
             m_currentMag = _magnitude;
+
+            m_target = m_startPos;
+            m_currentLerpValue = 0;
+            m_currentTime = 0;
+
+            m_shaking = true;
         }
-        m_currentTime = 0;
+        m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
+        m_duration = m_duration > m_maxDuration ? m_maxDuration : m_duration;
     }
 }

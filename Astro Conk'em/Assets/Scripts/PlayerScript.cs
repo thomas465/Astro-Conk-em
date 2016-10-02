@@ -231,7 +231,7 @@ public class PlayerScript : MonoBehaviour
 		{
 			BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
 			CameraScript.cameraSingleton.HitBall();
-			ScreenShake.g_instance.shake(PowerbarScript.powerbarSingleton.GetCurrentPower() * hitShakeMultipler, PowerbarScript.powerbarSingleton.GetCurrentPower() * 0.1f);
+			ScreenShake.g_instance.shake(PowerbarScript.powerbarSingleton.GetCurrentPower() * hitShakeMultipler, PowerbarScript.powerbarSingleton.GetCurrentPower() * 0.08f);
 		}
 	}
 

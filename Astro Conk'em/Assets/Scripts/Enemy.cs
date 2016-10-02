@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
                 Destroy(hit, 3);
             }
 
-            ScreenShake.g_instance.shake(0.4f, 0.1f);
+            ScreenShake.g_instance.shake(0.25f, 0.09f);
             m_isDead = true;
 
             myCollider.enabled = false;
