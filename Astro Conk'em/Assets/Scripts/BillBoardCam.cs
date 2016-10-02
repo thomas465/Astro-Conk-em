@@ -4,15 +4,14 @@ using System.Collections;
 //instead of re-chosing interest when timer runs out 
 public class BillBoardCam : MonoBehaviour
 {
-    //references to managers of objects of interest
-    private PlayerScript m_player;
-    
-    private BallSpawner m_ballManager;
 
-    private Vector3 m_target;
-    private bool m_lookForNewTarget;
+    //private Vector3 m_target;
+    //private bool m_lookForNewTarget;
+    [SerializeField]
     private INTEREST m_currentInterest;
+    [SerializeField]
     private float m_weightUpdateDelta;
+    [SerializeField]
     private float m_timeFromLastWeightUpdate;
 
     private BBCamInterests[] m_interests;
@@ -35,16 +34,16 @@ public class BillBoardCam : MonoBehaviour
 	void Start ()
     {
        
-        m_ballManager = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
-        m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
+        //m_ballManager = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+        //m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
 
         m_interests = new BBCamInterests[(int)INTEREST.LENGTH];
         m_interests[(int)INTEREST.CLOSE_ENEMY] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.BUNCH_OF_ENEMIES] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.BALL_HIT] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.PLAYER] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.SINLGE_ENEMY] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.WIDE_ANGLE_FIELD] = new CloseEnemy(this);
+        m_interests[(int)INTEREST.BUNCH_OF_ENEMIES] = new BunchOfEnemies(this);
+        m_interests[(int)INTEREST.BALL_HIT] = new BallHit(this);
+        m_interests[(int)INTEREST.PLAYER] = new Player(this);
+        m_interests[(int)INTEREST.WIDE_ANGLE_FIELD] = new WideAngleField(this);
+        m_interests[(int)INTEREST.SINLGE_ENEMY] = new SingleEnemy(this);//add one of these, basically if there's nothing else ot look at and ew've just come form wideangle
         m_currentInterest = INTEREST.WIDE_ANGLE_FIELD;
 
         m_weightUpdateDelta = 1.0f;
@@ -72,10 +71,6 @@ public class BillBoardCam : MonoBehaviour
     }
     private void updateInterestWeights()
     {
-        //systematically look for most desirable interest
-        //that isn't the current interest
-        //NOTE: @@maybe have the chance for a random interest  
-        //sometimes, to mix it up
         for (int i = 0; i < m_interests.Length; ++i)
         {
             m_interests[i].recalcWeight();
