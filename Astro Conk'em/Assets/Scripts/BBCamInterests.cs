@@ -6,9 +6,9 @@ public class BBCamInterests
     protected float m_weight = 0.0f;
     protected BillBoardCam m_cam;
 
-    public BBCamInterests(BillBoardCam _cam) { m_cam = _cam; }
-    //update the cam based on this interest
-    public virtual void interestUpdate() { }
+    public BBCamInterests(BillBoardCam _cam) {m_cam = _cam;}
+    //update the cam based on this interest //TODO change this to a bool, return (stillinterested?)
+    public virtual bool interestUpdate() { return true; }
     //0-1 modifier for how good this particular thing is right now
     public virtual float recalcWeight() { return 0; }
     //current cached interest weight
@@ -17,8 +17,11 @@ public class BBCamInterests
     //probably guna be lerping lookAt a lot so this helps out for the simplest case.
     public void lerpLookAt(Vector3 _target, float _speedMultiplier=5.0f)
     {
-        m_cam.gameObject.transform.LookAt(Vector3.Lerp(m_cam.gameObject.transform.position,
-                                                        _target, Time.deltaTime * _speedMultiplier));
+
+        //implement
+
+        //for now just do this
+        m_cam.gameObject.transform.LookAt(_target);
     }
     //need a lerp FOV/zoom too
 }
@@ -28,7 +31,7 @@ public class CloseEnemy : BBCamInterests
     private EnemyManager m_enemyManager;
     private GameObject m_player;
     private Enemy m_enemy;
-    private const float m_minDistForInterest = 1.0f;
+    private const float m_minDistForInterest = 30.0f;
   
 
     public CloseEnemy(BillBoardCam _cam) : base(_cam)
@@ -37,16 +40,15 @@ public class CloseEnemy : BBCamInterests
         m_player = GameObject.Find("PLAYER");
     }
 
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         lerpLookAt(m_enemy.gameObject.transform.position);
+        return !m_enemy.isDead();
     }
 
     public override float recalcWeight()
     {
-        //@@actually would be better to just have a hitbox to check
-        //@@and the closer it is to the player the higher the weight.
-
+      
         m_weight = 0.0f;
         float smallestRelDist = float.MaxValue;
         for (int i = 0; i < m_enemyManager.getNumActiveEnemies(); ++i)
@@ -60,21 +62,25 @@ public class CloseEnemy : BBCamInterests
         }
         if (smallestRelDist <= m_minDistForInterest)
         {
-            m_weight = 1.0f;
+            m_weight = 1 - (smallestRelDist *0.5f/ m_minDistForInterest);
+            return m_weight;
         }
-        return m_weight;
+        return 0.0f;
     }
 }
 
 public class BunchOfEnemies : BBCamInterests
 {
+    private GroupDetector[] m_groups;
     public BunchOfEnemies(BillBoardCam _cam) : base(_cam)
     {
         //have a hitbox that counts ins/outs 
+       // m_group = GameObject.Find("EnemyGroupDetector").GetComponent<EnemyGroupDetector>(); 
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         //watch the box
+        return true;
     }
 
     public override float recalcWeight()
@@ -91,9 +97,9 @@ public class BallHit : BBCamInterests
     {
 
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
-
+        return true;
     }
 
     public override float recalcWeight()
@@ -106,19 +112,32 @@ public class BallHit : BBCamInterests
  public class Player : BBCamInterests
 {
     private PlayerScript m_player;
-    private const int m_minCombo = 3;
+    private ScoreManager m_scores;
+    private const int m_minCombo = 3;//inclusive
+    private const int m_upperCombo = 15;
     public Player(BillBoardCam _cam) : base(_cam)
     {
         m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
+        m_scores = GameManager.instance.scoreManager;
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
-
+        lerpLookAt(m_player.transform.position);
+        return true;
     }
 
     public override float recalcWeight()
     {
-        //GameManager.instance.scoreManager.combo >= m_minCombo;
+        if (!m_scores) return 0.0f;
+        if (GameManager.instance.scoreManager.getComboNo() <= m_minCombo)
+        {
+            m_weight = 0.0f;
+        }
+        else
+        {
+            m_weight = (m_scores.getComboNo() - m_minCombo) / m_upperCombo;
+            m_weight = m_weight >= 1.0f ? 1.0f : m_weight; 
+        }
         return m_weight;
     }
 }
@@ -129,15 +148,41 @@ public class WideAngleField : BBCamInterests
     {
         m_target = GameObject.Find("WideAngleTarget").transform.position;
     }
-    public override void interestUpdate()
+    public override bool interestUpdate()
     {
         //lerp to m_target
+        lerpLookAt(m_target);
+        return true;
     }
 
     public override float recalcWeight()
     {
         //always interested in looking centre field if nothing else is interesting!
-        return m_weight;
+        return 1.0f;
     }
 }
 
+public class SingleEnemy : BBCamInterests
+{
+    private EnemyManager m_enemyManager;
+    private Enemy m_enemy;
+    public SingleEnemy(BillBoardCam _cam) : base(_cam)
+    {
+        m_enemyManager = GameManager.instance.enemyManager;
+
+    }
+    public override bool interestUpdate()
+    {
+        //lerp to m_target
+        lerpLookAt(m_enemy.gameObject.transform.position);
+        return true;
+    }
+
+    public override float recalcWeight()
+    {
+        int inedx = Random.Range(0, m_enemyManager.getNumActiveEnemies()-1);
+        //always interested in looking centre field if nothing else is interesting!
+        m_enemy = m_enemyManager.getEnemy(inedx);
+        return 1.0f;
+    }
+}

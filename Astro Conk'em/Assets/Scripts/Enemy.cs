@@ -43,7 +43,13 @@ public class Enemy : MonoBehaviour
 
     Collider myCollider;
 
-    bool isDead = false;
+    bool m_isDead = false;
+    //need this for cam AI
+    public bool isDead()
+    {
+        return m_isDead;
+    }
+
     float deathTime = 0;
     Vector3 originalScale;
 
@@ -70,7 +76,7 @@ public class Enemy : MonoBehaviour
 		//Set the initial distance to our current distance to player
 		initialDist = GetDistToPlayer();
 
-        isDead = false;
+        m_isDead = false;
         deathTime = 0;
 
         if(anim)
@@ -114,7 +120,7 @@ public class Enemy : MonoBehaviour
         {
 
 
-            if (!isDead)
+            if (!m_isDead)
             {
                 //If we are far away from the target position
                 if (GetDistToPlayer() > explodeDist)
@@ -141,7 +147,7 @@ public class Enemy : MonoBehaviour
 
                 if (deathTime <= 0)
                 {
-                    //isDead = false;
+                    //m_isDead = false;
                     GameManager.instance.enemyManager.OnEnemyKilled(this);
                 }
             }
@@ -151,7 +157,7 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-        anim.SetBool("Alive", !isDead);
+        anim.SetBool("Alive", !m_isDead);
     }
 
 	/// <summary>
@@ -159,7 +165,7 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public void TakeDamage(bool isCrit, Vector3 hitDirection)
 	{
-        if (isDead)
+        if (m_isDead)
         {
 
         }
@@ -183,7 +189,7 @@ public class Enemy : MonoBehaviour
             }
 
             ScreenShake.g_instance.shake(0.4f, 0.1f);
-            isDead = true;
+            m_isDead = true;
 
             myCollider.enabled = false;
 
@@ -272,6 +278,6 @@ public class Enemy : MonoBehaviour
         GameManager.instance.enemyManager.OnEnemyKilled(this);
         transform.position -= Vector3.up * 100;
         //isBlowingUp = false;
-        isDead = true;
+        m_isDead = true;
     }
 }

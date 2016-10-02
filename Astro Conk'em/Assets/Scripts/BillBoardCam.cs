@@ -4,19 +4,20 @@ using System.Collections;
 //instead of re-chosing interest when timer runs out 
 public class BillBoardCam : MonoBehaviour
 {
-    //references to managers of objects of interest
-    private PlayerScript m_player;
-    
-    private BallSpawner m_ballManager;
 
-    private Vector3 m_target;
-    private bool m_lookForNewTarget;
+    //private Vector3 m_target;
+    //private bool m_lookForNewTarget;
+    [SerializeField]
     private INTEREST m_currentInterest;
+    [SerializeField]
     private float m_weightUpdateDelta;
+    [SerializeField]
     private float m_timeFromLastWeightUpdate;
-
+    [SerializeField]
+    private float m_currentWeight;
     private BBCamInterests[] m_interests;
 
+    public float[] debugWeights;
     //billboard camera interests with precedence (0 is greatest)
     public enum INTEREST
     {
@@ -26,7 +27,6 @@ public class BillBoardCam : MonoBehaviour
         PLAYER,
         SINLGE_ENEMY,
         WIDE_ANGLE_FIELD,
-
         //length of enum
         LENGTH
     }
@@ -34,17 +34,17 @@ public class BillBoardCam : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-       
-        m_ballManager = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
-        m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
+        debugWeights = new float[(int)INTEREST.LENGTH];
+         //m_ballManager = GameObject.Find("BallSpawner").GetComponent<BallSpawner>();
+         //m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
 
         m_interests = new BBCamInterests[(int)INTEREST.LENGTH];
         m_interests[(int)INTEREST.CLOSE_ENEMY] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.BUNCH_OF_ENEMIES] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.BALL_HIT] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.PLAYER] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.SINLGE_ENEMY] = new CloseEnemy(this);
-        m_interests[(int)INTEREST.WIDE_ANGLE_FIELD] = new CloseEnemy(this);
+        m_interests[(int)INTEREST.BUNCH_OF_ENEMIES] = new BunchOfEnemies(this);
+        m_interests[(int)INTEREST.BALL_HIT] = new BallHit(this);
+        m_interests[(int)INTEREST.PLAYER] = new Player(this);
+        m_interests[(int)INTEREST.WIDE_ANGLE_FIELD] = new WideAngleField(this);
+        m_interests[(int)INTEREST.SINLGE_ENEMY] = new SingleEnemy(this);
         m_currentInterest = INTEREST.WIDE_ANGLE_FIELD;
 
         m_weightUpdateDelta = 1.0f;
@@ -60,8 +60,11 @@ public class BillBoardCam : MonoBehaviour
             checkForNewInterest();          //but can optimise this out later if that doesn't happen (not even using it now, for example)
             m_timeFromLastWeightUpdate = 0;
         }
-        
-        m_interests[(int)m_currentInterest].interestUpdate();
+
+        if (m_interests[(int)m_currentInterest].interestUpdate() == false)
+        {
+            checkForNewInterest();
+        }
         m_timeFromLastWeightUpdate += Time.deltaTime;
     }
 
@@ -72,10 +75,6 @@ public class BillBoardCam : MonoBehaviour
     }
     private void updateInterestWeights()
     {
-        //systematically look for most desirable interest
-        //that isn't the current interest
-        //NOTE: @@maybe have the chance for a random interest  
-        //sometimes, to mix it up
         for (int i = 0; i < m_interests.Length; ++i)
         {
             m_interests[i].recalcWeight();
@@ -87,12 +86,14 @@ public class BillBoardCam : MonoBehaviour
         for (int i = 0; i < m_interests.Length; ++i)
         {
             float weight = m_interests[i].currentWeight() * precedenceMultiplier(i);
+            debugWeights[i] = weight;
             //use > not >= to give higher precedence to better interests if equal weight
-            if ((INTEREST)i != m_currentInterest && weight > highestWeight)
+            if ((INTEREST)i != m_currentInterest && weight >= highestWeight)
             {
                 m_currentInterest = (INTEREST)i;
                 highestWeight = weight;
             }
         }
+        
     }
 }
