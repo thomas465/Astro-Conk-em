@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour {
 	private bool m_playerDamaged = false;
 
     public Image fill, hurtFill;
+    public Text healthText;
     public Transform healthBarParent;
 
 	void Start () 
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour {
         m_currentPlayerHealth = m_startingPlayerHealth;
         fill.fillAmount = 1;
         //reference to a player movement script
+        healthText.transform.SetAsLastSibling();
 	}
 
 	void Update()
