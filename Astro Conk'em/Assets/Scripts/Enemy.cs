@@ -32,17 +32,23 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float distToMoveDirect = 15f;
 
-	private Vector3 initialFacing;
+    //This is so that they stop slightly in front of the player rather than inside him
+    Vector3 offset;
+
+    private Vector3 initialFacing;
 	private float initialDist;
 
     //Particles
-    public GameObject standardHitParticles, critHitParticles;
+    public GameObject standardHitParticles, critHitParticles, burstParticles;
 
     Collider myCollider;
 
     bool isDead = false;
     float deathTime = 0;
     Vector3 originalScale;
+
+    bool isBlowingUp = false;
+    float explosionDelayCounter = 0, explosionDelayLength = 1;
 
     Animator anim;
     AudioSource myAudio;
@@ -67,6 +73,9 @@ public class Enemy : MonoBehaviour
         isDead = false;
         deathTime = 0;
 
+        if(anim)
+            anim.ResetTrigger("Detonate");
+
         if(myCollider)
         {
             myCollider.enabled = true;
@@ -76,6 +85,8 @@ public class Enemy : MonoBehaviour
         {
             transform.localScale = originalScale;
         }
+
+        isBlowingUp = false;
 	}
 
 	//will call Init
@@ -86,6 +97,8 @@ public class Enemy : MonoBehaviour
         myAudio = GetComponent<AudioSource>();
 
         originalScale = transform.localScale;
+
+        offset = Vector3.forward * 1.5f;
 
 		Init();
 	}
@@ -102,17 +115,20 @@ public class Enemy : MonoBehaviour
             if (GetDistToPlayer() > explodeDist)
             {
                 DoMovement();
+                anim.ResetTrigger("Detonate");
             }
             else
             {
+                anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), 0, 3 * Time.deltaTime));
                 Detonate();
             }
         }
         else
         {
             deathTime -= Time.deltaTime;
+            anim.ResetTrigger("Detonate");
 
-            if(deathTime<2)
+            if (deathTime<2)
             {
                 transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.25f, 0, 1.25f), 3 * Time.deltaTime);
                 transform.position -= Vector3.up * Time.deltaTime * 1;
@@ -120,7 +136,7 @@ public class Enemy : MonoBehaviour
 
             if(deathTime<=0)
             {
-                isDead = false;
+                //isDead = false;
                 GameManager.instance.enemyManager.OnEnemyKilled(this);
             }
         }
@@ -137,31 +153,35 @@ public class Enemy : MonoBehaviour
 	public void TakeDamage(bool isCrit, Vector3 hitDirection)
 	{
         if (isDead)
-            return;
-
-        myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
-
-        if (isCrit)
         {
-            GameObject hit = Instantiate(critHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
-            hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
 
-            Destroy(hit, 3);
         }
         else
         {
-            GameObject hit = Instantiate(standardHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
-            hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
+            myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
 
-            Destroy(hit, 3);
+            if (isCrit)
+            {
+                GameObject hit = Instantiate(critHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+                hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
+
+                Destroy(hit, 3);
+            }
+            else
+            {
+                GameObject hit = Instantiate(standardHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+                hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
+
+                Destroy(hit, 3);
+            }
+
+            ScreenShake.g_instance.shake(0.4f, 0.1f);
+            isDead = true;
+
+            myCollider.enabled = false;
+
+            deathTime = 4;
         }
-
-        ScreenShake.g_instance.shake(0.4f, 0.1f);
-        isDead = true;
-
-        myCollider.enabled = false;
-
-        deathTime = 4;
     }
 
 	/// <summary>
@@ -180,6 +200,8 @@ public class Enemy : MonoBehaviour
 
 		//Move forward
 		Move(forward.normalized);
+
+        anim.SetFloat("Speed", speed);
 	}
 
 	private void Move(Vector3 _dir)
@@ -190,7 +212,7 @@ public class Enemy : MonoBehaviour
 
 	private Vector3 GetVectorToPlayer()
 	{
-		Vector3 dir = player.transform.position - transform.position;
+		Vector3 dir = (player.transform.position + offset) - transform.position;
 		dir.Scale(new Vector3(1f, 0f, 1f)); //Remove everything in y component
 		return dir;
 	}
@@ -200,18 +222,47 @@ public class Enemy : MonoBehaviour
 		return Vector3.Distance
 		(
 			new Vector3(transform.position.x, 0f, transform.position.z),
-			new Vector3(player.transform.position.x, 0f, player.transform.position.z)
+			new Vector3(player.transform.position.x, 0f, player.transform.position.z) + offset
 		);
 	}
 
-	/// <summary>
-	/// Detonate and damage the player.
-	/// </summary>
-	private void Detonate()
-	{
-		//place detonation logic here (Explode, inform the player, inform the EnemyManager
-		
-		
-		//GameManager.instance.enemyManager.OnEnemyKilled(this);
-	}
+    /// <summary>
+    /// Detonate and damage the player.
+    /// </summary>
+    private void Detonate()
+    {
+        if (!isBlowingUp)
+        {
+            if (explosionDelayCounter < explosionDelayLength)
+            {
+                explosionDelayCounter += Time.deltaTime;
+            }
+            else
+            {
+
+                {
+                    explosionDelayCounter = 0;
+                    myAudio.PlayOneShot(SoundBank.sndBnk.slugInflationSound);
+                    anim.SetTrigger("Detonate");
+                    isBlowingUp = true;
+                    Debug.Break();
+                }
+
+            }
+        }
+    }
+
+    private void Explode()
+    {
+        ScreenShake.g_instance.shake();
+        GameManager.instance.player.TakeHit(1);
+
+        GameObject hit = Instantiate(burstParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+        Destroy(hit, 3);
+
+        GameManager.instance.enemyManager.OnEnemyKilled(this);
+        transform.position -= Vector3.up * 100;
+        //isBlowingUp = false;
+        isDead = true;
+    }
 }

@@ -29,6 +29,8 @@ public class PowerbarScript : MonoBehaviour
     Outline myOutline;
     Color outlineCritColour;
 
+    AudioSource myAudio;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +41,8 @@ public class PowerbarScript : MonoBehaviour
 
         myOutline = GetComponent<Outline>();
         outlineCritColour = myOutline.effectColor;
+
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,10 +53,12 @@ public class PowerbarScript : MonoBehaviour
         if(visible)
         {
             targetPos = onScreenPos;
+            myAudio.volume = Mathf.Lerp(myAudio.volume, 0.45f, 8 * Time.deltaTime);
         }
         else
         {
             targetPos = offScreenPos;
+            myAudio.volume = Mathf.Lerp(myAudio.volume, 0, 8 * Time.deltaTime);
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, 8 * Time.deltaTime);
@@ -80,6 +86,9 @@ public class PowerbarScript : MonoBehaviour
         myOutline.effectColor = Color.Lerp(Color.clear, outlineCritColour, GetCurrentPower());
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * 15);
         testText.text = ""+GetCurrentPower();
+
+        myAudio.pitch = GetCurrentPower() + 0.6f;
+        
     }
 
     public void IncreaseSpeed(float speedIncrease = 0.15f)

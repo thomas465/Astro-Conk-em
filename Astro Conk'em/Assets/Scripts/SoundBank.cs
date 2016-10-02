@@ -12,7 +12,7 @@ public class SoundBank : MonoBehaviour {
     public AudioClip[] ballHits;
 
     public AudioClip[] slugVoices;
-
+    public AudioClip slugInflationSound;
     public AudioClip[] playerSwingVoices, playerHurtVoices, playerDeathSounds;
 
     // Use this for initialization

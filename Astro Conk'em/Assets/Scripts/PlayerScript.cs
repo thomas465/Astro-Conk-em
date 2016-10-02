@@ -133,11 +133,18 @@ public class PlayerScript : MonoBehaviour
 		//Debug.Break();
 	}
 
+    public void TakeHit(int damage)
+    {
+        //MESSAGE THE HUD
+
+        anim.SetTrigger("Hit");
+    }
+
 	void HitFloor()
 	{
 		myAudio.PlayOneShot(SoundBank.sndBnk.hitFloorWithBat);
 		meleeMode = false;
-		ScreenShake.g_instance.shake(0.3f, 0.2f);
+		ScreenShake.g_instance.shake(0.1f, 0.05f);
 
 
 		MeleeZoneMarker zone = GetComponentInChildren<MeleeZoneMarker>();
@@ -145,21 +152,23 @@ public class PlayerScript : MonoBehaviour
 
 		Debug.DrawRay(start, Vector3.down * 5f, Color.red, 3f);
 
-		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 5f, LayerMask.GetMask("MeleeZone"), QueryTriggerInteraction.Collide);
+		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 15f, LayerMask.GetMask("MeleeZone"), QueryTriggerInteraction.Collide);
 
-		//Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
+        
+		Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
 
 		foreach(RaycastHit hit in slugs)
 		{
 			Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
-			if(enemy == null)
-			{
-				continue;
-			}
+			//if(enemy == null)
+			//{
+				//continue;
+			//}
 
 			//Debug.Log("Hit enemy");
 
-			enemy.TakeDamage(false, transform.forward);
+            if(enemy)
+			    enemy.TakeDamage(false, transform.forward);
 		}
 	}
 

@@ -65,6 +65,7 @@ ModelImporter:
     7400002: Die1
     7400004: Hit_1
     7400006: Moving_Standard
+    7400008: Explode
     9500000: //RootNode
     13700000: LeftEYeBall
     13700002: LeftEyebrow
@@ -95,80 +96,6 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
-    - serializedVersion: 16
-      name: Default Take
-      takeName: Default Take
-      firstFrame: 0
-      lastFrame: 199
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Head
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_l
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_r
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
-        weight: 1
-      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
-        weight: 1
-      - path: Armature/Bone/Mouth_0
-        weight: 1
-      - path: Armature/Bone_002
-        weight: 1
-      - path: Armature/Bone_002/Bone_003
-        weight: 1
-      - path: Armature/Bone_002/Bone_003/Bone_004
-        weight: 1
-      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
-        weight: 1
-      - path: LeftEYeBall
-        weight: 1
-      - path: LeftEyebrow
-        weight: 1
-      - path: LeftEyeStalk
-        weight: 1
-      - path: Mouth
-        weight: 1
-      - path: RightEyeball
-        weight: 1
-      - path: RightEyebrow
-        weight: 1
-      - path: RightEyeStalk
-        weight: 1
-      - path: SlugBody
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Die1
       takeName: Die1
@@ -371,6 +298,90 @@ ModelImporter:
       - path: Armature/Bone_002/Bone_003/Bone_004
         weight: 1
       - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: LeftEYeBall
+        weight: 1
+      - path: LeftEyebrow
+        weight: 1
+      - path: LeftEyeStalk
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: RightEyeball
+        weight: 1
+      - path: RightEyebrow
+        weight: 1
+      - path: RightEyeStalk
+        weight: 1
+      - path: SlugBody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Explode
+      takeName: Explode
+      firstFrame: 0
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.982808
+        functionName: Explode
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 6173c4c60bde4264a8980cb15b201c94,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Head
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_l/Eye_l/Eyebrow_l
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r
+        weight: 1
+      - path: Armature/Bone/Head/EyeStalk_r/Eye_r/Eyebrow_r
+        weight: 1
+      - path: Armature/Bone/Mouth_0
+        weight: 1
+      - path: Armature/Bone_002
+        weight: 1
+      - path: Armature/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Armature/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: Lamp
         weight: 1
       - path: LeftEYeBall
         weight: 1

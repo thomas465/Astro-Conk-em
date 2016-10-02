@@ -33,6 +33,10 @@ public class EnemyManager : MonoBehaviour
 
 	void Update()
 	{
+        //Temporary quick way to make them not attack during the title screen
+        if (!TitleScript.titlePanFinished)
+            return;
+
 		//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
 		if(GameManager.instance.curDifficulty > spawnThreshold)
 		{

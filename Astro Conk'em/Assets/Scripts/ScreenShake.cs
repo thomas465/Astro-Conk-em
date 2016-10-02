@@ -77,7 +77,10 @@ public class ScreenShake : MonoBehaviour
             if (transform.position != m_startPos && TitleScript.titlePanFinished)
             {
                 //Lerp to start
-                gameObject.transform.position = Vector3.Lerp(m_target, restPos.position, m_currentLerpValue);
+                //gameObject.transform.position = Vector3.Lerp(m_target, restPos.position, m_currentLerpValue);
+
+                //This is TMS trying something out to help with the 'getting stuck' glitch - it works quite nicely about half the time but you can remove this if you like
+                transform.position = Vector3.Lerp(transform.position, restPos.position, 10 * Time.deltaTime);
                 //Update lerp
                 m_currentLerpValue += m_lerpValue * Time.deltaTime;
             }

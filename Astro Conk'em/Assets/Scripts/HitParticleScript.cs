@@ -11,7 +11,10 @@ public class HitParticleScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Debug.Break();
-        directionalOne.transform.rotation = Quaternion.LookRotation(myDir);
+
+        if(directionalOne)
+            directionalOne.transform.rotation = Quaternion.LookRotation(myDir);
+
         myLight = GetComponent<Light>();
 	}
 	
