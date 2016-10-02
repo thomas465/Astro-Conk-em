@@ -64,6 +64,9 @@ public class PlayerScript : MonoBehaviour
 		}
 
 		anim.SetBool("MeleeMode", meleeMode);
+
+        float swingSpeed = Mathf.Clamp(PowerbarScript.powerbarSingleton.GetCurrentPower(), 0.55f, 1.1f);
+        anim.SetFloat("Power", swingSpeed);
 	}
 	
 	public void GiveSwingDelay(float amount = 2)
@@ -169,7 +172,10 @@ public class PlayerScript : MonoBehaviour
             if(enemy)
 			    enemy.TakeDamage(false, transform.forward);
 		}
-	}
+
+        //let the score manager know that the player did a melee attack and therefore loses their combo
+        ScoreManager.scoreSingleton.BallMissed();
+    }
 
 	void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
 	{
@@ -183,9 +189,6 @@ public class PlayerScript : MonoBehaviour
 
 		if(Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250)) //in the case of a hit
 		{
-			//inform the scoremanager that the ball hit
-			ScoreManager.scoreSingleton.BallHit ();
-
 			//Auto-aim
 			if(swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
 			{
@@ -235,6 +238,9 @@ public class PlayerScript : MonoBehaviour
 	public void Die()
 	{
 		Debug.Log("Player is dead!");
+        anim.SetBool("Dead", true);
         swingDelay = 9999;
+        TitleScript.titlePanFinished = false;
+        PowerbarScript.powerbarSingleton.SetVisible(false);
 	}
 }
