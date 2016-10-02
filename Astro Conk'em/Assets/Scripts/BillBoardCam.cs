@@ -94,8 +94,8 @@ public class BillBoardCam : MonoBehaviour
     }
     private void checkForNewInterest()
     {
-        //for debugging whether the current interest is the same after this call....
-        INTEREST preInt = m_currentInterest;
+        //used to see whether the current interest is the same after this block of code
+        INTEREST previousInterest = m_currentInterest;
 
         float highestWeight = 0;
         //For every interest...
@@ -103,8 +103,10 @@ public class BillBoardCam : MonoBehaviour
         {
             //retrieve pre-calculated weight * precedence multiplier
             float weight = m_interests[i].currentWeight() * precedenceMultiplier(i);
-            //add to debug data
+
+            //--debug
             debugWeights[i] = weight;
+         
             //if i is not the current interest
             //AND the weight is ge highest recorded weight
            // if ((INTEREST)i != m_currentInterest && weight >= highestWeight)
@@ -116,5 +118,13 @@ public class BillBoardCam : MonoBehaviour
                 highestWeight = weight;
             }
         }
+
+        //inialise the interest (probably should have called these 'behaviours' l u l.
+        if (previousInterest != m_currentInterest)
+        {
+            m_interests[(int)previousInterest].interestEnd();
+            m_interests[(int)m_currentInterest].interestInit();
+        }
+        
     }
 }
