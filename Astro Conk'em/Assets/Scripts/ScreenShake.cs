@@ -8,14 +8,20 @@ public class ScreenShake : MonoBehaviour
     //cap the magnitude of the shakes so it doesn't hurt the player's brain
     public float m_maxMagnitude = 4.5f;
     public float m_lerpValue = 25.0f;
+    [SerializeField]
     private float m_duration;
 
     [SerializeField]
     private float m_currentMag;
+    [SerializeField]
     private float m_currentTime =0;
+    [SerializeField]
     private float m_currentLerpValue = 0;
+    [SerializeField]
     private Vector3 m_startPos;
+    [SerializeField]
     private Vector3 m_target;
+    [SerializeField]
     private bool m_shaking = false;
 
     //reference to where the camera should rest - TMS
@@ -31,11 +37,11 @@ public class ScreenShake : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //For testing...
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //shake(0.35f);
-        }
+        ////For testing...
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    shake(0.08f, 0.1f);
+        //}
 
         //If we are shaking...
         if (m_shaking)
@@ -74,7 +80,7 @@ public class ScreenShake : MonoBehaviour
         }
         else
         {
-            if (transform.position != m_startPos && TitleScript.titlePanFinished)
+            if (transform.position != restPos.position && TitleScript.titlePanFinished)
             {
                 //Lerp to start
                 //gameObject.transform.position = Vector3.Lerp(m_target, restPos.position, m_currentLerpValue);
