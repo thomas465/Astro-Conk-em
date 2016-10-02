@@ -135,8 +135,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeHit(int damage)
     {
-        //MESSAGE THE HUD
-
+        PlayerHealth.healthSingleton.TakeDamage(damage);
         anim.SetTrigger("Hit");
     }
 
@@ -232,5 +231,6 @@ public class PlayerScript : MonoBehaviour
 	public void Die()
 	{
 		Debug.Log("Player is dead!");
+        swingDelay = 9999;
 	}
 }

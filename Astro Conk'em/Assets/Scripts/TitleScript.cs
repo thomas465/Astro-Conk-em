@@ -20,6 +20,8 @@ public class TitleScript : MonoBehaviour {
 
     public static bool titlePanFinished = false;
 
+    Animator anim;
+
     // Use this for initialization
     void Start() {
         GameManager.instance.registerState((int)GameManager.STATE.start, StartTitle, EndTitle);
@@ -31,6 +33,8 @@ public class TitleScript : MonoBehaviour {
         astroOnscreenPos = astro.transform.localPosition;
 
         promptPos = prompt.transform.localPosition;
+
+        anim = GetComponent<Animator>();
     }
 
     void StartTitle()
@@ -51,6 +55,8 @@ public class TitleScript : MonoBehaviour {
 
         GameManager.globalSoundSource.PlayOneShot(SoundBank.sndBnk.menuClick);
         GameManager.instance.musicManager.StopSong();
+
+        anim.SetTrigger("Fade");
     }
 
     // Update is called once per frame
@@ -86,6 +92,7 @@ public class TitleScript : MonoBehaviour {
                 //Debug.Break();
                 if(!titlePanFinished)
                 {
+                    GameManager.instance.changeState(1);
                     GameManager.instance.musicManager.PlaySong(1);
                     titlePanFinished = true;
                 }

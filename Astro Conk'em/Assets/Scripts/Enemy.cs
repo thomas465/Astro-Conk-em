@@ -103,44 +103,51 @@ public class Enemy : MonoBehaviour
 		Init();
 	}
 
-	/// <summary>
-	/// The enemies will move towards the target and check their proximity
-	/// if within range of the player
-	/// </summary>
-	private void Update()
-	{
-        if (!isDead)
+    /// <summary>
+    /// The enemies will move towards the target and check their proximity
+    /// if within range of the player
+    /// </summary>
+    private void Update()
+    {
+        //Debug.Log(GameManager.instance.GetCurrentState());
+        if (GameManager.instance.GetCurrentState() == (int)GameManager.STATE.game)
         {
-            //If we are far away from the target position
-            if (GetDistToPlayer() > explodeDist)
+
+
+            if (!isDead)
             {
-                DoMovement();
-                anim.ResetTrigger("Detonate");
+                //If we are far away from the target position
+                if (GetDistToPlayer() > explodeDist)
+                {
+                    DoMovement();
+                    anim.ResetTrigger("Detonate");
+                }
+                else
+                {
+                    anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), 0, 3 * Time.deltaTime));
+                    Detonate();
+                }
             }
             else
             {
-                anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), 0, 3 * Time.deltaTime));
-                Detonate();
-            }
-        }
-        else
-        {
-            deathTime -= Time.deltaTime;
-            anim.ResetTrigger("Detonate");
+                deathTime -= Time.deltaTime;
+                anim.ResetTrigger("Detonate");
 
-            if (deathTime<2)
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.25f, 0, 1.25f), 3 * Time.deltaTime);
-                transform.position -= Vector3.up * Time.deltaTime * 1;
+                if (deathTime < 2)
+                {
+                    transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.25f, 0, 1.25f), 3 * Time.deltaTime);
+                    transform.position -= Vector3.up * Time.deltaTime * 1;
+                }
+
+                if (deathTime <= 0)
+                {
+                    //isDead = false;
+                    GameManager.instance.enemyManager.OnEnemyKilled(this);
+                }
             }
 
-            if(deathTime<=0)
-            {
-                //isDead = false;
-                GameManager.instance.enemyManager.OnEnemyKilled(this);
-            }
         }
-	}
+    }
 
     void LateUpdate()
     {
@@ -181,6 +188,8 @@ public class Enemy : MonoBehaviour
             myCollider.enabled = false;
 
             deathTime = 4;
+
+            ScoreManager.scoreSingleton.AddScore(100);
         }
     }
 
@@ -245,7 +254,7 @@ public class Enemy : MonoBehaviour
                     myAudio.PlayOneShot(SoundBank.sndBnk.slugInflationSound);
                     anim.SetTrigger("Detonate");
                     isBlowingUp = true;
-                    Debug.Break();
+                    //Debug.Break();
                 }
 
             }
@@ -255,7 +264,7 @@ public class Enemy : MonoBehaviour
     private void Explode()
     {
         ScreenShake.g_instance.shake();
-        GameManager.instance.player.TakeHit(1);
+        GameManager.instance.player.TakeHit(15);
 
         GameObject hit = Instantiate(burstParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
         Destroy(hit, 3);

@@ -128,6 +128,10 @@ public class GameManager : MonoBehaviour
         m_states = new Dictionary<int, TransitionFuncts>();
 	}
 
+    public int GetCurrentState()
+    {
+        return m_currentState;
+    }
 
 	void Update()
 	{
@@ -151,9 +155,10 @@ public class GameManager : MonoBehaviour
 	public void changeState(int index)
 	{
 		//call init funct
-		m_states[m_currentState].shutdown();
+		//m_states[m_currentState].shutdown();
 		m_currentState = index;
-		m_states[index].init();
+		//m_states[index].init();
+        //Debug.Break();
 	}
 
 }
