@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour {
         healthSingleton = this;
         m_currentPlayerHealth = m_startingPlayerHealth;
         fill.fillAmount = 1;
+        
         //reference to a player movement script
         healthText.transform.SetAsLastSibling();
 	}

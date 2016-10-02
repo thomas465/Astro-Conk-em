@@ -17,7 +17,7 @@ public class MusicController : MonoBehaviour {
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         musicSource.volume = 0;
-        //PlaySong(0);
+        PlaySong(0);
 
         loopPoints = new int[songList.Length];
         loopPoints[0] = 325662;
