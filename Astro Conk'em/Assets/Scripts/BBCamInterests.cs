@@ -110,11 +110,13 @@ public class BallHit : BBCamInterests
  public class Player : BBCamInterests
 {
     private PlayerScript m_player;
+    private ScoreManager m_scores;
     private const int m_minCombo = 3;//inclusive
     private const int m_upperCombo = 15;
     public Player(BillBoardCam _cam) : base(_cam)
     {
         m_player = GameObject.Find("PLAYER").GetComponent<PlayerScript>();
+        m_scores = GameManager.instance.scoreManager;
     }
     public override void interestUpdate()
     {
@@ -123,14 +125,14 @@ public class BallHit : BBCamInterests
 
     public override float recalcWeight()
     {
-        //GameManager.instance.scoreManager.combo >= m_minCombo;
+        if (!m_scores) return 0.0f;
         if (GameManager.instance.scoreManager.getComboNo() <= m_minCombo)
         {
             m_weight = 0.0f;
         }
         else
         {
-            m_weight = (GameManager.instance.scoreManager.getComboNo() - m_minCombo) / m_upperCombo;
+            m_weight = (m_scores.getComboNo() - m_minCombo) / m_upperCombo;
             m_weight = m_weight >= 1.0f ? 1.0f : m_weight; 
         }
         return m_weight;
