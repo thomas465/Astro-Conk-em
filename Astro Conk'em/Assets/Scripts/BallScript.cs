@@ -91,7 +91,7 @@ public class BallScript : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
 
-        if(rb.velocity.magnitude<2)
+        if(rb.velocity.magnitude < 2.0f)
         {
             isDangerous = false;
         }
@@ -107,6 +107,7 @@ public class BallScript : MonoBehaviour {
         }
        
 	}
+
     private void floatAround()
     {
         //If we are at our target position...
