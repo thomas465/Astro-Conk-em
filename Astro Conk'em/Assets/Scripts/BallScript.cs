@@ -12,6 +12,12 @@ public class BallScript : MonoBehaviour
         HIT_SOMETHING
     }
 
+    //--gravity fall off thing
+    public float m_gravityTimerConstant;
+    private float m_gravityTimer;
+    private float m_gravityTimerMax;
+    //--
+
     public ParticleSystem standardHit, critHit, critFire;
     public ParticleSystem standardDamage;
 
@@ -24,8 +30,7 @@ public class BallScript : MonoBehaviour
 
     //float around position
     private float m_mag = 0.1f;
-    private float m_currentLerpValue = 0;
-    private float m_sineLerp = 0;
+    private float m_currentLerpValue = 0.0f;
     private Transform m_spwnPosTransform;
     private Vector3 m_start;
     private Vector3 m_target;
@@ -54,7 +59,10 @@ public class BallScript : MonoBehaviour
 
         myAudio = GetComponent<AudioSource>();
 
-        //BallSpawner.currentBall = this;
+        //--Gravity stuffs
+        m_gravityTimerConstant = 0.8f;
+        m_gravityTimer = 0.0f;
+        m_gravityTimerMax = 0.0f;
     }
     public void disableTrails()
     {
@@ -99,6 +107,13 @@ public class BallScript : MonoBehaviour
         {
             isDangerous = false;
         }
+
+        //@@GRAVITY STUFF
+        if (m_gravityTimer >= m_gravityTimerMax)
+        {
+            rb.useGravity = true;
+        }
+        m_gravityTimer += Time.deltaTime;
 
         //Positioning of crit trail
         Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 15;
@@ -147,6 +162,9 @@ public class BallScript : MonoBehaviour
 
         enableTrails();
 
+        //@@GRAVITY STUFF
+        m_gravityTimer = 0;
+        m_gravityTimerMax = m_gravityTimerConstant * power;
 
         isDangerous = true;
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;
@@ -220,6 +238,7 @@ public class BallScript : MonoBehaviour
             {
                 //let the score manager know that a miss occured
                 ScoreManager.scoreSingleton.BallMissed();
+                isDangerous = false;//not dangerous if we hit a slug or the ground!
             }
 
             state = BALL_STATE.HIT_SOMETHING;
