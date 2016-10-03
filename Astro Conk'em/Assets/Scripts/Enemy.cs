@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
                 Destroy(hit, 3);
             }
 
-            ScreenShake.g_instance.shake(0.25f, 0.09f);
+            ScreenShake.g_instance.shake(0.28f, 0.1f);
             m_isDead = true;
 
             myCollider.enabled = false;
@@ -270,7 +270,7 @@ public class Enemy : MonoBehaviour
 
     private void Explode()
     {
-        ScreenShake.g_instance.shake();
+        ScreenShake.g_instance.shake(0.5f);
         GameManager.instance.player.TakeHit(35);
 
         GameObject hit = Instantiate(burstParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;

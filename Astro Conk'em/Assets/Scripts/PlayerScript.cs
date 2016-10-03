@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
 	public static PlayerScript playerSingleton;
 
-	private float hitShakeMultipler = 0.08f;
+	private float hitShakeMultipler = 0.18f;
 	public Image reticle;
 	Animator anim;
 	public Rigidbody ballTest;
@@ -146,7 +146,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		myAudio.PlayOneShot(SoundBank.sndBnk.hitFloorWithBat);
 		meleeMode = false;
-		ScreenShake.g_instance.shake(0.1f, 0.05f);
+		ScreenShake.g_instance.shake(0.1f, 0.06f);
 
 
 		MeleeZoneMarker zone = GetComponentInChildren<MeleeZoneMarker>();
@@ -231,7 +231,7 @@ public class PlayerScript : MonoBehaviour
 		{
 			BallSpawner.currentBall.HitByPlayer(PowerbarScript.powerbarSingleton.GetCurrentPower(), swingAngle);
 			CameraScript.cameraSingleton.HitBall();
-			ScreenShake.g_instance.shake(PowerbarScript.powerbarSingleton.GetCurrentPower() * hitShakeMultipler, PowerbarScript.powerbarSingleton.GetCurrentPower() * 0.08f);
+			ScreenShake.g_instance.shake(PowerbarScript.powerbarSingleton.GetCurrentPower() * hitShakeMultipler, PowerbarScript.powerbarSingleton.GetCurrentPower() * 0.1f);
 		}
 	}
 

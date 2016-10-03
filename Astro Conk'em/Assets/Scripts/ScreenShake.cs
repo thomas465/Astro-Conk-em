@@ -6,8 +6,11 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake g_instance;
 
     //cap the magnitude of the shakes so it doesn't hurt the player's brain
-    public float m_maxMagnitude = 0.65f;
-    public float m_maxDuration = 0.5f;
+    public float m_maxMagnitude = 0.6f;
+    public float m_maxDuration = 0.6f;
+    //value to quickly change all screenshake values, keeping their relative shake
+    public float m_magnitudeModifer=1.33f;
+    public float m_timeModifier = 1.5f;
 
     public float m_lerpValue = 25.0f;
     [SerializeField]
@@ -49,7 +52,7 @@ public class ScreenShake : MonoBehaviour
         if (m_shaking)
         {
             //If have not gone over alloted time
-            if (m_currentTime < m_duration)
+            if (m_currentTime < (m_duration*m_timeModifier))
             {
                 //Update timer
                 m_currentTime += Time.deltaTime;
@@ -58,7 +61,7 @@ public class ScreenShake : MonoBehaviour
                 if (gameObject.transform.position == m_target)
                 {
                     //Get new target
-                    m_target = restPos.position + (Random.insideUnitSphere * m_currentMag);
+                    m_target = restPos.position + (Random.insideUnitSphere * m_currentMag* m_magnitudeModifer);
                     m_startPos = transform.position;
                     m_target.z = restPos.position.z;
                     //Reset lerpval
@@ -107,8 +110,8 @@ public class ScreenShake : MonoBehaviour
     {
         if (m_shaking)
         {
-            m_duration += Mathf.Sqrt(_duration);
-            m_currentMag += Mathf.Sqrt(_magnitude);
+            m_duration += _duration;
+            m_currentMag += _magnitude;
         }
         else
         {

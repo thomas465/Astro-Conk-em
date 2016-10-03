@@ -186,7 +186,7 @@ public class BallScript : MonoBehaviour
 
             if (isCrit)
             {
-                ScreenShake.g_instance.shake(0.2f, 0.1f);
+                ScreenShake.g_instance.shake(0.2f, 0.12f);//powerbar being high already makes this shake bigger so this will be additive; doesn't need to be so large
                 critHit.Play();
                 critFire.Play();
             }
