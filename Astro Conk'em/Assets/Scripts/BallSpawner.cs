@@ -28,6 +28,9 @@ public class BallSpawner : MonoBehaviour
     public static ParticleSystem hoverParticles;
     public ParticleSystem hoverParticleReference;
 
+    public Transform spinner;
+    public Transform floatingScifiThing;
+
 	void Start ()
     {
         //init audio
@@ -55,7 +58,8 @@ public class BallSpawner : MonoBehaviour
 
 	void Update ()
     {
-
+        floatingScifiThing.transform.position += Mathf.Sin(Time.timeSinceLevelLoad*2) * Vector3.up * 0.002f;
+        spinner.transform.Rotate(Vector3.forward * 10);
        
 
         BallScript.BALL_STATE ballState = currentBall.getState();
