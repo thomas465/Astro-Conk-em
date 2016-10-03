@@ -59,13 +59,10 @@ public class ScoreManager : MonoBehaviour {
 			}
 		}
 		text.text = "Score: " + score;
-		if (comboDisp)
-		{
-            if (continualHits > 0)
-                comboDisp.text = " x" + continualHits;
-            else
-                comboDisp.text = "";
-		}
+        if (comboDisp)
+        {
+            comboDisp.text = " x" + continualHits;
+        }
 
        // text.text = "Score: " + score;
         /*

@@ -187,7 +187,7 @@ public class PlayerScript : MonoBehaviour
 
 		Debug.DrawLine(swingCastRay.origin, swingCastRay.origin + swingCastRay.direction * 250, Color.magenta, 10);
 
-		if(Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250)) //in the case of a hit
+		if(Physics.SphereCast(swingCastRay, 0.51f, out swingCastHit, 250)) //in the case of a hit
 		{
 			//Auto-aim
 			if(swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)

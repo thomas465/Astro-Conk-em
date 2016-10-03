@@ -13,7 +13,15 @@ public class ComboJuiceScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        myText.transform.localScale = Vector3.Lerp(myText.transform.localScale, Vector3.one * (1+(ScoreManager.scoreSingleton.getComboNo()*0.1f)), 8 * Time.deltaTime);
+
+        if (ScoreManager.scoreSingleton.getComboNo() > 1)
+        {
+            myText.transform.localScale = Vector3.Lerp(myText.transform.localScale, Vector3.one * (1 + (ScoreManager.scoreSingleton.getComboNo() * 0.1f)), 8 * Time.deltaTime);
+        }
+        else
+        {
+            myText.transform.localScale = Vector3.Lerp(myText.transform.localScale, Vector3.one * 0, 4 * Time.deltaTime);
+        }
 	}
 
     public void UpdateComboDisplay(int increase)

@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
 
     //Particles
     public GameObject standardHitParticles, critHitParticles, burstParticles, burstFromCritParticles;
+    public GameObject mySlime;
 
     Collider myCollider;
 
@@ -162,6 +163,8 @@ public class Enemy : MonoBehaviour
             }
 
         }
+
+        mySlime.transform.position = new Vector3(mySlime.transform.position.x, -0.897f, mySlime.transform.position.z);
     }
 
     void LateUpdate()
