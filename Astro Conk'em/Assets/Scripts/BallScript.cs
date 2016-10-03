@@ -1,18 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallScript : MonoBehaviour {
+public class BallScript : MonoBehaviour
+{
     public enum BALL_STATE
     {
         NOT_IN_USE,
         SPAWNING,
         READY_FOR_PLAYER_HIT,
         HAS_BEEN_HIT,
-		HIT_SOMETHING
+        HIT_SOMETHING
     }
-   
+
+    //--gravity fall off thing
+    public float m_gravityTimerConstant;
+    private float m_gravityTimer;
+    private float m_gravityTimerMax;
+    //--
+
     public ParticleSystem standardHit, critHit, critFire;
     public ParticleSystem standardDamage;
+
+    public ParticleSystem spawnParticles;
 
     public TrailRenderer trail, critTrail;
 
@@ -23,13 +32,12 @@ public class BallScript : MonoBehaviour {
 
     //float around position
     private float m_mag = 0.1f;
-    private float m_currentLerpValue = 0;
-    private float m_sineLerp = 0;
+    private float m_currentLerpValue = 0.0f;
     private Transform m_spwnPosTransform;
     private Vector3 m_start;
     private Vector3 m_target;
     private float m_lerpValue = 3.0f;
-    
+
 	//has the ball hit an enemy
 	private bool hitSuccess = false;
 
@@ -44,7 +52,7 @@ public class BallScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         m_spwnPosTransform = GameObject.Find("BallSpawnPos").transform;
         m_target = m_spwnPosTransform.position;
@@ -56,7 +64,10 @@ public class BallScript : MonoBehaviour {
 
         myAudio = GetComponent<AudioSource>();
 
-        //BallSpawner.currentBall = this;
+        //--Gravity stuffs
+        m_gravityTimerConstant = 0.8f;
+        m_gravityTimer = 0.0f;
+        m_gravityTimerMax = 0.0f;
     }
     public void disableTrails()
     {
@@ -78,6 +89,11 @@ public class BallScript : MonoBehaviour {
         rb.velocity = Vector3.zero;
         state = BALL_STATE.SPAWNING;
 
+        spawnParticles.Play();
+
+        if (BallSpawner.hoverParticles)
+            BallSpawner.hoverParticles.Play();
+
 		hitSuccess = false;
     }
     public void readyForPlayerHit()
@@ -87,19 +103,26 @@ public class BallScript : MonoBehaviour {
         m_start = transform.position;
         m_target = m_spwnPosTransform.position + (Random.insideUnitSphere * m_mag);
     }
-  
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if (rb.velocity.magnitude > 0.1f)
+        if (rb.velocity.magnitude > 0.1f && isDangerous)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
 
-        if(rb.velocity.magnitude < 2.0f)
+        if (rb.velocity.magnitude < 2.0f)
         {
             isDangerous = false;
         }
+
+        //@@GRAVITY STUFF
+        if (m_gravityTimer >= m_gravityTimerMax)
+        {
+            rb.useGravity = true;
+        }
+        m_gravityTimer += Time.deltaTime;
 
         //Positioning of crit trail
         Vector3 critTrailOffset = transform.forward * rb.velocity.magnitude / 15;
@@ -110,8 +133,8 @@ public class BallScript : MonoBehaviour {
         {
             floatAround();
         }
-       
-	}
+
+    }
 
     private void floatAround()
     {
@@ -143,13 +166,20 @@ public class BallScript : MonoBehaviour {
 
     public void HitByPlayer(float power, Vector3 dir)
     {
+        BallSpawner.hoverParticles.Stop();
+        BallSpawner.hoverParticles.Clear();
+
         enableTrails();
+
+        //@@GRAVITY STUFF
+        m_gravityTimer = 0;
+        m_gravityTimerMax = m_gravityTimerConstant * power;
 
         isDangerous = true;
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;
 
         //All crits have the same speed
-        if(isCrit)
+        if (isCrit)
         {
             power = 1;
             myAudio.pitch = Random.Range(0.9f, 1.1f);
@@ -158,7 +188,7 @@ public class BallScript : MonoBehaviour {
         else
         {
             myAudio.pitch = Random.Range(0.9f, 1.1f);
-            myAudio.PlayOneShot(SoundBank.sndBnk.batHitBall, power+0.15f);
+            myAudio.PlayOneShot(SoundBank.sndBnk.batHitBall, power + 0.15f);
         }
 
         float speed = 10;
@@ -183,7 +213,7 @@ public class BallScript : MonoBehaviour {
 
             if (isCrit)
             {
-                ScreenShake.g_instance.shake(0.4f);
+                ScreenShake.g_instance.shake(0.2f, 0.12f);//powerbar being high already makes this shake bigger so this will be additive; doesn't need to be so large
                 critHit.Play();
                 critFire.Play();
             }
@@ -193,7 +223,7 @@ public class BallScript : MonoBehaviour {
             }
         }
 
-        
+
         state = BALL_STATE.HAS_BEEN_HIT;
     }
 
@@ -204,17 +234,19 @@ public class BallScript : MonoBehaviour {
         ResetParticles();
         disableTrails();
 
-		if(state == BALL_STATE.HAS_BEEN_HIT && isDangerous)
-		{
-			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
+		if (state == BALL_STATE.HAS_BEEN_HIT && isDangerous) {
+			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy> ();
 
-			if(enemy != null)
-			{
+			if (enemy != null) {
 				ScoreManager.scoreSingleton.BallHit ();
-				enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
-                state = BALL_STATE.HIT_SOMETHING;
+				enemy.TakeDamage (PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
+				state = BALL_STATE.HIT_SOMETHING;
 				hitSuccess = true;
-            }
+			} else {
+				//let the score manager know that a miss occured
+				ScoreManager.scoreSingleton.BallMissed ();
+				isDangerous = false;//not dangerous if we hit a slug or the ground!
+			}
 		}
 
 		if (collisionInfo.gameObject.tag != "Player")

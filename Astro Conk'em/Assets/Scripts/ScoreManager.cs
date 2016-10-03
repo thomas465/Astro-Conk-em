@@ -6,6 +6,8 @@ public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager scoreSingleton;
     public static int score;
+
+    public int highscore = 0;
     
 	[SerializeField]
 	private Text comboDisp;
@@ -17,6 +19,8 @@ public class ScoreManager : MonoBehaviour {
 	private Text text;
 	private bool alphaUp;
 
+    public ComboJuiceScript comboJuiceScript;
+
     void Awake ()
     {
         scoreSingleton = this;
@@ -26,7 +30,17 @@ public class ScoreManager : MonoBehaviour {
         //set the initial score to zero
         score = 0;
 		continualHits = 0;
+
 	}
+
+    void Start()
+    {
+
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+    }
 
 	void Update ()
     {
@@ -45,10 +59,10 @@ public class ScoreManager : MonoBehaviour {
 			}
 		}
 		text.text = "Score: " + score;
-		if (comboDisp)
-		{
-			comboDisp.text = "Combo: " + continualHits;
-		}
+        if (comboDisp)
+        {
+            comboDisp.text = "Combo " + continualHits;
+        }
 
        // text.text = "Score: " + score;
         /*
@@ -65,11 +79,13 @@ public class ScoreManager : MonoBehaviour {
 	{
 		continualHits = 0;
 		scorebonus = 0;
+        comboJuiceScript.ResetCombo();
 	}
 
 	public void BallHit()
 	{
 		continualHits++;
+        comboJuiceScript.UpdateComboDisplay(1);
 	}
 
 	public int getComboNo ()
@@ -87,5 +103,10 @@ public class ScoreManager : MonoBehaviour {
 		}
 
         ScoreManager.score += amount;
+    }
+
+    public int GetScore()
+    {
+        return ScoreManager.score;
     }
 }
