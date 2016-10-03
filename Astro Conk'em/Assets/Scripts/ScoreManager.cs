@@ -6,6 +6,8 @@ public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager scoreSingleton;
     public static int score;
+
+    public int highscore = 0;
     
 	[SerializeField]
 	private Text comboDisp;
@@ -26,7 +28,17 @@ public class ScoreManager : MonoBehaviour {
         //set the initial score to zero
         score = 0;
 		continualHits = 0;
+
 	}
+
+    void Start()
+    {
+
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+    }
 
 	void Update ()
     {
@@ -87,5 +99,10 @@ public class ScoreManager : MonoBehaviour {
 		}
 
         ScoreManager.score += amount;
+    }
+
+    public int GetScore()
+    {
+        return ScoreManager.score;
     }
 }

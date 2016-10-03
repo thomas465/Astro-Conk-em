@@ -236,5 +236,23 @@ public class PlayerScript : MonoBehaviour
 	{
 		Debug.Log("Player is dead!");
         swingDelay = 9999;
-	}
+        //Debug.Log(PlayerPrefs.GetInt("Highscore"));
+
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+
+            if (PlayerPrefs.GetInt("Highscore") < ScoreManager.scoreSingleton.GetScore())
+            {
+                PlayerPrefs.SetInt("Highscore", ScoreManager.scoreSingleton.GetScore());
+                Debug.Log(PlayerPrefs.GetInt("Highscore"));
+            }
+            else
+            {
+                //PlayerPrefs.SetInt("Highscore", ScoreManager.scoreSingleton.GetScore());
+                Debug.Log(PlayerPrefs.GetInt("Highscore"));
+                Debug.Log("Hello");
+            }
+
+        }
+    }
 }
