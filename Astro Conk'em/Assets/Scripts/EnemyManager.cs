@@ -138,7 +138,7 @@ public class EnemyManager : MonoBehaviour
                 if(!enemyList[i].isDead())
                 {
                     ScoreManager.scoreSingleton.BallHit();
-                    enemyList[i].TakeDamage(false, Vector3.up);
+                    enemyList[i].GetExploded(true);
                 }
             }
         }

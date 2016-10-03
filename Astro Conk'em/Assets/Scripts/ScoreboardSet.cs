@@ -36,6 +36,7 @@ public class ScoreboardSet : MonoBehaviour {
     {
         for(int i = 0; LocalHighScoreManager.g_instance.numberOfScores() < 2; i++)
         {
+            
             //ScoreboardSet[i].enterName.text = LocalHighScoreManager.g_instance.getScore(i).name;
             //ScoreboardSet[i].score = LocalHighScoreManager.g_instance.getScore(i).score;
         }

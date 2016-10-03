@@ -44,7 +44,8 @@ public class Enemy : MonoBehaviour
 	private float initialDist;
 
     //Particles
-    public GameObject standardHitParticles, critHitParticles, burstParticles;
+    public GameObject standardHitParticles, critHitParticles, burstParticles, burstFromCritParticles;
+    public GameObject mySlime;
 
     Collider myCollider;
 
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour
     Vector3 originalScale;
 
     bool isBlowingUp = false;
-    float explosionDelayCounter = 0, explosionDelayLength = 1;
+    float explosionDelayCounter = 0, explosionDelayLength = 0.45f;
 
     Animator anim;
     AudioSource myAudio;
@@ -148,7 +149,7 @@ public class Enemy : MonoBehaviour
                 deathTime -= Time.deltaTime;
                 anim.ResetTrigger("Detonate");
 
-                if (deathTime < 2)
+                if (deathTime < 2 && transform.localScale.y>0)
                 {
                     transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.25f, 0, 1.25f), 3 * Time.deltaTime);
                     transform.position -= Vector3.up * Time.deltaTime * 1;
@@ -162,11 +163,27 @@ public class Enemy : MonoBehaviour
             }
 
         }
+
+        mySlime.transform.position = new Vector3(mySlime.transform.position.x, -0.897f, mySlime.transform.position.z);
     }
 
     void LateUpdate()
     {
         anim.SetBool("Alive", !m_isDead);
+    }
+
+    public void GetExploded(bool performTakeDamage = true)
+    {
+        if (performTakeDamage)
+        {
+            TakeDamage(false, Vector3.up);
+        }
+
+        transform.localScale = Vector3.zero;
+
+        GameObject hit = Instantiate(burstFromCritParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
+
+        Destroy(hit, 3);
     }
 
 	/// <summary>
@@ -191,6 +208,8 @@ public class Enemy : MonoBehaviour
                 hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
 
                 Destroy(hit, 3);
+
+                GetExploded(false);
             }
             else
             {
