@@ -13,25 +13,30 @@ public class EnemyManager : MonoBehaviour
 
 	//Spawns an enemy when curDifficulty ticks over this value
 	//Increases by 1 every time an enemy spawns
-	private float spawnThreshold;
+	//Starts negative so we spawn a bunch immediately when the game starts
+	private float spawnThreshold = -5f;
 
 	public GameObject enemyPrefab;
 
+	//How many enemies to spawn on the next wave
+	private int numEnemysToSpawn;
+
+	[SerializeField]
+	private int waveSpawnCountMin = 2;
+
+	[SerializeField]
+	private int waveSpawnCountMax = 5;
+
+	[SerializeField]
+	private float waveSpawnTimeMult = 0.8f;
+
+	//Chance to skip spawning a single slug and spawn multiple next time
+	[SerializeField]
+	private float chanceToSpawnWave = 0.2f;
+
 	private EnemySpawnPoint[] spawnPoints;
 	private EnemySpawnPoint lastSpawnPoint;
-
-
-    //Haz these are the holes which the slugs burst through
-    //SetActive() one of these objects to have it burst into existance and after that let slugs spawn from them
-    //The order of the Entrance objects might not match up with the positions of your spawners you've already arranged so you will need to change the order of the entrances to match up
-    public EnemyEntranceScript[] enemyEntrances;
-
-	void Awake()
-	{
-		//Set the spawn threshold to the initial difficulty
-		spawnThreshold = GameManager.instance.initialDifficulty;
-	}
-
+	
 	void Start()
 	{
 		spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
@@ -41,19 +46,70 @@ public class EnemyManager : MonoBehaviour
 	{
         //Temporary quick way to make them not attack during the title screen
         if (TitleScript.titlePanFinished)
-        {
+		{
+			foreach(EnemySpawnPoint sp in spawnPoints)
+			{
+				EnemyEntranceScript[] es = sp.GetComponentsInChildren<EnemyEntranceScript>(true);
+				if(es.Length == 0)
+				{
+					Debug.LogError("EnemySpawnPoint does not have Entrance script as child!");
+					Destroy(sp.gameObject);
+					continue;
+				}
+				EnemyEntranceScript entrance = es[0];
 
-            //If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
-            if (GameManager.instance.curDifficulty > spawnThreshold)
+				if(entrance == null || entrance.isActiveAndEnabled)
+				{
+					continue;
+				}
+
+				if(sp.minDifficultyLevel < GameManager.instance.GetDifficultyLevel())
+				{
+					entrance.gameObject.SetActive(true);
+				}
+			}
+
+
+			//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
+			if (GameManager.instance.GetDifficultyLevel() >= spawnThreshold)
             {
-                //Spawn an enemy
-                SpawnEnemy();
-                //Debug.Log("Spawn");
 
-                //Increase the threshold
-                spawnThreshold += 1f;
+				if(Random.value < chanceToSpawnWave)
+				{
+					int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
+					numEnemysToSpawn += waveSize;
+					spawnThreshold += waveSize * waveSpawnTimeMult;
+				}
+				else
+				{
+					//Spawn an enemy
+					SpawnWave();
+					//Debug.Log("Spawn");
+				}
+
+				//Increase the threshold
+				spawnThreshold += 1f;
             }
+
+
+			if(enemyList.Count < 3)
+			{
+				//Most enemies are dead, spawn some more in immediately
+				SpawnWave();
+			}
         }
+	}
+
+	private void SpawnWave()
+	{
+		while(numEnemysToSpawn > 0)
+		{
+			SpawnEnemy();
+			numEnemysToSpawn--;
+		}
+
+		//Next wave starts with atleast 1 enemy
+		numEnemysToSpawn = 1;
 	}
 
 	public void SpawnEnemy()
@@ -79,7 +135,7 @@ public class EnemyManager : MonoBehaviour
 		foreach (EnemySpawnPoint sp in spawnPoints)
 		{
 			//Dont spawn at points that are too difficult yet
-			if (GameManager.instance.curDifficulty < sp.minDifficultyLevel)
+			if (GameManager.instance.GetDifficultyLevel() < sp.minDifficultyLevel)
 			{
 				continue;
 			}
