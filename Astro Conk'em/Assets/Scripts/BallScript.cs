@@ -15,6 +15,8 @@ public class BallScript : MonoBehaviour
     public ParticleSystem standardHit, critHit, critFire;
     public ParticleSystem standardDamage;
 
+    public ParticleSystem spawnParticles;
+
     public TrailRenderer trail, critTrail;
 
     private Rigidbody rb;
@@ -75,6 +77,8 @@ public class BallScript : MonoBehaviour
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
         state = BALL_STATE.SPAWNING;
+
+        spawnParticles.Play();
 
         if (BallSpawner.hoverParticles)
             BallSpawner.hoverParticles.Play();
