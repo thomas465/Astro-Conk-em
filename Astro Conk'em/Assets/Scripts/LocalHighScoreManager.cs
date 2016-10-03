@@ -47,7 +47,10 @@ public class LocalHighScoreManager : MonoBehaviour
         m_numScores = index;
     }
 
-    public void saveScores()
+    //at the moment it'll just save after a player has been added but
+    //if you want it to save at the end of the level instead 
+    //then ask Orlando ;)
+    private void saveScores()
     {
         //no need to save if the cache is up to date
         if (m_savedDataUpToDate == false)
@@ -80,6 +83,12 @@ public class LocalHighScoreManager : MonoBehaviour
         return m_numScores < m_maxScores || _score >= m_leaderBoard[m_numScores-1].score;
     }
 
+	//returns true if the player placed on the scoreboard
+    public bool addPlayerScore(string _name, float _score)
+    {
+		return addPlayerScore(new Pair(_score, _name));
+	}
+	
     //returns true if the player placed on the scoreboard
     public bool addPlayerScore(Pair _player)
     {
@@ -110,6 +119,8 @@ public class LocalHighScoreManager : MonoBehaviour
 
         //if we have changed the board then it's
         m_savedDataUpToDate = m_savedDataUpToDate && !placed;
+
+        if (placed) saveScores();
         return placed;
     }
 

@@ -5,6 +5,7 @@ using System.Collections;
 public class TitleScript : MonoBehaviour {
 
     public Text astro, conkem, prompt;
+    public Image batImage;
 
     bool active = true;
 
@@ -79,6 +80,7 @@ public class TitleScript : MonoBehaviour {
             conkem.transform.localPosition = Vector3.Lerp(conkem.transform.localPosition, conkemOffscreenPos, 4 * Time.deltaTime);
             astro.transform.localPosition = Vector3.Lerp(astro.transform.localPosition, astroOffscreenPos, 4 * Time.deltaTime);
 
+            batImage.transform.localScale = Vector3.Lerp(batImage.transform.localScale, Vector3.zero, 15 * Time.deltaTime);
             prompt.transform.localScale = Vector3.Lerp(prompt.transform.localScale, Vector3.zero, 15 * Time.deltaTime);
 
             if (panTime > 0)

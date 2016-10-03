@@ -21,10 +21,12 @@ public class EnemyEntranceScript : MonoBehaviour
     // Use this for initialization
     void OnEnable()
     {
-        transform.localScale = Vector3.zero;
-        myAppearSystem.Play();
-        audioSource.PlayOneShot(appearSnd);
-        
+        if (Time.timeSinceLevelLoad > 1)
+        {
+            transform.localScale = Vector3.zero;
+            myAppearSystem.Play();
+            audioSource.PlayOneShot(appearSnd, 0.5f);
+        }
     }
 
     // Update is called once per frame

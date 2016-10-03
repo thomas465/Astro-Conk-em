@@ -38,9 +38,6 @@ public class BallScript : MonoBehaviour
     private Vector3 m_target;
     private float m_lerpValue = 3.0f;
 
-	//has the ball hit an enemy
-	private bool hitSuccess = false;
-
     //float around rotation
     private float m_torqueModifier = 3.0f;
 
@@ -93,8 +90,6 @@ public class BallScript : MonoBehaviour
 
         if (BallSpawner.hoverParticles)
             BallSpawner.hoverParticles.Play();
-
-		hitSuccess = false;
     }
     public void readyForPlayerHit()
     {
@@ -234,27 +229,24 @@ public class BallScript : MonoBehaviour
         ResetParticles();
         disableTrails();
 
-		if (state == BALL_STATE.HAS_BEEN_HIT && isDangerous) {
-			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy> ();
+        if (state == BALL_STATE.HAS_BEEN_HIT && isDangerous)
+        {
+            Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
+                //inform the scoremanager that the ball hit
+                ScoreManager.scoreSingleton.BallHit();
+            }
+            else
+            {
+                //let the score manager know that a miss occured
+                ScoreManager.scoreSingleton.BallMissed();
+                isDangerous = false;//not dangerous if we hit a slug or the ground!
+            }
 
-			if (enemy != null) {
-				ScoreManager.scoreSingleton.BallHit ();
-				enemy.TakeDamage (PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
-				state = BALL_STATE.HIT_SOMETHING;
-				hitSuccess = true;
-			} else {
-				//let the score manager know that a miss occured
-				ScoreManager.scoreSingleton.BallMissed ();
-				isDangerous = false;//not dangerous if we hit a slug or the ground!
-			}
-		}
+            state = BALL_STATE.HIT_SOMETHING;
 
-		if (collisionInfo.gameObject.tag != "Player")
-		{
-			if (!hitSuccess)
-			{
-				ScoreManager.scoreSingleton.BallMissed ();
-			}
-		}
+        }
     }
 }

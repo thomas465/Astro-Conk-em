@@ -136,7 +136,8 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		//Increase the difficulty exponentially
-		curDifficulty *= difficultyExpoOverTime * Time.deltaTime + 1;
+        if(TitleScript.titlePanFinished)
+		    curDifficulty *= difficultyExpoOverTime * Time.deltaTime + 1;
 	}
 
 

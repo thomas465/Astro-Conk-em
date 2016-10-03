@@ -6,10 +6,38 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Lamp
+    100006: Sphere
+    100008: Sphere.001
+    100010: Torus.000
+    100012: Torus.001
+    100014: Sphere.002
     400000: //RootNode
+    400002: Camera
+    400004: Lamp
+    400006: Sphere
+    400008: Sphere.001
+    400010: Torus.000
+    400012: Torus.001
+    400014: Sphere.002
     2300000: //RootNode
+    2300002: Sphere
+    2300004: Sphere.001
+    2300006: Torus.000
+    2300008: Torus.001
+    2300010: Sphere.002
     3300000: //RootNode
+    3300002: Sphere
+    3300004: Sphere.001
+    3300006: Torus.000
+    3300008: Torus.001
+    3300010: Sphere.002
     4300000: Sphere.001
+    4300002: Torus.000
+    4300004: Torus.001
+    4300006: Sphere
+    4300008: Sphere.002
   materials:
     importMaterials: 1
     materialName: 0
