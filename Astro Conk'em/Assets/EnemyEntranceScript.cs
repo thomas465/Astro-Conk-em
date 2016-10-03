@@ -25,7 +25,7 @@ public class EnemyEntranceScript : MonoBehaviour
         {
             transform.localScale = Vector3.zero;
             myAppearSystem.Play();
-            audioSource.PlayOneShot(appearSnd);
+            audioSource.PlayOneShot(appearSnd, 0.5f);
         }
     }
 
