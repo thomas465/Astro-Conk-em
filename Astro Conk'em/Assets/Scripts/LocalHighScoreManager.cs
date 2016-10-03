@@ -80,6 +80,12 @@ public class LocalHighScoreManager : MonoBehaviour
         return m_numScores < m_maxScores || _score >= m_leaderBoard[m_numScores-1].score;
     }
 
+	//returns true if the player placed on the scoreboard
+    public bool addPlayerScore(string _name, float _score)
+    {
+		return addPlayerScore(new Pair(_score, _name));
+	}
+	
     //returns true if the player placed on the scoreboard
     public bool addPlayerScore(Pair _player)
     {
