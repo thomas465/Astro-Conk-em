@@ -127,6 +127,23 @@ public class EnemyManager : MonoBehaviour
 		enemy.Init();
 	}
 
+    public void EnemyHasExploded(Enemy exploder)
+    {
+        float explosionDistance = 10;
+
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (Vector3.Distance(enemyList[i].transform.position, exploder.transform.position) < explosionDistance)
+            {
+                if(!enemyList[i].isDead())
+                {
+                    ScoreManager.scoreSingleton.BallHit();
+                    enemyList[i].TakeDamage(false, Vector3.up);
+                }
+            }
+        }
+    }
+
 	private EnemySpawnPoint PickRandomSpawnPoint()
 	{
 		//Pick a random spawn point

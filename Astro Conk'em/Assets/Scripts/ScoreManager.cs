@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour {
 	private Text text;
 	private bool alphaUp;
 
+    public ComboJuiceScript comboJuiceScript;
+
     void Awake ()
     {
         scoreSingleton = this;
@@ -65,11 +67,13 @@ public class ScoreManager : MonoBehaviour {
 	{
 		continualHits = 0;
 		scorebonus = 0;
+        comboJuiceScript.ResetCombo();
 	}
 
 	public void BallHit()
 	{
 		continualHits++;
+        comboJuiceScript.UpdateComboDisplay(1);
 	}
 
 	public int getComboNo ()

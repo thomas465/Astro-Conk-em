@@ -185,6 +185,8 @@ public class Enemy : MonoBehaviour
 
             if (isCrit)
             {
+                GameManager.instance.enemyManager.EnemyHasExploded(this);
+
                 GameObject hit = Instantiate(critHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
                 hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
 
