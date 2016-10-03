@@ -11,8 +11,8 @@ public class NameController : MonoBehaviour {
     public void GetInput(string input)
     {
         Debug.Log("Name: " + input);
-        //LocalHighScoreManager.g_instance.addPlayerScore()
-    
+        LocalHighScoreManager.g_instance.addPlayerScore(input, ScoreManager.score);
+        LeaderBoardVisualsScript.singleton.Activate();
     }
 	
 	// Update is called once per frame

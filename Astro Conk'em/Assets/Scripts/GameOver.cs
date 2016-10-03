@@ -4,7 +4,7 @@ using System.Collections;
 public class GameOver : MonoBehaviour {
 
     public PlayerHealth playerHealth;
-
+    public ScreenCoverScript sCReference;
     Animator anim;
 
     //float to restart the game
@@ -29,8 +29,7 @@ public class GameOver : MonoBehaviour {
             restart += Time.deltaTime;
             if (restart >= 5)
             {
-                //Application.LoadLevel(Application.loadedLevel);
-                //pherhaps a dodgey way of reloading the scene?
+                sCReference.coverScreen = true;
             }
         }
 
