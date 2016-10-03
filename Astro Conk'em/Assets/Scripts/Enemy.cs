@@ -116,6 +116,8 @@ public class Enemy : MonoBehaviour
 
         offset = Vector3.forward * 1.5f;
 
+        mySlime = Instantiate(mySlime, transform.position, transform.rotation) as GameObject;
+
 		Init();
 	}
 
@@ -164,7 +166,7 @@ public class Enemy : MonoBehaviour
 
         }
 
-        mySlime.transform.position = new Vector3(mySlime.transform.position.x, -0.897f, mySlime.transform.position.z);
+        mySlime.transform.position = new Vector3(transform.position.x, -0.81f, transform.position.z);
     }
 
     void LateUpdate()
@@ -265,6 +267,8 @@ public class Enemy : MonoBehaviour
 
 	private float GetDistToPlayer()
 	{
+        if (!player)
+            return Mathf.Infinity;
 		return Vector3.Distance
 		(
 			new Vector3(transform.position.x, 0f, transform.position.z),

@@ -15,6 +15,8 @@ public class LeaderBoardVisualsScript : MonoBehaviour
     public List<Text> entries;
     public ScreenCoverScript sC;
 
+    public Transform cam, camTargetPos;
+
     // Use this for initialization
     void Start()
     {
@@ -36,13 +38,16 @@ public class LeaderBoardVisualsScript : MonoBehaviour
 
             for(int i=0; i<entries.Count; i++)
             {
-                entries[i].transform.localPosition = Vector3.Lerp(entries[i].transform.localPosition, new Vector3(0, entries[i].transform.localPosition.y, 0), 2 * Time.deltaTime);
+                entries[i].transform.localPosition = Vector3.Lerp(entries[i].transform.localPosition, new Vector3(-240, entries[i].transform.localPosition.y, 0), 2 * Time.deltaTime);
             }
 
             if(Input.GetButtonDown("Fire1"))
             {
                 sC.coverScreen = true;
             }
+
+            cam.transform.position = Vector3.Lerp(cam.transform.position, camTargetPos.position, 4 * Time.deltaTime);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, camTargetPos.rotation, 3 * Time.deltaTime);
         }
     }
 
@@ -57,10 +62,12 @@ public class LeaderBoardVisualsScript : MonoBehaviour
             newName.transform.SetParent(transform, false);
             newName.transform.localPosition = entryPos;
 
-            newName.GetComponent<Text>().text = LocalHighScoreManager.g_instance.getScore(i).name + "               <i>" + LocalHighScoreManager.g_instance.getScore(i).score + "</i>";
+            newName.GetComponent<Text>().text = "      " + (i+1) + ":  " + LocalHighScoreManager.g_instance.getScore(i).name + "               <i>" + LocalHighScoreManager.g_instance.getScore(i).score + "</i>";
             entries.Add(newName.GetComponent<Text>());
-            entryPos -= Vector3.up * 65;
+            entryPos -= Vector3.up * 85;
             entryPos -= Vector3.right * 500;
         }
+
+        //GameManager.globalSoundSource.PlayOneShot(SoundBank.sndBnk.menuClick);
     }
 }

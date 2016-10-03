@@ -16,7 +16,7 @@ public class ComboJuiceScript : MonoBehaviour {
 
         if (ScoreManager.scoreSingleton.getComboNo() > 1)
         {
-            myText.transform.localScale = Vector3.Lerp(myText.transform.localScale, Vector3.one * (1 + (ScoreManager.scoreSingleton.getComboNo() * 0.1f)), 8 * Time.deltaTime);
+            myText.transform.localScale = Vector3.Lerp(myText.transform.localScale, Vector3.one * 0.5f * (1 + (ScoreManager.scoreSingleton.getComboNo() * 0.1f)), 8 * Time.deltaTime);
         }
         else
         {
