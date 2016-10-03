@@ -6,27 +6,26 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake g_instance;
 
     //cap the magnitude of the shakes so it doesn't hurt the player's brain
-    public float m_maxMagnitude = 0.6f;
-    public float m_maxDuration = 0.6f;
+    private float m_maxMagnitude = 0.6f;
+    private float m_maxDuration = 0.6f;
     //value to quickly change all screenshake values, keeping their relative shake
-    public float m_magnitudeModifer=1.33f;
-    public float m_timeModifier = 1.5f;
+    private float m_magnitudeModifer=1.33f;
+    private float m_timeModifier = 1.5f;
 
-    public float m_lerpValue = 25.0f;
-    [SerializeField]
+    private float m_lerpValue = 25.0f;
+   // [SerializeField]
     private float m_duration;
 
-    [SerializeField]
     private float m_currentMag;
-    [SerializeField]
+    //[SerializeField]
     private float m_currentTime =0;
-    [SerializeField]
+    //[SerializeField]
     private float m_currentLerpValue = 0;
-    [SerializeField]
+    //[SerializeField]
     private Vector3 m_startPos;
-    [SerializeField]
+    //[SerializeField]
     private Vector3 m_target;
-    [SerializeField]
+    //[SerializeField]
     private bool m_shaking = false;
 
     //reference to where the camera should rest - TMS
