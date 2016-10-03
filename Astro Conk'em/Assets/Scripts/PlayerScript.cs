@@ -87,7 +87,7 @@ public class PlayerScript : MonoBehaviour
 		}
 		else
 		{
-			if(curStickDir.y < -0.05f)
+			if(curStickDir.y < -0.25f)
 				meleeMode = true;
 			else
 				curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
