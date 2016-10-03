@@ -18,7 +18,12 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float diffMod;
 	[SerializeField]
-	private float speed = 1.0f;
+	private float speed = 1.25f;
+
+	[SerializeField]
+	private float speedRand = 0.2f;
+
+	private float speedMod;
 
 	//distance from the player that detonation will happen
 	[SerializeField]
@@ -68,13 +73,17 @@ public class Enemy : MonoBehaviour
 		player = GameManager.instance.player;
 
 		//Face the player
-		initialFacing = GetVectorToPlayer();
+		//initialFacing = GetVectorToPlayer();
+		initialFacing = transform.forward; //They spawn facing in the direction the spawnpoint is facing
 
 		//Rotate by up to randRotRange
 		initialFacing = Quaternion.Euler(0f, Random.Range(-randRotRange, randRotRange), 0f) * initialFacing;
 
 		//Set the initial distance to our current distance to player
 		initialDist = GetDistToPlayer();
+
+		//Additional random speed per enemy
+		speedMod = Random.Range(-speedRand, speedRand);
 
         m_isDead = false;
         deathTime = 0;
@@ -171,10 +180,13 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            myAudio.Stop();
             myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
 
             if (isCrit)
             {
+                GameManager.instance.enemyManager.EnemyHasExploded(this);
+
                 GameObject hit = Instantiate(critHitParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
                 hit.GetComponent<HitParticleScript>().myDir = -hitDirection;
 
@@ -188,7 +200,7 @@ public class Enemy : MonoBehaviour
                 Destroy(hit, 3);
             }
 
-            ScreenShake.g_instance.shake(0.4f, 0.1f);
+            ScreenShake.g_instance.shake(0.28f, 0.1f);
             m_isDead = true;
 
             myCollider.enabled = false;
@@ -221,7 +233,7 @@ public class Enemy : MonoBehaviour
 
 	private void Move(Vector3 _dir)
 	{
-		float s = speed * Time.deltaTime + GameManager.instance.GetDifficultyLevel() * diffMod;
+		float s = speed * (1 + speedMod) * Time.deltaTime + GameManager.instance.GetDifficultyLevel() * diffMod;
 		transform.position += _dir * s;
 	}
 
@@ -269,8 +281,8 @@ public class Enemy : MonoBehaviour
 
     private void Explode()
     {
-        ScreenShake.g_instance.shake();
-        GameManager.instance.player.TakeHit(15);
+        ScreenShake.g_instance.shake(0.5f);
+        GameManager.instance.player.TakeHit(35);
 
         GameObject hit = Instantiate(burstParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
         Destroy(hit, 3);

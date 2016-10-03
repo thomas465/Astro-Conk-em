@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
 	public static PlayerScript playerSingleton;
 
-	private float hitShakeMultipler = 0.08f;
+	private float hitShakeMultipler = 0.18f;
 	public Image reticle;
 	Animator anim;
 	public Rigidbody ballTest;
@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(swingDelay <= 0)
+		if(swingDelay <= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Busy"))
 		{
 			if(TitleScript.titlePanFinished)
 			{
@@ -64,6 +64,9 @@ public class PlayerScript : MonoBehaviour
 		}
 
 		anim.SetBool("MeleeMode", meleeMode);
+
+        float swingSpeed = Mathf.Clamp(PowerbarScript.powerbarSingleton.GetCurrentPower(), 0.55f, 1.1f);
+        anim.SetFloat("Power", swingSpeed);
 	}
 	
 	public void GiveSwingDelay(float amount = 2)
@@ -79,12 +82,12 @@ public class PlayerScript : MonoBehaviour
 		{
 			curStickDir.x = -curStickDir.x;
 
-			if(curStickDir.y > 0.5f)
+			if(curStickDir.y > 0.5f || (curStickDir.y==0 && prevStickMagnitude<0.1f))
 				meleeMode = false;
 		}
 		else
 		{
-			if(curStickDir.y < -0.9f)
+			if(curStickDir.y < -0.05f)
 				meleeMode = true;
 			else
 				curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
@@ -143,7 +146,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		myAudio.PlayOneShot(SoundBank.sndBnk.hitFloorWithBat);
 		meleeMode = false;
-		ScreenShake.g_instance.shake(0.1f, 0.05f);
+		ScreenShake.g_instance.shake(0.1f, 0.06f);
 
 
 		MeleeZoneMarker zone = GetComponentInChildren<MeleeZoneMarker>();
@@ -154,7 +157,7 @@ public class PlayerScript : MonoBehaviour
 		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 15f, LayerMask.GetMask("MeleeZone"), QueryTriggerInteraction.Collide);
 
         
-		Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
+		//Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
 
 		foreach(RaycastHit hit in slugs)
 		{
@@ -169,7 +172,10 @@ public class PlayerScript : MonoBehaviour
             if(enemy)
 			    enemy.TakeDamage(false, transform.forward);
 		}
-	}
+
+        //let the score manager know that the player did a melee attack and therefore loses their combo
+        ScoreManager.scoreSingleton.BallMissed();
+    }
 
 	void Swing(Vector3 newSwingAngle, Vector3 reticlePos)
 	{
@@ -183,9 +189,6 @@ public class PlayerScript : MonoBehaviour
 
 		if(Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250)) //in the case of a hit
 		{
-			//inform the scoremanager that the ball hit
-			ScoreManager.scoreSingleton.BallHit ();
-
 			//Auto-aim
 			if(swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
 			{
@@ -235,24 +238,9 @@ public class PlayerScript : MonoBehaviour
 	public void Die()
 	{
 		Debug.Log("Player is dead!");
+        anim.SetBool("Dead", true);
         swingDelay = 9999;
-        //Debug.Log(PlayerPrefs.GetInt("Highscore"));
-
-        if (PlayerPrefs.HasKey("Highscore"))
-        {
-
-            if (PlayerPrefs.GetInt("Highscore") < ScoreManager.scoreSingleton.GetScore())
-            {
-                PlayerPrefs.SetInt("Highscore", ScoreManager.scoreSingleton.GetScore());
-                Debug.Log(PlayerPrefs.GetInt("Highscore"));
-            }
-            else
-            {
-                //PlayerPrefs.SetInt("Highscore", ScoreManager.scoreSingleton.GetScore());
-                Debug.Log(PlayerPrefs.GetInt("Highscore"));
-                Debug.Log("Hello");
-            }
-
-        }
-    }
+        TitleScript.titlePanFinished = false;
+        PowerbarScript.powerbarSingleton.SetVisible(false);
+	}
 }

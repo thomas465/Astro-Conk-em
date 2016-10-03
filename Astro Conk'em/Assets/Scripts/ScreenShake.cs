@@ -6,22 +6,26 @@ public class ScreenShake : MonoBehaviour
     public static ScreenShake g_instance;
 
     //cap the magnitude of the shakes so it doesn't hurt the player's brain
-    public float m_maxMagnitude = 4.5f;
-    public float m_lerpValue = 25.0f;
-    [SerializeField]
+    private float m_maxMagnitude = 0.6f;
+    private float m_maxDuration = 0.6f;
+    //value to quickly change all screenshake values, keeping their relative shake
+    private float m_magnitudeModifer=1.33f;
+    private float m_timeModifier = 1.5f;
+
+    private float m_lerpValue = 25.0f;
+   // [SerializeField]
     private float m_duration;
 
-    [SerializeField]
     private float m_currentMag;
-    [SerializeField]
+    //[SerializeField]
     private float m_currentTime =0;
-    [SerializeField]
+    //[SerializeField]
     private float m_currentLerpValue = 0;
-    [SerializeField]
+    //[SerializeField]
     private Vector3 m_startPos;
-    [SerializeField]
+    //[SerializeField]
     private Vector3 m_target;
-    [SerializeField]
+    //[SerializeField]
     private bool m_shaking = false;
 
     //reference to where the camera should rest - TMS
@@ -47,7 +51,7 @@ public class ScreenShake : MonoBehaviour
         if (m_shaking)
         {
             //If have not gone over alloted time
-            if (m_currentTime < m_duration)
+            if (m_currentTime < (m_duration*m_timeModifier))
             {
                 //Update timer
                 m_currentTime += Time.deltaTime;
@@ -56,7 +60,7 @@ public class ScreenShake : MonoBehaviour
                 if (gameObject.transform.position == m_target)
                 {
                     //Get new target
-                    m_target = restPos.position + (Random.insideUnitSphere * m_currentMag);
+                    m_target = restPos.position + (Random.insideUnitSphere * m_currentMag* m_magnitudeModifer);
                     m_startPos = transform.position;
                     m_target.z = restPos.position.z;
                     //Reset lerpval
@@ -75,6 +79,8 @@ public class ScreenShake : MonoBehaviour
                 m_shaking = false;
                 m_currentLerpValue = 0;
                 m_currentTime = 0;
+                m_currentMag = 0;
+                m_duration = 0;
             }
 
         }
@@ -90,7 +96,10 @@ public class ScreenShake : MonoBehaviour
                 //Update lerp
                 m_currentLerpValue += m_lerpValue * Time.deltaTime;
             }
-
+            else
+            {   //this isn't really necessary but i'm including it for sanity checking this mysterious bug
+                m_currentLerpValue = 0;
+            }
         }
 	}
 
@@ -102,17 +111,19 @@ public class ScreenShake : MonoBehaviour
         {
             m_duration += _duration;
             m_currentMag += _magnitude;
-            m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
         }
         else
         {
-            m_shaking = true;
             m_duration = _duration;
-            m_currentMag = 1;
-            m_target = m_startPos; //initate shake by setting these equal
-            m_currentLerpValue = 0;
             m_currentMag = _magnitude;
+
+            m_target = m_startPos;
+            m_currentLerpValue = 0;
+            m_currentTime = 0;
+
+            m_shaking = true;
         }
-        m_currentTime = 0;
+        m_currentMag = m_currentMag > m_maxMagnitude ? m_maxMagnitude : m_currentMag;
+        m_duration = m_duration > m_maxDuration ? m_maxDuration : m_duration;
     }
 }

@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour {
         healthSingleton = this;
         m_currentPlayerHealth = m_startingPlayerHealth;
         fill.fillAmount = 1;
+        
         //reference to a player movement script
         healthText.transform.SetAsLastSibling();
 	}
@@ -39,7 +40,7 @@ public class PlayerHealth : MonoBehaviour {
 
         hurtFill.fillAmount = Mathf.Lerp(hurtFill.fillAmount, fill.fillAmount, 2 * Time.deltaTime);
 
-        healthBarParent.transform.localScale = Vector3.Lerp(healthBarParent.transform.localScale, Vector3.one * 0.7617157f, 10 * Time.deltaTime);
+        healthBarParent.transform.localScale = Vector3.Lerp(healthBarParent.transform.localScale, Vector3.one * 0.7f, 10 * Time.deltaTime);
 	}
 
     public void TakeDamage(int amount)

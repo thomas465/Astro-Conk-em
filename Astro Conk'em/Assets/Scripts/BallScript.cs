@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallScript : MonoBehaviour {
+public class BallScript : MonoBehaviour
+{
     public enum BALL_STATE
     {
         NOT_IN_USE,
         SPAWNING,
         READY_FOR_PLAYER_HIT,
         HAS_BEEN_HIT,
-		HIT_SOMETHING
+        HIT_SOMETHING
     }
-   
+
     public ParticleSystem standardHit, critHit, critFire;
     public ParticleSystem standardDamage;
 
@@ -29,7 +30,7 @@ public class BallScript : MonoBehaviour {
     private Vector3 m_start;
     private Vector3 m_target;
     private float m_lerpValue = 3.0f;
-    
+
     //float around rotation
     private float m_torqueModifier = 3.0f;
 
@@ -41,7 +42,7 @@ public class BallScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         m_spwnPosTransform = GameObject.Find("BallSpawnPos").transform;
         m_target = m_spwnPosTransform.position;
@@ -74,6 +75,9 @@ public class BallScript : MonoBehaviour {
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
         state = BALL_STATE.SPAWNING;
+
+        if (BallSpawner.hoverParticles)
+            BallSpawner.hoverParticles.Play();
     }
     public void readyForPlayerHit()
     {
@@ -82,16 +86,16 @@ public class BallScript : MonoBehaviour {
         m_start = transform.position;
         m_target = m_spwnPosTransform.position + (Random.insideUnitSphere * m_mag);
     }
-  
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (rb.velocity.magnitude > 0.1f && isDangerous)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
 
-        if(rb.velocity.magnitude < 2.0f)
+        if (rb.velocity.magnitude < 2.0f)
         {
             isDangerous = false;
         }
@@ -105,8 +109,8 @@ public class BallScript : MonoBehaviour {
         {
             floatAround();
         }
-       
-	}
+
+    }
 
     private void floatAround()
     {
@@ -138,13 +142,17 @@ public class BallScript : MonoBehaviour {
 
     public void HitByPlayer(float power, Vector3 dir)
     {
+        BallSpawner.hoverParticles.Stop();
+        BallSpawner.hoverParticles.Clear();
+
         enableTrails();
+
 
         isDangerous = true;
         bool isCrit = PowerbarScript.powerbarSingleton.isCrit;
 
         //All crits have the same speed
-        if(isCrit)
+        if (isCrit)
         {
             power = 1;
             myAudio.pitch = Random.Range(0.9f, 1.1f);
@@ -153,7 +161,7 @@ public class BallScript : MonoBehaviour {
         else
         {
             myAudio.pitch = Random.Range(0.9f, 1.1f);
-            myAudio.PlayOneShot(SoundBank.sndBnk.batHitBall, power+0.15f);
+            myAudio.PlayOneShot(SoundBank.sndBnk.batHitBall, power + 0.15f);
         }
 
         float speed = 10;
@@ -178,7 +186,7 @@ public class BallScript : MonoBehaviour {
 
             if (isCrit)
             {
-                ScreenShake.g_instance.shake(0.4f);
+                ScreenShake.g_instance.shake(0.2f, 0.12f);//powerbar being high already makes this shake bigger so this will be additive; doesn't need to be so large
                 critHit.Play();
                 critFire.Play();
             }
@@ -188,7 +196,7 @@ public class BallScript : MonoBehaviour {
             }
         }
 
-        
+
         state = BALL_STATE.HAS_BEEN_HIT;
     }
 
@@ -199,16 +207,23 @@ public class BallScript : MonoBehaviour {
         ResetParticles();
         disableTrails();
 
-		if(state == BALL_STATE.HAS_BEEN_HIT && isDangerous)
-		{
-			Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
-			if(enemy != null)
-			{
-				enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
-                state = BALL_STATE.HIT_SOMETHING;
+        if (state == BALL_STATE.HAS_BEEN_HIT && isDangerous)
+        {
+            Enemy enemy = collisionInfo.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(PowerbarScript.powerbarSingleton.isCrit, rb.velocity.normalized);
+                //inform the scoremanager that the ball hit
+                ScoreManager.scoreSingleton.BallHit();
+            }
+            else
+            {
+                //let the score manager know that a miss occured
+                ScoreManager.scoreSingleton.BallMissed();
             }
 
-			
-		}
+            state = BALL_STATE.HIT_SOMETHING;
+
+        }
     }
 }

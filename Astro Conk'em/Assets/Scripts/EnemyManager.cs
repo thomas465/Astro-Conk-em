@@ -13,19 +13,30 @@ public class EnemyManager : MonoBehaviour
 
 	//Spawns an enemy when curDifficulty ticks over this value
 	//Increases by 1 every time an enemy spawns
-	private float spawnThreshold;
+	//Starts negative so we spawn a bunch immediately when the game starts
+	private float spawnThreshold = -5f;
 
 	public GameObject enemyPrefab;
 
+	//How many enemies to spawn on the next wave
+	private int numEnemysToSpawn;
+
+	[SerializeField]
+	private int waveSpawnCountMin = 2;
+
+	[SerializeField]
+	private int waveSpawnCountMax = 5;
+
+	[SerializeField]
+	private float waveSpawnTimeMult = 0.8f;
+
+	//Chance to skip spawning a single slug and spawn multiple next time
+	[SerializeField]
+	private float chanceToSpawnWave = 0.2f;
+
 	private EnemySpawnPoint[] spawnPoints;
 	private EnemySpawnPoint lastSpawnPoint;
-
-	void Awake()
-	{
-		//Set the spawn threshold to the initial difficulty
-		spawnThreshold = GameManager.instance.initialDifficulty;
-	}
-
+	
 	void Start()
 	{
 		spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
@@ -34,19 +45,71 @@ public class EnemyManager : MonoBehaviour
 	void Update()
 	{
         //Temporary quick way to make them not attack during the title screen
-        if (!TitleScript.titlePanFinished)
-            return;
-
-		//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
-		if(GameManager.instance.curDifficulty > spawnThreshold)
+        if (TitleScript.titlePanFinished)
 		{
-			//Spawn an enemy
-			SpawnEnemy();
-			//Debug.Log("Spawn");
+			foreach(EnemySpawnPoint sp in spawnPoints)
+			{
+				EnemyEntranceScript[] es = sp.GetComponentsInChildren<EnemyEntranceScript>(true);
+				if(es.Length == 0)
+				{
+					Debug.LogError("EnemySpawnPoint does not have Entrance script as child!");
+					Destroy(sp.gameObject);
+					continue;
+				}
+				EnemyEntranceScript entrance = es[0];
 
-			//Increase the threshold
-			spawnThreshold += 1f;
+				if(entrance == null || entrance.isActiveAndEnabled)
+				{
+					continue;
+				}
+
+				if(sp.minDifficultyLevel < GameManager.instance.GetDifficultyLevel())
+				{
+					entrance.gameObject.SetActive(true);
+				}
+			}
+
+
+			//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
+			if (GameManager.instance.GetDifficultyLevel() >= spawnThreshold)
+            {
+
+				if(Random.value < chanceToSpawnWave)
+				{
+					int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
+					numEnemysToSpawn += waveSize;
+					spawnThreshold += waveSize * waveSpawnTimeMult;
+				}
+				else
+				{
+					//Spawn an enemy
+					SpawnWave();
+					//Debug.Log("Spawn");
+				}
+
+				//Increase the threshold
+				spawnThreshold += 1f;
+            }
+
+
+			if(enemyList.Count < 3)
+			{
+				//Most enemies are dead, spawn some more in immediately
+				SpawnWave();
+			}
+        }
+	}
+
+	private void SpawnWave()
+	{
+		while(numEnemysToSpawn > 0)
+		{
+			SpawnEnemy();
+			numEnemysToSpawn--;
 		}
+
+		//Next wave starts with atleast 1 enemy
+		numEnemysToSpawn = 1;
 	}
 
 	public void SpawnEnemy()
@@ -64,6 +127,23 @@ public class EnemyManager : MonoBehaviour
 		enemy.Init();
 	}
 
+    public void EnemyHasExploded(Enemy exploder)
+    {
+        float explosionDistance = 10;
+
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (Vector3.Distance(enemyList[i].transform.position, exploder.transform.position) < explosionDistance)
+            {
+                if(!enemyList[i].isDead())
+                {
+                    ScoreManager.scoreSingleton.BallHit();
+                    enemyList[i].TakeDamage(false, Vector3.up);
+                }
+            }
+        }
+    }
+
 	private EnemySpawnPoint PickRandomSpawnPoint()
 	{
 		//Pick a random spawn point
@@ -72,7 +152,7 @@ public class EnemyManager : MonoBehaviour
 		foreach (EnemySpawnPoint sp in spawnPoints)
 		{
 			//Dont spawn at points that are too difficult yet
-			if (GameManager.instance.curDifficulty < sp.minDifficultyLevel)
+			if (GameManager.instance.GetDifficultyLevel() < sp.minDifficultyLevel)
 			{
 				continue;
 			}
@@ -108,8 +188,8 @@ public class EnemyManager : MonoBehaviour
 		Enemy enemy;
 		if (disabledEnemyList.Count == 0)
 		{
-			//No enemies in the 'dead' list, instantiate a new one
-			GameObject GO = Instantiate(enemyPrefab);
+            //No enemies in the 'dead' list, instantiate a new one
+            GameObject GO = Instantiate(enemyPrefab);
 			enemy = GO.GetComponent<Enemy>();
 			enemyList.Add(enemy);
 			return enemy;
@@ -128,8 +208,11 @@ public class EnemyManager : MonoBehaviour
 
 	public void OnEnemyKilled(Enemy enemy)
 	{
-		enemyList.Remove(enemy);
-		disabledEnemyList.Add(enemy);
+		//Sometimes this is called multiple times
+		if(enemyList.Remove(enemy))
+		{
+			disabledEnemyList.Add(enemy);
+		}
 	}
 
     //Added some public functions for gettin' at enemies for
