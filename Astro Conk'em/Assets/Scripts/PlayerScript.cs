@@ -181,11 +181,8 @@ public class PlayerScript : MonoBehaviour
 
 		Debug.DrawLine(swingCastRay.origin, swingCastRay.origin + swingCastRay.direction * 250, Color.magenta, 10);
 
-		if(Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250)) //in the case of a hit
+		if(Physics.SphereCast(swingCastRay, 0.31f, out swingCastHit, 250))
 		{
-			//inform the scoremanager that the ball hit
-			ScoreManager.scoreSingleton.BallHit ();
-
 			//Auto-aim
 			if(swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
 			{
@@ -198,11 +195,8 @@ public class PlayerScript : MonoBehaviour
 			reticle.transform.position = cam.WorldToScreenPoint(swingCastHit.point);
 			swingAngle = (swingCastHit.point - BallSpawner.currentBall.transform.position).normalized;
 		}
-		else //in the case of a miss
+		else
 		{
-			//let the score manager know that a miss occured
-			ScoreManager.scoreSingleton.BallMissed();
-
 			Debug.Log("Random swing");
 			swingAngle = newSwingAngle;
 		}
