@@ -24,6 +24,7 @@ public class LeaderBoardVisualsScript : MonoBehaviour
         listStartPos = entryPrefab.transform.localPosition;
         entryPrefab.GetComponent<Text>().text = "";
 
+        sC.myImg.color = Color.white;
         entries = new List<Text>();
     }
 
@@ -38,7 +39,7 @@ public class LeaderBoardVisualsScript : MonoBehaviour
 
             for(int i=0; i<entries.Count; i++)
             {
-                entries[i].transform.localPosition = Vector3.Lerp(entries[i].transform.localPosition, new Vector3(-240, entries[i].transform.localPosition.y, 0), 2 * Time.deltaTime);
+                entries[i].transform.localPosition = Vector3.Lerp(entries[i].transform.localPosition, new Vector3(0, entries[i].transform.localPosition.y, 0), 2 * Time.deltaTime);
             }
 
             if(Input.GetButtonDown("Fire1"))
@@ -64,8 +65,8 @@ public class LeaderBoardVisualsScript : MonoBehaviour
 
             newName.GetComponent<Text>().text = "      " + (i+1) + ":  " + LocalHighScoreManager.g_instance.getScore(i).name + "               <i>" + LocalHighScoreManager.g_instance.getScore(i).score + "</i>";
             entries.Add(newName.GetComponent<Text>());
-            entryPos -= Vector3.up * 85;
-            entryPos -= Vector3.right * 500;
+            entryPos -= Vector3.up * 9;
+            entryPos -= Vector3.right * 50;
         }
 
         //GameManager.globalSoundSource.PlayOneShot(SoundBank.sndBnk.menuClick);

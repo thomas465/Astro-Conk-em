@@ -129,7 +129,7 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyHasExploded(Enemy exploder)
     {
-        float explosionDistance = 10;
+        float explosionDistance = 6;
 
         for (int i = 0; i < enemyList.Count; i++)
         {

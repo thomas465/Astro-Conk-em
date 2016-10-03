@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class ScreenCoverScript : MonoBehaviour
 {
 
-    UnityEngine.UI.Image myImg;
+    public UnityEngine.UI.Image myImg;
     public bool coverScreen = false;
     public float fadeDelay = 0.1f;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         myImg = GetComponent<UnityEngine.UI.Image>();
 

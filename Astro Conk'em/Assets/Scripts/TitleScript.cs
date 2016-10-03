@@ -36,6 +36,10 @@ public class TitleScript : MonoBehaviour {
         promptPos = prompt.transform.localPosition;
 
         anim = GetComponent<Animator>();
+
+        //Reset some important stuff here
+        titlePanFinished = false;
+        ScoreManager.score = 0;
     }
 
     void StartTitle()
