@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
 	public static PlayerScript playerSingleton;
 
-	private float hitShakeMultipler = 0.08f;
+	private float hitShakeMultipler = 0.18f;
 	public Image reticle;
 	Animator anim;
 	public Rigidbody ballTest;
@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(swingDelay <= 0)
+		if(swingDelay <= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Busy"))
 		{
 			if(TitleScript.titlePanFinished)
 			{
@@ -82,12 +82,12 @@ public class PlayerScript : MonoBehaviour
 		{
 			curStickDir.x = -curStickDir.x;
 
-			if(curStickDir.y > 0.5f)
+			if(curStickDir.y > 0.5f || (curStickDir.y==0 && prevStickMagnitude<0.1f))
 				meleeMode = false;
 		}
 		else
 		{
-			if(curStickDir.y < -0.9f)
+			if(curStickDir.y < -0.05f)
 				meleeMode = true;
 			else
 				curStickDir.y = Mathf.Clamp(curStickDir.y, 0, 1);
@@ -146,7 +146,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		myAudio.PlayOneShot(SoundBank.sndBnk.hitFloorWithBat);
 		meleeMode = false;
-		ScreenShake.g_instance.shake(0.1f, 0.05f);
+		ScreenShake.g_instance.shake(0.1f, 0.06f);
 
 
 		MeleeZoneMarker zone = GetComponentInChildren<MeleeZoneMarker>();
