@@ -198,6 +198,11 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public void TakeDamage(bool isCrit, Vector3 hitDirection)
 	{
+        if(GameManager.instance.curDifficulty<3.8f)
+        {
+            GameManager.instance.curDifficulty = 3.8f;
+        }
+
         if (m_isDead)
         {
 

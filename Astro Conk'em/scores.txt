@@ -5,6 +5,6 @@ Jolly Hopper
 7850
 Bamjad
 4000
+DOG
+4000
 Yams
-3300
-Genji
