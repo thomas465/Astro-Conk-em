@@ -154,7 +154,7 @@ public class PlayerScript : MonoBehaviour
 
 		Debug.DrawRay(start, Vector3.down * 5f, Color.red, 3f);
 
-		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 15f, LayerMask.GetMask("MeleeZone"), QueryTriggerInteraction.Collide);
+		RaycastHit[] slugs = Physics.SphereCastAll(start, 0.5f, Vector3.down, 15f, LayerMask.GetMask("MeleeZone") + LayerMask.GetMask("Enemy"), QueryTriggerInteraction.Collide);
 
         
 		//Debug.Log(slugs.Length + ", " + LayerMask.GetMask("MeleeZone"));
@@ -187,15 +187,20 @@ public class PlayerScript : MonoBehaviour
 
 		Debug.DrawLine(swingCastRay.origin, swingCastRay.origin + swingCastRay.direction * 250, Color.magenta, 10);
 
-		if(Physics.SphereCast(swingCastRay, 0.51f, out swingCastHit, 250)) //in the case of a hit
+		if(Physics.SphereCast(swingCastRay, 0.05f, out swingCastHit, 250)) //in the case of a hit
 		{
-			//Auto-aim
-			if(swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
-			{
-				Debug.Log("Aimed swing");
-				swingCastHit.point = swingCastHit.collider.transform.position + Vector3.up / 2;
-				reticleScript.LockOn();
-			}
+            RaycastHit lockOn;
+
+            if (Physics.SphereCast(swingCastRay, 20f, out lockOn, 250, LayerMask.GetMask("Enemy"), QueryTriggerInteraction.Ignore))
+            {
+                //Auto-aim
+                if (swingCastHit.collider.gameObject.tag == Tags.Enemy && aimAssist)
+                {
+                    Debug.Log("Aimed swing");
+                    swingCastHit.point = swingCastHit.collider.transform.position + Vector3.up / 2;
+                    reticleScript.LockOn();
+                }
+            }
 
 			Debug.DrawLine(swingCastRay.origin, swingCastHit.point, Color.green, 10);
 			reticle.transform.position = cam.WorldToScreenPoint(swingCastHit.point);
