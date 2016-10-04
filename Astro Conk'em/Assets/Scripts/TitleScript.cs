@@ -73,7 +73,8 @@ public class TitleScript : MonoBehaviour {
             conkem.transform.localScale = Vector3.one * (1 + (Mathf.Sin(Time.timeSinceLevelLoad * 3)) * 0.04f);
             prompt.transform.localPosition = promptPos + Vector3.up * (Mathf.Sin(Time.timeSinceLevelLoad*4)) * 10;
 
-            if(Input.GetButtonDown("Fire1"))
+            if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) + Mathf.Abs(Input.GetAxisRaw("Vertical")) >= 0.3f)
+           // if(Input.GetButtonDown("Fire1"))
             {
                 //GameManager.g_GameManager.changeState((int)GameManager.STATE.game);
                 EndTitle();
