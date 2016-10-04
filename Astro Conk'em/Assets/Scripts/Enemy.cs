@@ -103,6 +103,10 @@ public class Enemy : MonoBehaviour
             transform.localScale = originalScale;
         }
 
+        //random sprinter
+        if (Random.Range(0, 100) > 85 && GameManager.instance.curDifficulty > 7.5f)
+            speedMod = 12.2f;
+
         isBlowingUp = false;
 	}
 
