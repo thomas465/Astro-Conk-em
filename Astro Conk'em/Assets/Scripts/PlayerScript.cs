@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+        
 		playerSingleton = this;
 		anim = GetComponent<Animator>();
 
