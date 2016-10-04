@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     //Particles
     public GameObject standardHitParticles, critHitParticles, burstParticles, burstFromCritParticles;
     public GameObject mySlime;
+    public GameObject scoreTextPrefab;
 
     Collider myCollider;
 
@@ -202,6 +203,11 @@ public class Enemy : MonoBehaviour
             myAudio.Stop();
             myAudio.PlayOneShot(SoundBank.sndBnk.GetHitSound());
 
+            SlugScoreScript newText;
+            GameObject newTextObj = Instantiate(scoreTextPrefab, transform.position + (Vector3.up*0.5f) + GetVectorToPlayer().normalized*2, Quaternion.LookRotation(transform.position - CameraScript.cameraSingleton.transform.position)) as GameObject;
+
+            newText = newTextObj.GetComponentInChildren<SlugScoreScript>();
+
             if (isCrit)
             {
                 GameManager.instance.enemyManager.EnemyHasExploded(this);
@@ -228,7 +234,9 @@ public class Enemy : MonoBehaviour
 
             deathTime = 4;
 
+            newText.SetTextAmount(100 + ScoreManager.scorebonus);
             ScoreManager.scoreSingleton.AddScore(100);
+            //Debug.Break();
         }
     }
 
