@@ -36,6 +36,10 @@ public class EnemyManager : MonoBehaviour
 
 	private EnemySpawnPoint[] spawnPoints;
 	private EnemySpawnPoint lastSpawnPoint;
+
+
+    //Bamjadboiz Collab stuff
+    public int waveNumber = 0;
 	
 	void Start()
 	{
@@ -76,14 +80,25 @@ public class EnemyManager : MonoBehaviour
 
 				if(Random.value < chanceToSpawnWave)
 				{
-					int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
-					numEnemysToSpawn += waveSize;
-					spawnThreshold += waveSize * waveSpawnTimeMult;
+                    if (waveNumber > 0)
+                    {
+                        int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
+                        numEnemysToSpawn += waveSize;
+                        spawnThreshold += waveSize * waveSpawnTimeMult;
+                    }
+                    else
+                    {
+                        //Debug.Break();
+                        numEnemysToSpawn = 1;
+                        SpawnWave();
+                    }
 				}
 				else
 				{
 					//Spawn an enemy
-					SpawnWave();
+
+                    if(GameManager.instance.curDifficulty>3)
+					    SpawnWave();
 					//Debug.Log("Spawn");
 				}
 
@@ -92,10 +107,11 @@ public class EnemyManager : MonoBehaviour
             }
 
 
-			if(enemyList.Count < 3)
+			if(enemyList.Count < 3 && waveNumber>1)
 			{
 				//Most enemies are dead, spawn some more in immediately
 				SpawnWave();
+                GameManager.instance.curDifficulty += 0.05f;
 			}
         }
 	}
@@ -110,6 +126,8 @@ public class EnemyManager : MonoBehaviour
 
 		//Next wave starts with atleast 1 enemy
 		numEnemysToSpawn = 1;
+
+        waveNumber++;
 	}
 
 	public void SpawnEnemy()
