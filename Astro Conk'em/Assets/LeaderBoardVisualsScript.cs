@@ -64,6 +64,7 @@ public class LeaderBoardVisualsScript : MonoBehaviour
             newName.transform.localPosition = entryPos;
 
             newName.GetComponent<Text>().text = "      " + (i+1) + ":  " + LocalHighScoreManager.g_instance.getScore(i).name + "               <i>" + LocalHighScoreManager.g_instance.getScore(i).score + "</i>";
+          
             entries.Add(newName.GetComponent<Text>());
             entryPos -= Vector3.up * 9;
             entryPos -= Vector3.right * 50;

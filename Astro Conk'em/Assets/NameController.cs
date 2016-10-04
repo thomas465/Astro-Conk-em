@@ -15,10 +15,13 @@ public class NameController : MonoBehaviour
     public float m_timeBetweenMove;
 
     public bool m_canAddChar = true;
+    private bool m_canMove = true;
     // Use this for initialization
     void Start ()
     {
         m_timeBetweenMove = 0.15f;
+        m_moveTimer = 0.0f;
+        m_canMove = true;
         m_curChar.text = m_inputMin.ToString();
         m_prevChar.text = m_inputMax.ToString();
         m_nextChar.text = ((char)(m_inputMin+1)).ToString();
@@ -35,27 +38,26 @@ public class NameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Abs(horizontalInput) >= 0.4f)
+        Debug.Log(m_canMove);
+        if (Mathf.Abs(horizontalInput) >= 0.4f && m_canMove)
         {
-            if (m_moveTimer >= m_timeBetweenMove)
-            {
-                m_currentSelection += (char)Mathf.Ceil(horizontalInput);
-                m_currentSelection = loopChar(m_currentSelection);
-                m_curChar.text = m_currentSelection.ToString();
+            int dir = horizontalInput < 0 ? -1 : 1;
+            //odd char casting issues ^^^
+            m_currentSelection += (char)dir;
+            m_currentSelection = loopChar(m_currentSelection);
+            m_curChar.text = m_currentSelection.ToString();
 
-                //using increment/decrement all over the place b/c turns out c# is meany about chars
-                m_prevChar.text = loopChar(--m_currentSelection).ToString();
-                ++m_currentSelection;
-                m_nextChar.text = loopChar(++m_currentSelection).ToString();
-                --m_currentSelection;
+            //using increment/decrement all over the place b/c turns out c# is meany about chars
+            m_prevChar.text = loopChar(--m_currentSelection).ToString();
+            ++m_currentSelection;
+            m_nextChar.text = loopChar(++m_currentSelection).ToString();
+            --m_currentSelection;
 
-                m_moveTimer = 0.0f;
-            }
-
-            m_moveTimer += Time.deltaTime;
+            m_moveTimer = 0.0f;
+            m_canMove = false;
         }
         else
         {
@@ -75,8 +77,20 @@ public class NameController : MonoBehaviour
             }
         }
 
+       
         if (Mathf.Abs(verticalInput) <= 0.1f) m_canAddChar = true;
-        if (Mathf.Abs(horizontalInput) <= 0.1f) m_moveTimer = 0;
+
+        if (m_canMove == false) { m_moveTimer += Time.deltaTime; }
+        if (m_moveTimer >= m_timeBetweenMove)
+        {
+            m_canMove = true;
+        }
+
+        if (Mathf.Abs(horizontalInput) <= 0.2f)
+        {
+            m_canMove = true;
+
+        }
     }
     public char loopChar(char _ch)
     {
