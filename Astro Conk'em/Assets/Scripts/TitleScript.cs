@@ -90,7 +90,7 @@ public class TitleScript : MonoBehaviour {
             if (panTime > 0)
             {
                 myCam.transform.position = Vector3.Lerp(myCam.transform.position, gameCamPos.transform.position, 4 * Time.deltaTime);
-                myCam.transform.rotation = Quaternion.Lerp(myCam.transform.rotation, gameCamPos.transform.rotation, 6f * Time.deltaTime);
+                myCam.transform.rotation = Quaternion.Lerp(myCam.transform.rotation, gameCamPos.transform.rotation, 5f * Time.deltaTime);
                 panTime -= Time.deltaTime;
             }
             else

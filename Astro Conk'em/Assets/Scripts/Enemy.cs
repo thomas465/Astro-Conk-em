@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     //Particles
     public GameObject standardHitParticles, critHitParticles, burstParticles, burstFromCritParticles;
-    public GameObject mySlime;
+    public GameObject mySlime, explosionResidue;
     public GameObject scoreTextPrefab;
 
     Collider myCollider;
@@ -179,8 +179,11 @@ public class Enemy : MonoBehaviour
         transform.localScale = Vector3.zero;
 
         GameObject hit = Instantiate(burstFromCritParticles, transform.position, Quaternion.LookRotation(GetVectorToPlayer())) as GameObject;
-
         Destroy(hit, 3);
+
+        //This didn't play nicely with trail renderers
+        //GameObject residue = Instantiate(explosionResidue, mySlime.transform.position + Vector3.up*0.05f, mySlime.transform.rotation) as GameObject;
+        //Destroy(residue, 23);
     }
 
 	/// <summary>
