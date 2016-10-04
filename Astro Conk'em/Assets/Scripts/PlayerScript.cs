@@ -140,6 +140,7 @@ public class PlayerScript : MonoBehaviour
     {
         PlayerHealth.healthSingleton.TakeDamage(damage);
         anim.SetTrigger("Hit");
+        swingDelay = 0.35f;
     }
 
 	void HitFloor()

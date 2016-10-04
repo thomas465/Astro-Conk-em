@@ -32,8 +32,8 @@ public class LocalHighScoreManager : MonoBehaviour
                 float.TryParse(fsreader.ReadLine(), out f);
                 m_leaderBoard[index].score = f;
                 m_leaderBoard[index].name = fsreader.ReadLine();
-                Debug.Log(m_leaderBoard[index].name);
-                Debug.Log(m_leaderBoard[index].score);
+                //Debug.Log(m_leaderBoard[index].name);
+                //Debug.Log(m_leaderBoard[index].score);
 
                 ++index;         //index update for next loop    
             }

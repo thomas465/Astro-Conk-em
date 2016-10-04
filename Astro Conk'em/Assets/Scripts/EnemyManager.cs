@@ -77,6 +77,14 @@ public class EnemyManager : MonoBehaviour
 			//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
 			if (GameManager.instance.GetDifficultyLevel() >= spawnThreshold)
             {
+                if(waveNumber==0)
+                {
+                    {
+                        //Debug.Break();
+                        numEnemysToSpawn = 1;
+                        SpawnWave();
+                    }
+                }
 
 				if(Random.value < chanceToSpawnWave)
 				{
@@ -85,12 +93,6 @@ public class EnemyManager : MonoBehaviour
                         int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
                         numEnemysToSpawn += waveSize;
                         spawnThreshold += waveSize * waveSpawnTimeMult;
-                    }
-                    else
-                    {
-                        //Debug.Break();
-                        numEnemysToSpawn = 1;
-                        SpawnWave();
                     }
 				}
 				else
