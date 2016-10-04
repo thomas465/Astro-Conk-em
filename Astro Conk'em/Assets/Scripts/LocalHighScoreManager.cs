@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
+
 public class LocalHighScoreManager : MonoBehaviour
 {
     public static LocalHighScoreManager g_instance;
@@ -17,34 +18,46 @@ public class LocalHighScoreManager : MonoBehaviour
     private int m_maxScores = 5;
     private int m_numScores = 0;
     private bool m_savedDataUpToDate = false;
+    private string m_fname = "scores.txt";
 
     //private because only needs to be called once, when the game starts
     private void loadScores()
     {
         m_savedDataUpToDate = true;
         int index = 0;
-        StreamReader fsreader = new StreamReader("scores.txt");
-        try
-        {
-            while (fsreader.Peek() != -1) 
-            {
-                float f;
-                float.TryParse(fsreader.ReadLine(), out f);
-                m_leaderBoard[index].score = f;
-                m_leaderBoard[index].name = fsreader.ReadLine();
-                //Debug.Log(m_leaderBoard[index].name);
-                //Debug.Log(m_leaderBoard[index].score);
 
-                ++index;         //index update for next loop    
-            }
-        }
-        catch
-        {}
-        finally
+        if (File.Exists(m_fname))
         {
-            fsreader.Close();
+            StreamReader fsreader = new StreamReader(m_fname);
+            try
+            {
+                while (fsreader.Peek() != -1)
+                {
+                    float f;
+                    float.TryParse(fsreader.ReadLine(), out f);
+                    m_leaderBoard[index].score = f;
+                    m_leaderBoard[index].name = fsreader.ReadLine();
+                    Debug.Log(m_leaderBoard[index].name);
+                    Debug.Log(m_leaderBoard[index].score);
+
+                    ++index;         //index update for next loop    
+                }
+            }
+            catch
+            { }
+            finally
+            {
+                fsreader.Close();
+            }
+            m_numScores = index;
         }
-        m_numScores = index;
+        //file doesn't exist
+        else
+        {
+            StreamWriter fswriter = new StreamWriter(m_fname);
+            fswriter.Write("");
+        }
+
     }
 
     //at the moment it'll just save after a player has been added but
