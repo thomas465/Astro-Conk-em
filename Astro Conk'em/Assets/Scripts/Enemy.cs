@@ -198,7 +198,7 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public void TakeDamage(bool isCrit, Vector3 hitDirection)
 	{
-        if(GameManager.instance.curDifficulty<4f)
+        if(GameManager.instance.enemyManager.waveNumber<=1)
         {
             GameManager.instance.curDifficulty = 4.1f;
             GameManager.instance.enemyManager.SpawnWave(3);
