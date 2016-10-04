@@ -4,3 +4,7 @@ OCH
 YAMS
 100
 BAD
+0
+HI
+0
+HI
