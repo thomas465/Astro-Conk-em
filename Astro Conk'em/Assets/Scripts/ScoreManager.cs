@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour {
 
 	[SerializeField]
 	private int scoreBase = 25; //the scorebase will add itself to the scorebonus upon each consecutive hit
-	private static int scorebonus; //the scorebonus will add itself to the score amount whilst in a combo
+	public static int scorebonus; //the scorebonus will add itself to the score amount whilst in a combo
 	private static int continualHits;
 	private Text text;
 	private bool alphaUp;
