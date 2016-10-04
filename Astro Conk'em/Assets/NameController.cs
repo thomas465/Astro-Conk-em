@@ -50,7 +50,7 @@ public class NameController : MonoBehaviour
                 m_prevChar.text = loopChar(--m_currentSelection).ToString();
                 ++m_currentSelection;
                 m_nextChar.text = loopChar(++m_currentSelection).ToString();
-               -- m_currentSelection;
+                --m_currentSelection;
 
                 m_moveTimer = 0.0f;
             }
@@ -76,6 +76,7 @@ public class NameController : MonoBehaviour
         }
 
         if (Mathf.Abs(verticalInput) <= 0.1f) m_canAddChar = true;
+        if (Mathf.Abs(horizontalInput) <= 0.1f) m_moveTimer = 0;
     }
     public char loopChar(char _ch)
     {
