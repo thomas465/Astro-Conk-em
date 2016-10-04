@@ -29,10 +29,6 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float explodeDist = 1.0f;
 
-	//they spawn rotated randomly by this much in each direction in degrees
-	[SerializeField]
-	private float randRotRange = 30f;
-
 	//when they are this far from the player, they will be moving directly towards them
 	[SerializeField]
 	private float distToMoveDirect = 15f;
@@ -74,15 +70,9 @@ public class Enemy : MonoBehaviour
 		//aquire a target
 		player = GameManager.instance.player;
 
-		//Face the player
-		//initialFacing = GetVectorToPlayer();
-		initialFacing = transform.forward; //They spawn facing in the direction the spawnpoint is facing
-
-		//Rotate by up to randRotRange
-		initialFacing = Quaternion.Euler(0f, Random.Range(-randRotRange, randRotRange), 0f) * initialFacing;
-
 		//Set the initial distance to our current distance to player
 		initialDist = GetDistToPlayer();
+		initialFacing = transform.forward;
 
 		//Additional random speed per enemy
 		speedMod = Random.Range(-speedRand, speedRand);

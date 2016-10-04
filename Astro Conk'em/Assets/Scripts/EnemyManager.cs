@@ -152,7 +152,7 @@ public class EnemyManager : MonoBehaviour
 
 		//Set the enemy to be at the spawn point
 		enemy.transform.position = sp.transform.position;
-		enemy.transform.rotation = sp.transform.rotation;
+		enemy.transform.rotation = enemy.transform.rotation = sp.transform.rotation * Quaternion.Euler(0f, Random.Range(-sp.randomRotationLeft, sp.randomRotationRight), 0f);
 
 		enemy.Init();
 	}
