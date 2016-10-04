@@ -77,49 +77,58 @@ public class EnemyManager : MonoBehaviour
 			//If the difficulty before this frame was less than the threshold, and the difficulty after this frame is above the threshold
 			if (GameManager.instance.GetDifficultyLevel() >= spawnThreshold)
             {
-                if(waveNumber==0)
+                if (waveNumber == 0)
                 {
                     {
                         //Debug.Break();
                         numEnemysToSpawn = 1;
                         SpawnWave();
+                        waveNumber++;
+                        //SpawnEnemy();
                     }
                 }
-
-				if(Random.value < chanceToSpawnWave)
-				{
-                    if (waveNumber > 0)
+                else
+                {
+                    if (Random.value < chanceToSpawnWave)
                     {
-                        int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
-                        numEnemysToSpawn += waveSize;
-                        spawnThreshold += waveSize * waveSpawnTimeMult;
+                        if (waveNumber > 0)
+                        {
+                            //int waveSize = Random.Range(waveSpawnCountMin, waveSpawnCountMax);
+                            int waveSize = waveSpawnCountMax;
+                            numEnemysToSpawn += waveSize;
+                            spawnThreshold += waveSize * waveSpawnTimeMult;
+                        }
                     }
-				}
-				else
-				{
-					//Spawn an enemy
+                    else
+                    {
+                        //Spawn an enemy
 
-                    if(GameManager.instance.curDifficulty>3)
-					    SpawnWave();
-					//Debug.Log("Spawn");
-				}
-
+                        if (GameManager.instance.curDifficulty > 4)
+                        {
+                            SpawnWave();
+                        }
+                        //Debug.Log("Spawn");
+                    }
+                }
 				//Increase the threshold
 				spawnThreshold += 1f;
             }
 
 
-			if(enemyList.Count < 3 && waveNumber>1)
+			if(enemyList.Count < 1 && waveNumber>1)
 			{
-				//Most enemies are dead, spawn some more in immediately
-				SpawnWave();
+                //Most enemies are dead, spawn some more in immediately
+                SpawnWave();
+                //Debug.Break();
                 GameManager.instance.curDifficulty += 0.05f;
 			}
         }
 	}
 
-	private void SpawnWave()
+	public void SpawnWave(int numberBonus = 0)
 	{
+        numEnemysToSpawn += numberBonus;
+
 		while(numEnemysToSpawn > 0)
 		{
 			SpawnEnemy();
@@ -129,7 +138,8 @@ public class EnemyManager : MonoBehaviour
 		//Next wave starts with atleast 1 enemy
 		numEnemysToSpawn = 1;
 
-        waveNumber++;
+        //if(waveNumber>1)
+            //waveNumber++;
 	}
 
 	public void SpawnEnemy()
