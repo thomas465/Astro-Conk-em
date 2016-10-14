@@ -50,6 +50,8 @@ public class PowerbarScript : MonoBehaviour
     {
         Vector3 targetPos;
 
+        
+
         if(visible)
         {
             targetPos = onScreenPos;

@@ -28,14 +28,16 @@ public class PlayerHealth : MonoBehaviour {
 
 	void Update()
 	{
-		//if (m_playerDamaged == true) 
-		//{
-			
-            //possibly not quite opaque
-		//} 
-		//else 
-		//{
-			m_hurtFlash.color = Color.Lerp (m_hurtFlash.color, Color.clear, 5 * Time.deltaTime);
+        //if (m_playerDamaged == true) 
+        //{
+
+        //possibly not quite opaque
+        //} 
+        //else 
+        if (m_startingPlayerHealth <= 0)
+            PowerbarScript.powerbarSingleton.SetVisible(false);
+        //{
+        m_hurtFlash.color = Color.Lerp (m_hurtFlash.color, Color.clear, 5 * Time.deltaTime);
         //}
 
         hurtFill.fillAmount = Mathf.Lerp(hurtFill.fillAmount, fill.fillAmount, 2 * Time.deltaTime);
